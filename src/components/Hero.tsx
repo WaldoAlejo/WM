@@ -51,7 +51,7 @@ export function Hero({ products = [] }: HeroProps) {
   const activeProduct = products[activeIndex];
 
   return (
-    <section className="border-b border-wm-gray-300 bg-white">
+    <section className="border-b border-wm-gray-300">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-14 pt-6 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-16 lg:pb-20 lg:pt-8 lg:px-8">
         <div>
           <h1 className="text-4xl font-extrabold leading-[1.08] text-wm-black sm:text-5xl">
@@ -88,7 +88,7 @@ export function Hero({ products = [] }: HeroProps) {
               <div className="relative">
                 <Link
                   to={activeProduct ? `/productos/${activeProduct.slug}` : '/productos'}
-                  className="group block overflow-hidden bg-wm-gray-50 p-5 sm:p-6"
+                  className="group block overflow-hidden border border-wm-gray-300 bg-white p-5 sm:p-6"
                 >
                   <div key={activeIndex} className={reducedMotion ? undefined : 'fade-in-up'}>
                     <ProductPhoto
@@ -123,7 +123,7 @@ export function Hero({ products = [] }: HeroProps) {
                     aria-label={t(product.name, locale)}
                     aria-pressed={i === activeIndex}
                     className={cn(
-                      'h-14 w-14 shrink-0 overflow-hidden border bg-wm-gray-50 p-1.5 transition-colors sm:h-16 sm:w-16 lg:h-20 lg:w-20',
+                      'h-14 w-14 shrink-0 overflow-hidden border bg-white p-1.5 transition-colors sm:h-16 sm:w-16 lg:h-20 lg:w-20',
                       i === activeIndex ? 'border-wm-wine' : 'border-wm-gray-300 hover:border-wm-wine',
                     )}
                   >

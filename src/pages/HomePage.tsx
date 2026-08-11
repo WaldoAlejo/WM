@@ -55,7 +55,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-wm-gray-300 bg-white">
+      <section className="border-y border-wm-gray-300">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading title={content.featured.heading} subtitle={content.featured.subheading} />
