@@ -20,11 +20,11 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       to={`/productos/${product.slug}`}
-      className="group block border border-wm-gray-300 bg-white transition-all hover:border-wm-copper hover:shadow-md focus-visible:border-wm-copper focus-visible:shadow-md"
+      className="group block border border-wm-gray-300 bg-white transition-all hover:border-wm-wine hover:shadow-md focus-visible:border-wm-wine focus-visible:shadow-md"
     >
       <div className="relative overflow-hidden bg-wm-gray-50 p-6">
         {product.featured && (
-          <span className="absolute left-3 top-3 z-10 bg-wm-copper-tint px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-wm-copper-dark">
+          <span className="absolute left-3 top-3 z-10 bg-wm-wine-tint px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.1em] text-wm-wine">
             {content.productsPage.featuredBadge}
           </span>
         )}
@@ -35,7 +35,7 @@ export function ProductCard({ product }: ProductCardProps) {
       </div>
       <div className="p-5">
         {category && (
-          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-wm-copper-dark">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-wm-wine">
             {t(category.name, locale)}
           </p>
         )}

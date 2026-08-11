@@ -80,7 +80,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="flex h-9 w-9 items-center justify-center border border-wm-gray-300 text-wm-black transition-colors hover:border-wm-copper hover:text-wm-copper-dark"
+                      className="flex h-9 w-9 items-center justify-center border border-wm-gray-300 text-wm-black transition-colors hover:border-wm-wine hover:text-wm-wine"
                     >
                       <SocialIcon icon={social.icon} />
                     </a>

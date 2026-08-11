@@ -48,7 +48,7 @@ export function Header() {
                   className={({ isActive }) =>
                     cn(
                       'text-sm font-medium tracking-wide text-wm-black transition-colors hover:text-wm-gray-500',
-                      isActive && 'border-b-2 border-wm-copper pb-1',
+                      isActive && 'border-b-2 border-wm-wine pb-1',
                     )
                   }
                 >

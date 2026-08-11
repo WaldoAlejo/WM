@@ -50,7 +50,7 @@ export function AboutPage() {
         <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {content.aboutPage.standardPoints.map((point, i) => (
             <li key={point} className="flex items-start gap-3 border border-wm-gray-300 p-4 text-sm text-wm-gray-700">
-              <span className="shrink-0 text-xs font-bold text-wm-copper-dark">
+              <span className="shrink-0 text-xs font-bold text-wm-wine">
                 {String(i + 1).padStart(2, '0')}
               </span>
               <span>{point}</span>

@@ -71,14 +71,14 @@ export function ContactPage() {
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <Link
               to="/garantia"
-              className="group flex h-full flex-col border border-wm-gray-300 p-5 text-left transition-all hover:border-wm-copper hover:shadow-md"
+              className="group flex h-full flex-col border border-wm-gray-300 p-5 text-left transition-all hover:border-wm-wine hover:shadow-md"
             >
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-wm-copper-tint">
-                <ShieldIcon className="text-wm-copper-dark" />
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-wm-wine-tint">
+                <ShieldIcon className="text-wm-wine" />
               </span>
               <span className="mt-3 font-semibold text-wm-black">{categories.warranty.title}</span>
               <span className="mt-1.5 flex-1 text-sm text-wm-gray-700">{categories.warranty.description}</span>
-              <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-wm-copper-dark">
+              <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-wm-wine">
                 {categories.warranty.cta}
                 <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
                   →
@@ -93,17 +93,17 @@ export function ContactPage() {
               className={cn(
                 'group flex h-full flex-col border p-5 text-left transition-all',
                 category === 'support'
-                  ? 'border-wm-copper bg-wm-copper shadow-md'
-                  : 'border-wm-gray-300 hover:border-wm-copper hover:shadow-md',
+                  ? 'border-wm-wine bg-wm-wine shadow-md'
+                  : 'border-wm-gray-300 hover:border-wm-wine hover:shadow-md',
               )}
             >
               <span
                 className={cn(
                   'flex h-11 w-11 items-center justify-center rounded-full',
-                  category === 'support' ? 'bg-white/15' : 'bg-wm-copper-tint',
+                  category === 'support' ? 'bg-white/15' : 'bg-wm-wine-tint',
                 )}
               >
-                <SupportIcon className={category === 'support' ? 'text-white' : 'text-wm-copper-dark'} />
+                <SupportIcon className={category === 'support' ? 'text-white' : 'text-wm-wine'} />
               </span>
               <span className={cn('mt-3 font-semibold', category === 'support' ? 'text-white' : 'text-wm-black')}>
                 {categories.support.title}
@@ -119,7 +119,7 @@ export function ContactPage() {
               <span
                 className={cn(
                   'mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide',
-                  category === 'support' ? 'text-white' : 'text-wm-copper-dark',
+                  category === 'support' ? 'text-white' : 'text-wm-wine',
                 )}
               >
                 {content.contactPage.selectCta}
@@ -136,17 +136,17 @@ export function ContactPage() {
               className={cn(
                 'group flex h-full flex-col border p-5 text-left transition-all',
                 category === 'sales'
-                  ? 'border-wm-copper bg-wm-copper shadow-md'
-                  : 'border-wm-gray-300 hover:border-wm-copper hover:shadow-md',
+                  ? 'border-wm-wine bg-wm-wine shadow-md'
+                  : 'border-wm-gray-300 hover:border-wm-wine hover:shadow-md',
               )}
             >
               <span
                 className={cn(
                   'flex h-11 w-11 items-center justify-center rounded-full',
-                  category === 'sales' ? 'bg-white/15' : 'bg-wm-copper-tint',
+                  category === 'sales' ? 'bg-white/15' : 'bg-wm-wine-tint',
                 )}
               >
-                <ProductsIcon className={category === 'sales' ? 'text-white' : 'text-wm-copper-dark'} />
+                <ProductsIcon className={category === 'sales' ? 'text-white' : 'text-wm-wine'} />
               </span>
               <span className={cn('mt-3 font-semibold', category === 'sales' ? 'text-white' : 'text-wm-black')}>
                 {categories.sales.title}
@@ -159,7 +159,7 @@ export function ContactPage() {
               <span
                 className={cn(
                   'mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide',
-                  category === 'sales' ? 'text-white' : 'text-wm-copper-dark',
+                  category === 'sales' ? 'text-white' : 'text-wm-wine',
                 )}
               >
                 {content.contactPage.selectCta}

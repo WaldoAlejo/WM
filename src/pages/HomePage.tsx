@@ -55,7 +55,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="border-y border-wm-gray-300 bg-wm-gray-50">
+      <section className="border-y border-wm-gray-300 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading title={content.featured.heading} subtitle={content.featured.subheading} />
@@ -94,7 +94,7 @@ export function HomePage() {
         </ul>
       </section>
 
-      <section className="border-t-2 border-wm-copper bg-wm-black text-white">
+      <section className="border-t-2 border-wm-wine bg-wm-black text-white">
         <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-4 py-16 text-center sm:px-6 lg:flex-row lg:justify-between lg:text-left lg:px-8">
           <div className="flex items-center gap-5">
             <WarrantyBadge size={72} />

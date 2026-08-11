@@ -55,13 +55,13 @@ export function ProductDetailPage() {
       </nav>
 
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start">
-        <div className="bg-wm-gray-50 p-8 lg:sticky lg:top-20">
+        <div className="bg-white p-8 lg:sticky lg:top-20">
           <ProductGallery mainImage={product.mainImage} gallery={product.gallery} />
         </div>
 
         <div>
           {category && (
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-wm-copper-dark">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-wm-wine">
               {t(category.name, locale)}
             </p>
           )}

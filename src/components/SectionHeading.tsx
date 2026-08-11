@@ -6,7 +6,7 @@ interface SectionHeadingProps {
   subtitle?: string;
   align?: 'left' | 'center';
   className?: string;
-  /** Override the eyebrow's default copper color — e.g. for use on a dark background. */
+  /** Override the eyebrow's default wine color — e.g. for use on a dark background. */
   eyebrowClassName?: string;
   /** Override the title's default black color — e.g. for use on a dark background. */
   titleClassName?: string;
@@ -18,7 +18,7 @@ export function SectionHeading({ eyebrow, title, subtitle, align = 'left', class
   return (
     <div className={cn(align === 'center' && 'text-center', className)}>
       {eyebrow && (
-        <p className={cn('mb-2 text-xs font-semibold uppercase tracking-[0.2em]', eyebrowClassName ?? 'text-wm-copper-dark')}>
+        <p className={cn('mb-2 text-xs font-semibold uppercase tracking-[0.2em]', eyebrowClassName ?? 'text-wm-wine')}>
           {eyebrow}
         </p>
       )}

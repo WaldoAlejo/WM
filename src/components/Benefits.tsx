@@ -16,7 +16,7 @@ export function Benefits({ items, columns = 3 }: BenefitsProps) {
       {items.map((item) => (
         <li key={item.title.es} className="border border-wm-gray-300 p-5">
           <span
-            className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-wm-copper bg-wm-copper-tint text-wm-copper-dark"
+            className="mb-3 flex h-9 w-9 items-center justify-center rounded-full border border-wm-wine bg-wm-wine-tint text-wm-wine"
             aria-hidden="true"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">

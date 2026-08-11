@@ -64,7 +64,7 @@ export function ProductsPage() {
             onClick={() => setCategory('')}
             className={cn(
               'border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors',
-              activeCategory === '' ? 'border-wm-copper bg-wm-copper text-white' : 'border-wm-gray-300 text-wm-black hover:border-wm-copper',
+              activeCategory === '' ? 'border-wm-wine bg-wm-wine text-white' : 'border-wm-gray-300 text-wm-black hover:border-wm-wine',
             )}
           >
             {content.productsPage.categoryAllLabel}
@@ -76,7 +76,7 @@ export function ProductsPage() {
               onClick={() => setCategory(cat.slug)}
               className={cn(
                 'border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors',
-                activeCategory === cat.slug ? 'border-wm-copper bg-wm-copper text-white' : 'border-wm-gray-300 text-wm-black hover:border-wm-copper',
+                activeCategory === cat.slug ? 'border-wm-wine bg-wm-wine text-white' : 'border-wm-gray-300 text-wm-black hover:border-wm-wine',
               )}
             >
               {t(cat.name, locale)}

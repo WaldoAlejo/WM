@@ -69,7 +69,7 @@ export function Hero({ products = [] }: HeroProps) {
             {content.hero.trustPoints.map((point) => (
               <li key={point} className="flex items-center gap-3 text-sm text-wm-gray-700">
                 <span
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-wm-copper text-white"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-wm-wine text-white"
                   aria-hidden="true"
                 >
                   <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
@@ -106,7 +106,7 @@ export function Hero({ products = [] }: HeroProps) {
               {activeProduct && (
                 <Link
                   to={`/productos/${activeProduct.slug}`}
-                  className="mt-6 block text-sm font-semibold uppercase tracking-[0.1em] text-wm-black transition-colors hover:text-wm-copper-dark"
+                  className="mt-6 block text-sm font-semibold uppercase tracking-[0.1em] text-wm-black transition-colors hover:text-wm-wine"
                 >
                   {t(activeProduct.name, locale)}
                 </Link>
@@ -124,7 +124,7 @@ export function Hero({ products = [] }: HeroProps) {
                     aria-pressed={i === activeIndex}
                     className={cn(
                       'h-14 w-14 shrink-0 overflow-hidden border bg-wm-gray-50 p-1.5 transition-colors sm:h-16 sm:w-16 lg:h-20 lg:w-20',
-                      i === activeIndex ? 'border-wm-copper' : 'border-wm-gray-300 hover:border-wm-copper',
+                      i === activeIndex ? 'border-wm-wine' : 'border-wm-gray-300 hover:border-wm-wine',
                     )}
                   >
                     <ProductPhoto image={product.mainImage} loading="lazy" />
