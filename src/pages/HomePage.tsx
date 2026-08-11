@@ -30,13 +30,14 @@ export function HomePage() {
     <>
       <Hero products={featured} />
 
-      <section className="bg-wm-copper">
+      <section className="bg-wm-copper-dark">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading
               eyebrow={content.categories.heading}
-              eyebrowClassName="text-wm-black"
+              eyebrowClassName="text-white/80"
               title={content.categories.subheading}
+              titleClassName="text-white"
             />
           </Reveal>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">

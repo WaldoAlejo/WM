@@ -6,11 +6,15 @@ interface SectionHeadingProps {
   subtitle?: string;
   align?: 'left' | 'center';
   className?: string;
-  /** Override the eyebrow's default copper color — e.g. for use on a copper background. */
+  /** Override the eyebrow's default copper color — e.g. for use on a dark background. */
   eyebrowClassName?: string;
+  /** Override the title's default black color — e.g. for use on a dark background. */
+  titleClassName?: string;
+  /** Override the subtitle's default gray color — e.g. for use on a dark background. */
+  subtitleClassName?: string;
 }
 
-export function SectionHeading({ eyebrow, title, subtitle, align = 'left', className, eyebrowClassName }: SectionHeadingProps) {
+export function SectionHeading({ eyebrow, title, subtitle, align = 'left', className, eyebrowClassName, titleClassName, subtitleClassName }: SectionHeadingProps) {
   return (
     <div className={cn(align === 'center' && 'text-center', className)}>
       {eyebrow && (
@@ -18,8 +22,8 @@ export function SectionHeading({ eyebrow, title, subtitle, align = 'left', class
           {eyebrow}
         </p>
       )}
-      <h2 className="text-2xl font-bold text-wm-black sm:text-3xl">{title}</h2>
-      {subtitle && <p className="mt-3 max-w-2xl text-wm-gray-700 [font-family:var(--font-body)]" style={align === 'center' ? { marginInline: 'auto' } : undefined}>{subtitle}</p>}
+      <h2 className={cn('text-2xl font-bold sm:text-3xl', titleClassName ?? 'text-wm-black')}>{title}</h2>
+      {subtitle && <p className={cn('mt-3 max-w-2xl [font-family:var(--font-body)]', subtitleClassName ?? 'text-wm-gray-700')} style={align === 'center' ? { marginInline: 'auto' } : undefined}>{subtitle}</p>}
     </div>
   );
 }
