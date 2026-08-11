@@ -30,11 +30,12 @@ export function HomePage() {
     <>
       <Hero products={featured} />
 
-      <section className="bg-wm-copper-tint">
+      <section className="bg-wm-copper">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading
               eyebrow={content.categories.heading}
+              eyebrowClassName="text-wm-black"
               title={content.categories.subheading}
             />
           </Reveal>
@@ -43,7 +44,7 @@ export function HomePage() {
               <Reveal key={cat.slug} delay={i * 80}>
                 <Link
                   to={`/productos?categoria=${cat.slug}`}
-                  className="flex h-32 items-center justify-center border border-wm-gray-300 bg-white px-4 text-center text-sm font-semibold uppercase tracking-wide text-wm-black transition-colors hover:border-wm-copper"
+                  className="flex h-32 items-center justify-center border-2 border-transparent bg-white px-4 text-center text-sm font-semibold uppercase tracking-wide text-wm-black shadow-sm transition-colors hover:border-wm-black"
                 >
                   {t(cat.name, locale)}
                 </Link>

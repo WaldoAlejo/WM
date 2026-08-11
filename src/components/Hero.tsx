@@ -69,11 +69,11 @@ export function Hero({ products = [] }: HeroProps) {
             {content.hero.trustPoints.map((point) => (
               <li key={point} className="flex items-center gap-3 text-sm text-wm-gray-700">
                 <span
-                  className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-wm-copper bg-wm-copper-tint text-wm-copper-dark"
+                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-wm-copper text-white"
                   aria-hidden="true"
                 >
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
-                    <path d="M8 12.5l2.5 2.5L16.5 9" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 12.5l2.5 2.5L16.5 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </span>
                 {point}
