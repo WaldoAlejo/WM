@@ -30,7 +30,7 @@ export function HomePage() {
     <>
       <Hero products={featured} />
 
-      <section className="bg-wm-copper-dark">
+      <section className="bg-wm-wine">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <Reveal>
             <SectionHeading
