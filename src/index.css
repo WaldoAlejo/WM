@@ -1,0 +1,106 @@
+@import 'tailwindcss';
+
+@import '@fontsource/montserrat/latin-500.css';
+@import '@fontsource/montserrat/latin-600.css';
+@import '@fontsource/montserrat/latin-700.css';
+@import '@fontsource/montserrat/latin-800.css';
+@import '@fontsource/montserrat/latin-ext-500.css';
+@import '@fontsource/montserrat/latin-ext-600.css';
+@import '@fontsource/montserrat/latin-ext-700.css';
+@import '@fontsource/montserrat/latin-ext-800.css';
+@import '@fontsource/poppins/latin-300.css';
+@import '@fontsource/poppins/latin-400.css';
+@import '@fontsource/poppins/latin-500.css';
+@import '@fontsource/poppins/latin-600.css';
+@import '@fontsource/poppins/latin-ext-300.css';
+@import '@fontsource/poppins/latin-ext-400.css';
+@import '@fontsource/poppins/latin-ext-500.css';
+@import '@fontsource/poppins/latin-ext-600.css';
+
+@theme {
+  --font-heading: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  --font-body: 'Poppins', 'Segoe UI', Arial, sans-serif;
+
+  --color-wm-black: #000000;
+  --color-wm-graphite: #1a1a1a;
+  --color-wm-ink: #111111;
+  --color-wm-gray-700: #4a4a4a;
+  --color-wm-gray-500: #616161;
+  --color-wm-gray-300: #d4d4d4;
+  --color-wm-gray-100: #f2f2f0;
+  --color-wm-gray-50: #f8f8f7;
+  --color-wm-white: #ffffff;
+  --color-wm-metal: #b7b9bb;
+  /* Copper accent — echoes the copper motor / gold-finish callouts already used on WM packaging. */
+  --color-wm-copper: #b87333;
+  --color-wm-copper-dark: #8a5a2b;
+  /* Soft copper tint — for section backgrounds and badges where the full copper would be too loud. */
+  --color-wm-copper-tint: #f5ebe1;
+
+  --animate-fade-up: fade-up 0.6s ease-out both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-wm-white text-wm-ink antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-wm-black);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .fade-in-up {
+    animation: var(--animate-fade-up);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

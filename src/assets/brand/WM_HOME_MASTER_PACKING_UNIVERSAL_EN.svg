@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+     width="1231mm" height="546mm" viewBox="0 0 1231 546">
+  <title>WM HOME — Master Packing Universal</title>
+  <desc>Editable master template to be adapted to each factory dieline. 3 mm bleed.</desc>
+
+  <defs>
+    <style>
+      .body{font-family:Arial,Helvetica,sans-serif;fill:#111}
+      .h1{font-size:24px;font-weight:700}
+      .h2{font-size:12px;font-weight:700}
+      .small{font-size:8px}
+      .micro{font-size:6px}
+      .rule{stroke:#111;stroke-width:0.7}
+      .placeholder{fill:none;stroke:#999;stroke-width:0.8;stroke-dasharray:4 3}
+      .safe{fill:none;stroke:#00a651;stroke-width:0.5;stroke-dasharray:5 3}
+      .cut{fill:none;stroke:#ed1c24;stroke-width:0.7}
+      .fold{fill:none;stroke:#00aeef;stroke-width:0.5;stroke-dasharray:5 3}
+    </style>
+
+    <!-- Logotipo oficial suministrado por el usuario. No modificar. -->
+    <symbol id="wm-home-logo" viewBox="0 0 94 54">
+      <g fill="#000">
+        <path d="M18 9.7 L23.25 29.8 L28.55 29.8 L31.7 18.55 L32.35 18.55 L35.05 29.8 L39.85 29.8 L45.65 9.7 L40.95 9.7 L37.45 21.25 L34.75 9.7 L30.05 9.7 L25.75 21.25 L22.8 9.7 Z"/>
+        <path d="M47.05 9.7 L41.45 29.8 L45.95 29.8 L49.3 18.35 L52.85 29.8 L57.35 29.8 L61.3 18.15 L64.35 29.8 L69.0 29.8 L64.05 9.7 L59.1 9.7 L55.55 21.2 L51.9 9.7 Z"/>
+        <path d="M18 35.0 H18.9 V37.75 H22.65 V35.0 H23.55 V41.55 H22.65 V38.6 H18.9 V41.55 H18 Z"/>
+        <path fill-rule="evenodd" d="M36.05 34.75 C34.15 34.75 33.05 36.1 33.05 38.15 C33.05 40.25 34.15 41.7 36.05 41.7 C37.95 41.7 39.05 40.25 39.05 38.15 C39.05 36.1 37.95 34.75 36.05 34.75 Z M36.05 35.65 C37.25 35.65 38.1 36.55 38.1 38.15 C38.1 39.8 37.25 40.8 36.05 40.8 C34.85 40.8 34.0 39.8 34.0 38.15 C34.0 36.55 34.85 35.65 36.05 35.65 Z"/>
+        <path d="M48.7 35.0 H49.65 L51.85 38.55 L54.05 35.0 H55.0 V41.55 H54.1 V36.55 L52.2 39.65 H51.5 L49.6 36.55 V41.55 H48.7 Z"/>
+        <path d="M64.8 35.0 H68.85 V35.85 H65.7 V37.75 H68.45 V38.6 H65.7 V40.7 H68.85 V41.55 H64.8 Z"/>
+      </g>
+    </symbol>
+
+    <symbol id="benefit-icon" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" fill="none" stroke="#111" stroke-width="1.3"/>
+      <path d="M8 12.5l2.5 2.5L16.5 9" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <symbol id="warranty-seal" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="46" fill="#fff" stroke="#111" stroke-width="3"/>
+      <circle cx="50" cy="50" r="41" fill="none" stroke="#111" stroke-width="1"/>
+      <text x="50" y="52" text-anchor="middle" class="body" font-size="40" font-weight="700">3</text>
+      <text x="50" y="68" text-anchor="middle" class="body" font-size="15" font-weight="700">YEARS</text>
+      <text x="50" y="78" text-anchor="middle" class="body" font-size="6.5" font-weight="700">WARRANTY</text>
+    </symbol>
+  </defs>
+
+  <!-- ARTE IMPRESO: negro sobre fondo blanco -->
+  <g id="ARTWORK" inkscape:groupmode="layer" inkscape:label="01_ARTWORK">
+    <rect x="3" y="3" width="1225" height="540" fill="#fff"/>
+
+    <!-- Pestaña de pegado -->
+    <g transform="translate(3 123)">
+      <rect width="25" height="300" fill="#f5f5f5"/>
+      <text class="body micro" x="12.5" y="150" text-anchor="middle"
+            transform="rotate(-90 12.5 150)">GLUE TAB · NO ARTWORK</text>
+    </g>
+
+    <!-- REVERSO: x=28, w=360 -->
+    <g transform="translate(28 123)">
+      <use xlink:href="#wm-home-logo" x="18" y="14" width="66" height="38"/>
+      <text class="body" x="18" y="68" font-size="8.5" font-weight="700">MAIN FEATURES</text>
+      <line class="rule" x1="18" y1="74" x2="160" y2="74"/>
+      <text class="body small" x="18" y="91">• Main feature 01</text>
+      <text class="body small" x="18" y="107">• Main feature 02</text>
+      <text class="body small" x="18" y="123">• Main feature 03</text>
+      <text class="body small" x="18" y="139">• Main feature 04</text>
+      <text class="body small" x="18" y="155">• Main feature 05</text>
+
+      <text class="body" x="174" y="68" font-size="8.5" font-weight="700">TECHNICAL SPECIFICATIONS</text>
+      <line class="rule" x1="174" y1="74" x2="342" y2="74"/>
+      <text class="body small" x="174" y="91">Model</text><text class="body small" x="268" y="91">WM-0000</text>
+      <text class="body small" x="174" y="107">Voltage</text><text class="body small" x="268" y="107">[COMPLETE]</text>
+      <text class="body small" x="174" y="123">Power</text><text class="body small" x="268" y="123">[COMPLETE]</text>
+      <text class="body small" x="174" y="139">Capacity</text><text class="body small" x="268" y="139">[COMPLETE]</text>
+      <text class="body small" x="174" y="155">Material</text><text class="body small" x="268" y="155">[COMPLETE]</text>
+
+      <line class="rule" x1="18" y1="174" x2="342" y2="174"/>
+      <text class="body h2" x="18" y="193">BOX CONTENTS</text>
+      <text class="body small" x="18" y="210">1× Main product</text>
+      <text class="body small" x="18" y="226">1× User manual</text>
+      <text class="body small" x="18" y="242">Accessories: [COMPLETE]</text>
+
+      <text class="body h2" x="184" y="193">WARRANTY</text>
+      <text class="body micro" x="184" y="210">This product includes a 3-year warranty</text>
+      <text class="body micro" x="184" y="220">against manufacturing defects. See the user</text>
+      <text class="body micro" x="184" y="230">manual for full terms and conditions.</text>
+
+      <line class="rule" x1="18" y1="255" x2="342" y2="255"/>
+      <text class="body" x="18" y="278" font-size="10" font-weight="700">CE   RoHS   ♻   ⎓⎓   FRAGILE   ↑</text>
+      <text class="body small" x="190" y="278">MADE IN CHINA</text>
+      <rect x="272" y="265" width="70" height="22" fill="none" stroke="#111" stroke-width="0.8"/>
+      <g stroke="#111" stroke-width="0.8">
+        <line x1="276" y1="266" x2="276" y2="286"/><line x1="279" y1="266" x2="279" y2="286"/>
+        <line x1="283" y1="266" x2="283" y2="286"/><line x1="288" y1="266" x2="288" y2="286"/>
+        <line x1="291" y1="266" x2="291" y2="286"/><line x1="296" y1="266" x2="296" y2="286"/>
+        <line x1="302" y1="266" x2="302" y2="286"/><line x1="305" y1="266" x2="305" y2="286"/>
+        <line x1="311" y1="266" x2="311" y2="286"/><line x1="315" y1="266" x2="315" y2="286"/>
+        <line x1="320" y1="266" x2="320" y2="286"/><line x1="327" y1="266" x2="327" y2="286"/>
+        <line x1="332" y1="266" x2="332" y2="286"/><line x1="338" y1="266" x2="338" y2="286"/>
+      </g>
+    </g>
+
+    <!-- LATERAL 1: x=388, w=240 -->
+    <g transform="translate(388 123)">
+      <use xlink:href="#wm-home-logo" x="18" y="14" width="66" height="38"/>
+      <text class="body h2" x="18" y="76">PRODUCT BENEFITS</text>
+      <g transform="translate(18 92)">
+        <use xlink:href="#benefit-icon" width="24" height="24"/>
+        <text class="body h2" x="34" y="9">MAIN BENEFIT 01</text>
+        <text class="body small" x="34" y="21">Brief and clear benefit description.</text>
+      </g>
+      <g transform="translate(18 138)">
+        <use xlink:href="#benefit-icon" width="24" height="24"/>
+        <text class="body h2" x="34" y="9">MAIN BENEFIT 02</text>
+        <text class="body small" x="34" y="21">Brief and clear benefit description.</text>
+      </g>
+      <g transform="translate(18 184)">
+        <use xlink:href="#benefit-icon" width="24" height="24"/>
+        <text class="body h2" x="34" y="9">MAIN BENEFIT 03</text>
+        <text class="body small" x="34" y="21">Brief and clear benefit description.</text>
+      </g>
+      <g transform="translate(18 230)">
+        <use xlink:href="#benefit-icon" width="24" height="24"/>
+        <text class="body h2" x="34" y="9">MAIN BENEFIT 04</text>
+        <text class="body small" x="34" y="21">Brief and clear benefit description.</text>
+      </g>
+      <line class="rule" x1="18" y1="278" x2="222" y2="278"/>
+      <text class="body small" x="120" y="292" text-anchor="middle">wmhome.com</text>
+    </g>
+
+    <!-- FRENTE: x=628, w=360 -->
+    <g transform="translate(628 123)">
+      <use xlink:href="#wm-home-logo" x="18" y="14" width="70" height="40"/>
+      <text class="body h1" x="18" y="94">PRODUCT</text>
+      <text class="body h1" x="18" y="121">NAME</text>
+      <text class="body" x="18" y="143" font-size="12">Model WM-0000</text>
+      <line class="rule" x1="18" y1="153" x2="67" y2="153"/>
+
+      <g transform="translate(18 169)">
+        <use xlink:href="#benefit-icon" width="21" height="21"/>
+        <text class="body h2" x="30" y="8">KEY BENEFIT</text>
+        <text class="body micro" x="30" y="19">Short differentiating text.</text>
+      </g>
+      <g transform="translate(18 207)">
+        <use xlink:href="#benefit-icon" width="21" height="21"/>
+        <text class="body h2" x="30" y="8">FEATURE HIGHLIGHT</text>
+        <text class="body micro" x="30" y="19">Short differentiating text.</text>
+      </g>
+      <g transform="translate(18 245)">
+        <use xlink:href="#benefit-icon" width="21" height="21"/>
+        <text class="body h2" x="30" y="8">SAFETY AND QUALITY</text>
+        <text class="body micro" x="30" y="19">Short differentiating text.</text>
+      </g>
+
+      <rect class="placeholder" x="145" y="32" width="195" height="222" rx="4"/>
+      <text class="body h2" x="242.5" y="138" text-anchor="middle">PRODUCT PHOTOGRAPH</text>
+      <text class="body small" x="242.5" y="153" text-anchor="middle">PNG/TIFF · 300 dpi · transparent background</text>
+      <use xlink:href="#warranty-seal" x="280" y="224" width="66" height="66"/>
+    </g>
+
+    <!-- LATERAL 2: x=988, w=240 -->
+    <g transform="translate(988 123)">
+      <use xlink:href="#wm-home-logo" x="76" y="62" width="88" height="51"/>
+      <text class="body h1" x="120" y="158" text-anchor="middle">PRODUCT</text>
+      <text class="body h1" x="120" y="185" text-anchor="middle">NAME</text>
+      <text class="body" x="120" y="208" text-anchor="middle" font-size="12">Model WM-0000</text>
+      <line class="rule" x1="100" y1="222" x2="140" y2="222"/>
+      <text class="body small" x="120" y="278" text-anchor="middle">wmhome.com</text>
+    </g>
+
+    <!-- Solapas: identificación mínima -->
+    <g class="body micro" fill="#555" text-anchor="middle">
+      <text x="208" y="65">TOP FLAP — BACK</text>
+      <text x="508" y="65">TOP FLAP — SIDE</text>
+      <text x="808" y="65">TOP FLAP — FRONT</text>
+      <text x="1108" y="65">TOP FLAP — SIDE</text>
+      <text x="208" y="488">BOTTOM FLAP — BACK</text>
+      <text x="508" y="488">BOTTOM FLAP — SIDE</text>
+      <text x="808" y="488">BOTTOM FLAP — FRONT</text>
+      <text x="1108" y="488">BOTTOM FLAP — SIDE</text>
+    </g>
+  </g>
+
+  <!-- ZONAS SEGURAS: guía no imprimible -->
+  <g id="SAFE_AREA" inkscape:groupmode="layer" inkscape:label="02_SAFE_AREA">
+    <rect class="safe" x="38" y="133" width="340" height="280"/>
+    <rect class="safe" x="398" y="133" width="220" height="280"/>
+    <rect class="safe" x="638" y="133" width="340" height="280"/>
+    <rect class="safe" x="998" y="133" width="220" height="280"/>
+  </g>
+
+  <!-- LÍNEAS DE DOBLEZ: tinta técnica, no imprimir -->
+  <g id="DIELINE_FOLD" inkscape:groupmode="layer" inkscape:label="03_FOLD_LINES">
+    <line class="fold" x1="28" y1="123" x2="1228" y2="123"/>
+    <line class="fold" x1="28" y1="423" x2="1228" y2="423"/>
+    <line class="fold" x1="28" y1="123" x2="28" y2="423"/>
+    <line class="fold" x1="388" y1="3" x2="388" y2="543"/>
+    <line class="fold" x1="628" y1="3" x2="628" y2="543"/>
+    <line class="fold" x1="988" y1="3" x2="988" y2="543"/>
+  </g>
+
+  <!-- LÍNEAS DE CORTE: tinta técnica, no imprimir -->
+  <g id="DIELINE_CUT" inkscape:groupmode="layer" inkscape:label="04_CUT_LINES">
+    <path class="cut" d="M28 3 H1228 V543 H28 V423 H3 V123 H28 Z"/>
+    <line class="cut" x1="388" y1="3" x2="388" y2="123"/>
+    <line class="cut" x1="628" y1="3" x2="628" y2="123"/>
+    <line class="cut" x1="988" y1="3" x2="988" y2="123"/>
+    <line class="cut" x1="388" y1="423" x2="388" y2="543"/>
+    <line class="cut" x1="628" y1="423" x2="628" y2="543"/>
+    <line class="cut" x1="988" y1="423" x2="988" y2="543"/>
+  </g>
+
+  <!-- NOTA TÉCNICA: eliminar antes de producción -->
+  <g id="NOTES" inkscape:groupmode="layer" inkscape:label="05_NOTES">
+    <rect x="5" y="5" width="270" height="20" fill="#fff" stroke="#555" stroke-width="0.5"/>
+    <text class="body micro" x="11" y="13">UNIVERSAL MASTER · REFERENCE PROPORTION: 360 × 300 × 240 mm</text>
+    <text class="body micro" x="11" y="21">THE FACTORY MUST ADJUST THE DIELINE TO EACH PRODUCT AND KEEP THIS LAYOUT.</text>
+  </g>
+</svg>
