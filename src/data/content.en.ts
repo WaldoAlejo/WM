@@ -10,7 +10,6 @@ export const content = {
     seoTitle: 'Home',
   },
   hero: {
-    eyebrow: `${brand.name} — ${productLine.name}`,
     title: 'Designed to make your home better.',
     subtitle: 'Functional, durable and contemporary products, backed by a 3-year warranty.',
     cta: 'Explore products',

@@ -36,7 +36,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <NavLink to="/" className="flex items-center" aria-label={content.common.homeAriaLabel}>
-          <Logo height={46} withTagline />
+          <Logo height={46} />
         </NavLink>
 
         <nav aria-label={content.common.mainNavAriaLabel} className="hidden md:block">

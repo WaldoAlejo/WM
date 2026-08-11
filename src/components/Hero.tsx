@@ -54,9 +54,6 @@ export function Hero({ products = [] }: HeroProps) {
     <section className="border-b border-wm-gray-300 bg-white">
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-14 pt-6 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-16 lg:pb-20 lg:pt-8 lg:px-8">
         <div>
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-wm-copper-dark">
-            {content.hero.eyebrow}
-          </p>
           <h1 className="text-4xl font-extrabold leading-[1.08] text-wm-black sm:text-5xl">
             {content.hero.title}
           </h1>

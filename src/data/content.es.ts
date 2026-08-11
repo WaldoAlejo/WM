@@ -10,7 +10,6 @@ export const content = {
     seoTitle: 'Inicio',
   },
   hero: {
-    eyebrow: `${brand.name} — ${productLine.name}`,
     title: 'Diseñados para hacer mejor tu hogar.',
     subtitle:
       'Productos funcionales, duraderos y contemporáneos, respaldados por 3 años de garantía.',
