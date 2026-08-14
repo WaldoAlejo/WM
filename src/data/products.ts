@@ -2,10 +2,10 @@ import type { Product, ProductImage } from '../types';
 import { isPending } from '../types';
 
 /**
- * The 6 WM products. All have real data (name, model, specs, images) sourced
- * from packaging or manufacturer copy — remaining `Pending` fields are
- * genuinely unconfirmed, never fabricated. See README "Datos pendientes"
- * for what's still missing per item.
+ * The WM products. All have real data (name, model, specs, images) sourced
+ * from packaging, product photography or manufacturer copy — remaining
+ * `Pending` fields are genuinely unconfirmed, never fabricated. See README
+ * "Datos pendientes" for what's still missing per item.
  */
 export const products: Product[] = [
   {
@@ -265,16 +265,16 @@ export const products: Product[] = [
     model: 'WM-26007',
     categorySlug: 'categoria-01',
     shortDescription: {
-      es: 'Olla eléctrica a presión multifunción WM® modelo WM-26007, con capacidad de 6 litros, recipiente interior antiadherente, pantalla digital y 15 menús ilustrados de cocción. Incorpora ajuste de tiempo, programas preestablecidos, función para mantener caliente y garantía de 3 años.',
-      en: 'WM® multifunction electric pressure cooker model WM-26007, with 6-liter capacity, non-stick inner pot, digital display and 15 illustrated cooking menus. Features a time setting, preset programs, keep-warm function and a 3-year warranty.',
+      es: 'Olla eléctrica a presión multifunción WM® modelo WM-26007, con capacidad de 6 litros, cuerpo de acero inoxidable, recipiente interior antiadherente, pantalla digital y 15 menús ilustrados de cocción. Incorpora ajuste de tiempo, programas preestablecidos, función para mantener caliente y garantía de 3 años.',
+      en: 'WM® multifunction electric pressure cooker model WM-26007, with 6-liter capacity, a stainless-steel body, non-stick inner pot, digital display and 15 illustrated cooking menus. Features a time setting, preset programs, keep-warm function and a 3-year warranty.',
     },
     seoTitle: {
       es: 'Olla eléctrica a presión WM® de 6 litros | Modelo WM-26007',
       en: 'WM® Electric Pressure Cooker, 6 Liters | Model WM-26007',
     },
     seoDescription: {
-      es: 'Olla eléctrica a presión multifunción WM® de 6 litros con recipiente antiadherente, pantalla digital, 15 menús de cocción y función para mantener caliente.',
-      en: 'WM® multifunction electric pressure cooker, 6 liters, with non-stick pot, digital display, 15 cooking menus and keep-warm function.',
+      es: 'Olla eléctrica a presión multifunción WM® de 6 litros con cuerpo de acero inoxidable, recipiente antiadherente, pantalla digital, 15 menús de cocción y función para mantener caliente.',
+      en: 'WM® multifunction electric pressure cooker, 6 liters, with a stainless-steel body, non-stick pot, digital display, 15 cooking menus and keep-warm function.',
     },
     benefits: [
       {
@@ -282,6 +282,13 @@ export const products: Product[] = [
         description: {
           es: 'Sus programas permiten preparar arroz, sopas, carnes, vegetales, granos y otras comidas sin utilizar diferentes electrodomésticos.',
           en: 'Its programs let you prepare rice, soups, meats, vegetables, grains and other dishes without using different appliances.',
+        },
+      },
+      {
+        title: { es: 'Cuerpo de acero inoxidable', en: 'Stainless-steel body' },
+        description: {
+          es: 'Resistente y fácil de limpiar, para un uso confiable día a día.',
+          en: 'Durable and easy to clean, for reliable everyday use.',
         },
       },
       {
@@ -340,14 +347,14 @@ export const products: Product[] = [
       { label: { es: 'Detalle del panel', en: 'Panel detail' }, value: { es: 'Borde con acabado dorado', en: 'Gold-finish trim' } },
       { label: { es: 'Voltaje', en: 'Voltage' }, value: { es: '110V, 60Hz', en: '110V, 60Hz' } },
       { label: { es: 'Potencia', en: 'Power' }, value: { pending: true } },
-      { label: { es: 'Material', en: 'Material' }, value: { pending: true } },
+      { label: { es: 'Material (cuerpo exterior)', en: 'Material (exterior body)' }, value: { es: 'Acero inoxidable', en: 'Stainless steel' } },
       { label: { es: 'Dimensiones', en: 'Dimensions' }, value: { pending: true } },
       { label: { es: 'Peso', en: 'Weight' }, value: { pending: true } },
     ],
     safetyAndQuality: [
       {
-        es: 'Diseñada con recipiente interior antiadherente y removible, tapa integrada y controles digitales que permiten un manejo claro y preciso.',
-        en: 'Designed with a removable non-stick inner pot, integrated lid and digital controls for clear, precise handling.',
+        es: 'Cuerpo exterior de acero inoxidable con recipiente interior antiadherente y removible, tapa integrada y controles digitales que permiten un manejo claro y preciso.',
+        en: 'Stainless-steel exterior body with a removable non-stick inner pot, integrated lid and digital controls for clear, precise handling.',
       },
       {
         es: 'Su construcción está orientada a ofrecer estabilidad, facilidad de limpieza y un funcionamiento confiable.',
@@ -363,39 +370,32 @@ export const products: Product[] = [
       },
     ],
     mainImage: {
-      src: '/products/olla-presion-multifuncion-6l/gallery-2.jpg',
+      src: '/products/olla-presion-multifuncion-6l/main.jpg',
       alt: {
-        es: 'Olla de presión multifunción WM con tapa abierta y olla interior removible',
-        en: 'WM multifunction pressure cooker with open lid and removable inner pot',
+        es: 'Olla de presión multifunción WM en uso, en una cocina con platos de arroz, sopa y carne',
+        en: 'WM multifunction pressure cooker in use, in a kitchen with rice, soup and meat dishes',
       },
     },
     gallery: [
       {
-        src: '/products/olla-presion-multifuncion-6l/main.jpg',
+        src: '/products/olla-presion-multifuncion-6l/gallery-1.jpg',
         alt: {
-          es: 'Olla de presión multifunción WM con empaque',
-          en: 'WM multifunction pressure cooker with packaging',
+          es: 'Olla de presión multifunción WM, modelo WM-26007, con capacidad de 6L y panel de control digital',
+          en: 'WM multifunction pressure cooker, model WM-26007, with 6L capacity and digital control panel',
         },
       },
       {
-        src: '/products/olla-presion-multifuncion-6l/gallery-1.jpg',
+        src: '/products/olla-presion-multifuncion-6l/gallery-2.jpg',
         alt: {
-          es: 'Características de la olla de presión multifunción WM: capacidad 6L, panel dorado, olla antiadherente, arroz-sopas-carnes',
-          en: 'Features of the WM multifunction pressure cooker: 6L capacity, gold panel, non-stick pot, rice-soup-meat',
+          es: 'Detalle del panel de control digital, la olla interior antiadherente y el cuerpo de acero inoxidable',
+          en: 'Detail of the digital control panel, the non-stick inner pot and the stainless-steel body',
         },
       },
       {
         src: '/products/olla-presion-multifuncion-6l/gallery-3.jpg',
         alt: {
-          es: 'Olla de presión multifunción WM en cocina con platos de arroz, sopa y carne',
-          en: 'WM multifunction pressure cooker in a kitchen with rice, soup and meat dishes',
-        },
-      },
-      {
-        src: '/products/olla-presion-multifuncion-6l/gallery-4.jpg',
-        alt: {
-          es: 'Olla de presión multifunción WM, vista frontal',
-          en: 'WM multifunction pressure cooker, front view',
+          es: 'Olla de presión multifunción WM con platos de arroz, sopa y carne preparados',
+          en: 'WM multifunction pressure cooker with prepared rice, soup and meat dishes',
         },
       },
     ],
@@ -725,6 +725,258 @@ export const products: Product[] = [
         alt: {
           es: 'Licuadora WM en uso preparando una salsa fresca',
           en: 'WM blender in use preparing a fresh sauce',
+        },
+      },
+    ],
+    manualUrl: { pending: true, note: 'Manual del producto pendiente de proporcionar.' },
+    specSheetUrl: { pending: true, note: 'Ficha técnica pendiente de proporcionar.' },
+    featured: true,
+  },
+  {
+    id: 'p07',
+    slug: 'freidora-de-aire-vidrio-4l',
+    name: { es: 'Freidora de Aire de Vidrio 4L', en: '4L Glass Air Fryer' },
+    model: 'WM-26005',
+    categorySlug: 'categoria-01',
+    shortDescription: {
+      es: 'Freidora de aire WM® de 4 litros, modelo WM-26005, con cámara de cocción de vidrio de alto borosilicato, panel de control táctil digital con pantalla de tiempo y temperatura, 6 programas preestablecidos y calentamiento envolvente 360° con infrarrojo lejano. Detalles en acabado cobre, disponible en blanco y negro, con garantía de 3 años.',
+      en: 'WM® 4-liter air fryer, model WM-26005, with a high-borosilicate glass cooking chamber, a digital touch control panel with a time and temperature display, 6 preset programs, and 360° surround far-infrared heating. Copper-toned accents, available in white and black, with a 3-year warranty.',
+    },
+    seoTitle: {
+      es: 'Freidora de Aire de Vidrio WM® de 4L | WM-26005',
+      en: 'WM® 4L Glass Air Fryer | WM-26005',
+    },
+    seoDescription: {
+      es: 'Freidora de aire WM® WM-26005 de 4 litros con cámara de vidrio de alto borosilicato, 6 programas preestablecidos, calentamiento envolvente 360° con infrarrojo lejano y detalles en cobre. Disponible en blanco y negro.',
+      en: 'WM® WM-26005 4-liter air fryer with a high-borosilicate glass chamber, 6 preset programs, 360° surround far-infrared heating and copper-toned accents. Available in white and black.',
+    },
+    benefits: [
+      {
+        title: { es: 'Cámara de vidrio de alto borosilicato', en: 'High-borosilicate glass chamber' },
+        description: {
+          es: 'Resistente al calor y pensada para uso diario; permite ver el proceso de cocción sin necesidad de abrir la canasta.',
+          en: 'Heat-resistant and built for everyday use; lets you watch the cooking process without opening the basket.',
+        },
+      },
+      {
+        title: { es: '6 programas preestablecidos', en: '6 preset programs' },
+        description: {
+          es: 'Un toque para papas fritas, bistec, muslo de pollo, mariscos, pescado y tartaletas, con pantalla de tiempo y temperatura.',
+          en: 'One touch for French fries, steak, chicken drumstick, seafood, fish and egg tarts, with a time and temperature display.',
+        },
+      },
+      {
+        title: { es: 'Calentamiento envolvente 360° e infrarrojo lejano', en: '360° surround and far-infrared heating' },
+        description: {
+          es: 'Distribuye el calor de manera uniforme en toda la cámara, para un resultado dorado por fuera y jugoso por dentro, con menos aceite.',
+          en: 'Circulates heat evenly throughout the chamber, for results that are crispy outside and juicy inside, with less oil.',
+        },
+      },
+      {
+        title: { es: 'Capacidad de 4L', en: '4L capacity' },
+        description: {
+          es: 'Un tamaño compacto, pensado para porciones individuales o para dos personas.',
+          en: 'A compact size, suited for single or two-person portions.',
+        },
+      },
+      {
+        title: { es: 'Detalles en acabado cobre', en: 'Copper-toned accents' },
+        description: {
+          es: 'El asa y el anillo superior en tono cobre le dan un sello visual distintivo.',
+          en: 'The handle and top ring in a copper tone give it a distinctive visual signature.',
+        },
+      },
+      {
+        title: { es: 'Disponible en blanco y negro', en: 'Available in white and black' },
+        description: {
+          es: 'Dos acabados para combinar con distintos estilos de cocina.',
+          en: 'Two finishes to match different kitchen styles.',
+        },
+      },
+    ],
+    specifications: [
+      { label: { es: 'Tipo de producto', en: 'Product type' }, value: { es: 'Freidora de aire', en: 'Air fryer' } },
+      { label: { es: 'Capacidad', en: 'Capacity' }, value: { es: '4 litros', en: '4 liters' } },
+      { label: { es: 'Panel de control', en: 'Control panel' }, value: { es: 'Táctil digital, con pantalla de tiempo y temperatura', en: 'Digital touch, with time and temperature display' } },
+      {
+        label: { es: 'Programas preestablecidos (6)', en: 'Preset programs (6)' },
+        value: {
+          es: 'Papas fritas, bistec, muslo de pollo, mariscos, pescado y tartaletas',
+          en: 'French fries, steak, chicken drumstick, seafood, fish and egg tarts',
+        },
+      },
+      { label: { es: 'Sistema de calentamiento', en: 'Heating system' }, value: { es: 'Envolvente 360° con infrarrojo lejano', en: '360° surround with far-infrared technology' } },
+      { label: { es: 'Cámara de cocción', en: 'Cooking chamber' }, value: { es: 'Vidrio de alto borosilicato, diseño cilíndrico', en: 'High-borosilicate glass, cylindrical design' } },
+      { label: { es: 'Asa', en: 'Handle' }, value: { es: 'Acabado cobre', en: 'Copper-toned finish' } },
+      { label: { es: 'Color', en: 'Color' }, value: { es: 'Blanco o negro, con detalles en cobre', en: 'White or black, with copper-toned accents' } },
+      { label: { es: 'Voltaje', en: 'Voltage' }, value: { es: '110V, 60Hz', en: '110V, 60Hz' } },
+      { label: { es: 'Potencia', en: 'Power' }, value: { pending: true } },
+      { label: { es: 'Material (carcasa)', en: 'Material (housing)' }, value: { pending: true } },
+      { label: { es: 'Dimensiones', en: 'Dimensions' }, value: { pending: true } },
+      { label: { es: 'Peso', en: 'Weight' }, value: { pending: true } },
+    ],
+    safetyAndQuality: [
+      {
+        es: 'Su cámara de cocción es de vidrio de alto borosilicato, resistente al calor; aun así, manipúlela con cuidado para evitar golpes o caídas.',
+        en: 'Its cooking chamber is made of heat-resistant high-borosilicate glass; even so, handle it carefully to avoid impacts or drops.',
+      },
+      {
+        es: 'Cuenta con 3 años de garantía contra defectos de fabricación, conforme a sus términos y condiciones.',
+        en: 'Backed by a 3-year warranty against manufacturing defects, subject to its terms and conditions.',
+      },
+    ],
+    mainImage: {
+      src: '/products/freidora-de-aire-vidrio-4l/main.jpg',
+      alt: {
+        es: 'Freidora de aire de vidrio WM en uso, con papas fritas y vegetales',
+        en: 'WM glass air fryer in use, with fries and vegetables',
+      },
+    },
+    gallery: [
+      {
+        src: '/products/freidora-de-aire-vidrio-4l/gallery-1.jpg',
+        alt: {
+          es: 'Freidora de aire de vidrio WM en negro, con detalles en cobre',
+          en: 'WM glass air fryer in black, with copper-toned accents',
+        },
+      },
+      {
+        src: '/products/freidora-de-aire-vidrio-4l/gallery-2.jpg',
+        alt: {
+          es: 'Freidora de aire de vidrio WM en blanco, con detalles en cobre',
+          en: 'WM glass air fryer in white, with copper-toned accents',
+        },
+      },
+      {
+        src: '/products/freidora-de-aire-vidrio-4l/gallery-3.jpg',
+        alt: {
+          es: 'Freidora de aire de vidrio WM en uso, preparando pollo y vegetales',
+          en: 'WM glass air fryer in use, cooking chicken and vegetables',
+        },
+      },
+    ],
+    manualUrl: { pending: true, note: 'Manual del producto pendiente de proporcionar.' },
+    specSheetUrl: { pending: true, note: 'Ficha técnica pendiente de proporcionar.' },
+    featured: true,
+  },
+  {
+    id: 'p08',
+    slug: 'ventilador-industrial-3-en-1',
+    name: { es: 'Ventilador Industrial 18" 3 en 1', en: '18" 3-in-1 Industrial Fan' },
+    model: 'WM-26716',
+    categorySlug: 'categoria-01',
+    shortDescription: {
+      es: 'Ventilador WM® de 18 pulgadas, modelo WM-26716, con motor 100% de cobre puro y 3 formas de uso: el mismo cabezal se monta en pared, en base de pie con altura ajustable, o en soporte de piso de ángulo bajo. Aspas metálicas en tono azul y rejilla de protección negra, con garantía de 3 años.',
+      en: 'WM® 18-inch fan, model WM-26716, with a 100% pure copper motor and 3 ways to use it: the same head mounts on a wall, on a height-adjustable stand base, or on a low-angle floor stand. Metal blades in a blue tone and a black protective grille, with a 3-year warranty.',
+    },
+    seoTitle: {
+      es: 'Ventilador Industrial WM® 18" 3 en 1 | WM-26716',
+      en: 'WM® 18" 3-in-1 Industrial Fan | WM-26716',
+    },
+    seoDescription: {
+      es: 'Ventilador WM® WM-26716 de 18 pulgadas con motor 100% de cobre puro. Se monta en pared, en base de pie con altura ajustable o en soporte de piso de ángulo bajo.',
+      en: 'WM® WM-26716 18-inch fan with a 100% pure copper motor. Wall-mountable, height-adjustable stand base, or low-angle floor stand.',
+    },
+    benefits: [
+      {
+        title: { es: 'Motor 100% de cobre puro', en: '100% pure copper motor' },
+        description: {
+          es: 'Ofrece un desempeño confiable y una mayor durabilidad.',
+          en: 'Delivers reliable performance and greater durability.',
+        },
+      },
+      {
+        title: { es: '3 formas de uso', en: '3 ways to use it' },
+        description: {
+          es: 'El mismo cabezal se instala en pared, sobre una base de pie o en un soporte de piso de ángulo bajo, según lo que necesites.',
+          en: 'The same fan head mounts on a wall, on a stand base, or on a low-angle floor stand, depending on what you need.',
+        },
+      },
+      {
+        title: { es: 'Aspas metálicas de 18 pulgadas', en: '18-inch metal blades' },
+        description: {
+          es: '5 aspas de metal en tono azul, diseñadas para un movimiento de aire óptimo.',
+          en: '5 metal blades in a blue tone, engineered for optimal air movement.',
+        },
+      },
+      {
+        title: { es: 'Flujo de aire potente', en: 'Powerful airflow' },
+        description: {
+          es: 'Una brisa fuerte y constante para mayor comodidad.',
+          en: 'A strong, consistent breeze for maximum comfort.',
+        },
+      },
+      {
+        title: { es: 'Altura ajustable en modo de pie', en: 'Adjustable height in stand mode' },
+        description: {
+          es: 'El tubo telescópico permite subir o bajar el ventilador a la altura que prefieras.',
+          en: 'The telescoping pole lets you raise or lower the fan to the height you prefer.',
+        },
+      },
+      {
+        title: { es: 'Rejilla de protección resistente', en: 'Sturdy protective grille' },
+        description: {
+          es: 'La estructura metálica cubre las aspas en los tres modos de uso.',
+          en: 'The metal structure covers the blades in all three modes of use.',
+        },
+      },
+    ],
+    specifications: [
+      { label: { es: 'Tipo de producto', en: 'Product type' }, value: { es: 'Ventilador', en: 'Fan' } },
+      { label: { es: 'Configuración', en: 'Configuration' }, value: { es: '3 en 1: pared, pie y piso de ángulo bajo', en: '3-in-1: wall, stand and low-angle floor' } },
+      { label: { es: 'Motor', en: 'Motor' }, value: { es: '100% cobre puro', en: '100% pure copper' } },
+      { label: { es: 'Aspas', en: 'Blades' }, value: { es: '5, metálicas, en tono azul', en: '5, metal, in a blue tone' } },
+      { label: { es: 'Diámetro de aspas', en: 'Blade diameter' }, value: { es: '18 pulgadas (45,7 cm)', en: '18 inches (45.7 cm)' } },
+      { label: { es: 'Rejilla de protección', en: 'Protective grille' }, value: { es: 'Metálica, en negro', en: 'Metal, in black' } },
+      { label: { es: 'Altura (modo de pie)', en: 'Height (stand mode)' }, value: { es: 'Ajustable, tubo telescópico', en: 'Adjustable, telescoping pole' } },
+      { label: { es: 'Color', en: 'Color' }, value: { es: 'Negro con aspas azules', en: 'Black with blue blades' } },
+      { label: { es: 'Voltaje', en: 'Voltage' }, value: { es: '110V, 60Hz', en: '110V, 60Hz' } },
+      { label: { es: 'Potencia', en: 'Power' }, value: { pending: true } },
+      { label: { es: 'Material (base y carcasa)', en: 'Material (base and housing)' }, value: { pending: true } },
+      { label: { es: 'Dimensiones', en: 'Dimensions' }, value: { pending: true } },
+      { label: { es: 'Peso', en: 'Weight' }, value: { pending: true } },
+    ],
+    safetyAndQuality: [
+      {
+        es: 'Motor de bobinado 100% de cobre puro, seleccionado para ofrecer un desempeño estable y mayor durabilidad.',
+        en: 'A 100% pure copper-wound motor, selected to deliver stable performance and greater durability.',
+      },
+      {
+        es: 'Cuenta con rejilla de protección metálica sobre las aspas; manténgalo fuera del alcance de niños durante su funcionamiento.',
+        en: 'Features a metal protective grille over the blades; keep it out of children’s reach while running.',
+      },
+      {
+        es: 'Cuenta con 3 años de garantía contra defectos de fabricación, conforme a sus términos y condiciones.',
+        en: 'Backed by a 3-year warranty against manufacturing defects, subject to its terms and conditions.',
+      },
+    ],
+    mainImage: {
+      src: '/products/ventilador-industrial-3-en-1/main.jpg',
+      alt: {
+        es: 'Ventilador WM en uso, en modo de pie en una sala de estar',
+        en: 'WM fan in use, in stand mode in a living room',
+      },
+    },
+    gallery: [
+      {
+        src: '/products/ventilador-industrial-3-en-1/gallery-1.jpg',
+        alt: {
+          es: 'Ventilador WM en modo de pie, con aspas azules y base circular',
+          en: 'WM fan in stand mode, with blue blades and a round base',
+        },
+      },
+      {
+        src: '/products/ventilador-industrial-3-en-1/gallery-2.jpg',
+        alt: {
+          es: 'Ventilador WM en sus tres modos: pared, pie y piso de ángulo bajo',
+          en: 'WM fan in its three modes: wall, stand and low-angle floor',
+        },
+      },
+      {
+        src: '/products/ventilador-industrial-3-en-1/gallery-3.jpg',
+        alt: {
+          es: 'Ventilador WM en uso, en modo de piso de ángulo bajo en una oficina en casa',
+          en: 'WM fan in use, in low-angle floor mode in a home office',
         },
       },
     ],
