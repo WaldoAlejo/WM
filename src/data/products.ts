@@ -1,4 +1,5 @@
-import type { Product } from '../types';
+import type { Product, ProductImage } from '../types';
+import { isPending } from '../types';
 
 /**
  * The 6 WM products. All have real data (name, model, specs, images) sourced
@@ -745,4 +746,17 @@ export function getRelatedProducts(product: Product, limit = 3): Product[] {
 
 export function getFeaturedProducts(): Product[] {
   return products.filter((p) => p.featured);
+}
+
+/**
+ * The product's best "in use" photo (as opposed to studio/packaging shots),
+ * identified by existing alt-text convention ("en uso …") rather than a new
+ * field — every product already tags its lifestyle shot this way. Used for
+ * a large editorial moment on the product page; returns undefined rather
+ * than falling back to a studio photo, so that section simply doesn't
+ * render for a product that has no real lifestyle photography yet.
+ */
+export function getLifestyleImage(product: Product): ProductImage | undefined {
+  const candidates = [product.mainImage, ...product.gallery];
+  return candidates.find((img): img is ProductImage => !isPending(img) && /en uso/i.test(img.alt.es));
 }

@@ -1,5 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { getProductBySlug, getRelatedProducts } from '../data/products';
+import { getProductBySlug, getRelatedProducts, getLifestyleImage } from '../data/products';
 import { categories } from '../data/categories';
 import { useContent } from '../i18n/useContent';
 import { useLocale } from '../i18n/LocaleContext';
@@ -43,6 +43,7 @@ export function ProductDetailPage() {
 
   const category = categories.find((c) => c.slug === product.categorySlug);
   const related = getRelatedProducts(product);
+  const lifestyleImage = getLifestyleImage(product);
 
   return (
     <article className="mx-auto max-w-7xl px-4 pb-14 pt-6 sm:px-6 lg:px-8 lg:pb-20 lg:pt-8">
@@ -156,6 +157,17 @@ export function ProductDetailPage() {
           </div>
         </div>
       </div>
+
+      {lifestyleImage && (
+        <div className="mt-16 lg:mt-20">
+          <img
+            src={lifestyleImage.src}
+            alt={t(lifestyleImage.alt, locale)}
+            loading="lazy"
+            className="h-64 w-full rounded-sm object-cover sm:h-80 lg:h-[420px]"
+          />
+        </div>
+      )}
 
       {related.length > 0 && (
         <div className="mt-20">
