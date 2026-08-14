@@ -260,6 +260,9 @@ export const content = {
     homeAriaLabel: 'WM — Inicio',
     breadcrumbAriaLabel: 'Ruta de navegación',
     warrantyBadgeAlt: 'Sello oficial: 3 años de garantía',
+    openSearch: 'Buscar productos',
+    closeSearch: 'Cerrar búsqueda',
+    searchSubmit: 'Buscar',
   },
   languageSwitcher: {
     label: 'Idioma',

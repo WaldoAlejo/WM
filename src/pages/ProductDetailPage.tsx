@@ -57,6 +57,54 @@ export function ProductDetailPage() {
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start">
         <div className="bg-white p-8 lg:sticky lg:top-20">
           <ProductGallery mainImage={product.mainImage} gallery={product.gallery} />
+
+          <div className="mt-8 border-t border-wm-gray-300 pt-8">
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                to="/contacto"
+                className="inline-flex items-center justify-center border border-wm-black bg-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-wm-black"
+              >
+                {content.productDetail.inquiryCta}
+              </Link>
+              <WarrantyBadge size={56} />
+            </div>
+            <div className="mt-4 flex flex-wrap items-center gap-4">
+              {!isPending(product.manualUrl) && (
+                <a
+                  href={product.manualUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center border border-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-wm-black transition-colors hover:bg-wm-black hover:text-white"
+                >
+                  {content.productDetail.manualCta}
+                </a>
+              )}
+              {!isPending(product.specSheetUrl) && (
+                <a
+                  href={product.specSheetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center border border-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-wm-black transition-colors hover:bg-wm-black hover:text-white"
+                >
+                  {content.productDetail.specSheetCta}
+                </a>
+              )}
+            </div>
+            {(isPending(product.manualUrl) || isPending(product.specSheetUrl)) && (
+              <p className="mt-3 space-x-4 text-xs text-wm-gray-500">
+                {isPending(product.manualUrl) && (
+                  <span>
+                    {content.productDetail.manualCta} <PendingNote label={content.productDetail.manualPending} />
+                  </span>
+                )}
+                {isPending(product.specSheetUrl) && (
+                  <span>
+                    {content.productDetail.specSheetCta} <PendingNote label={content.productDetail.specSheetPending} />
+                  </span>
+                )}
+              </p>
+            )}
+          </div>
         </div>
 
         <div>
@@ -84,50 +132,6 @@ export function ProductDetailPage() {
             </h2>
             <Benefits items={product.benefits} columns={1} />
           </div>
-
-          <div className="mt-10 flex flex-wrap items-center gap-6">
-            <Link
-              to="/contacto"
-              className="inline-flex items-center justify-center border border-wm-black bg-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-wm-black"
-            >
-              {content.productDetail.inquiryCta}
-            </Link>
-            {!isPending(product.manualUrl) && (
-              <a
-                href={product.manualUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center border border-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-wm-black transition-colors hover:bg-wm-black hover:text-white"
-              >
-                {content.productDetail.manualCta}
-              </a>
-            )}
-            {!isPending(product.specSheetUrl) && (
-              <a
-                href={product.specSheetUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center border border-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-wm-black transition-colors hover:bg-wm-black hover:text-white"
-              >
-                {content.productDetail.specSheetCta}
-              </a>
-            )}
-            <WarrantyBadge size={64} />
-          </div>
-          {(isPending(product.manualUrl) || isPending(product.specSheetUrl)) && (
-            <p className="mt-3 space-x-4 text-xs text-wm-gray-500">
-              {isPending(product.manualUrl) && (
-                <span>
-                  {content.productDetail.manualCta} <PendingNote label={content.productDetail.manualPending} />
-                </span>
-              )}
-              {isPending(product.specSheetUrl) && (
-                <span>
-                  {content.productDetail.specSheetCta} <PendingNote label={content.productDetail.specSheetPending} />
-                </span>
-              )}
-            </p>
-          )}
 
           <div className="mt-16">
             <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-wm-black">

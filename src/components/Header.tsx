@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Logo } from './Logo';
 import { MobileMenu } from './MobileMenu';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -10,8 +10,24 @@ import { cn } from '../utils/cn';
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [query, setQuery] = useState('');
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const mainNav = useMainNav();
   const content = useContent();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (searchOpen) searchInputRef.current?.focus();
+  }, [searchOpen]);
+
+  function submitSearch(e: React.FormEvent) {
+    e.preventDefault();
+    const trimmed = query.trim();
+    navigate(trimmed ? `/productos?buscar=${encodeURIComponent(trimmed)}` : '/productos');
+    setSearchOpen(false);
+    setQuery('');
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -59,7 +75,46 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
+          <form
+            onSubmit={submitSearch}
+            className={cn(
+              'flex items-center overflow-hidden border border-transparent transition-all duration-200',
+              searchOpen ? 'w-48 border-wm-gray-300 pl-3' : 'w-0',
+            )}
+          >
+            <span className="sr-only">
+              <label htmlFor="header-search">{content.common.openSearch}</label>
+            </span>
+            <input
+              id="header-search"
+              ref={searchInputRef}
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder={content.productsPage.searchPlaceholder}
+              tabIndex={searchOpen ? 0 : -1}
+              className="w-full py-2 text-sm text-wm-black outline-none placeholder:text-wm-gray-500"
+            />
+          </form>
+          <button
+            type="button"
+            onClick={() => setSearchOpen((v) => !v)}
+            aria-label={searchOpen ? content.common.closeSearch : content.common.openSearch}
+            aria-expanded={searchOpen}
+            className="flex h-9 w-9 items-center justify-center text-wm-black transition-colors hover:text-wm-wine"
+          >
+            {searchOpen ? (
+              <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" aria-hidden="true">
+                <path d="M5 5l10 10M15 5L5 15" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+            ) : (
+              <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" aria-hidden="true">
+                <circle cx="9" cy="9" r="6" stroke="currentColor" strokeWidth="1.6" />
+                <path d="M17 17l-3.5-3.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+              </svg>
+            )}
+          </button>
           <LanguageSwitcher />
         </div>
 

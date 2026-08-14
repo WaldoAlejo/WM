@@ -257,6 +257,9 @@ export const content = {
     homeAriaLabel: 'WM — Home',
     breadcrumbAriaLabel: 'Breadcrumb',
     warrantyBadgeAlt: 'Official seal: 3-year warranty',
+    openSearch: 'Search products',
+    closeSearch: 'Close search',
+    searchSubmit: 'Search',
   },
   languageSwitcher: {
     label: 'Language',

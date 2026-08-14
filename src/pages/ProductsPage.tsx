@@ -22,7 +22,7 @@ export function ProductsPage() {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const activeCategory = searchParams.get('categoria') ?? '';
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState(() => searchParams.get('buscar') ?? '');
 
   const filtered = useMemo(() => {
     return products.filter((product) => {

@@ -1,8 +1,9 @@
 import type { CategoryDef } from '../types';
 
 /**
- * Placeholder category taxonomy. WM has not yet supplied the real
- * product-line naming, so slugs/names stay neutral until replaced.
+ * Live category taxonomy. Only categories with real assigned products are
+ * listed here — WM asked to keep unused placeholder lines out of the site
+ * until there's real inventory to put in them (see project notes).
  */
 export const categories: CategoryDef[] = [
   {
@@ -10,14 +11,7 @@ export const categories: CategoryDef[] = [
     name: { es: 'Hogar', en: 'Home' },
     description: { pending: true, note: 'Descripción de la categoría pendiente.' },
   },
-  {
-    slug: 'categoria-02',
-    name: { es: 'Categoría 02', en: 'Category 02' },
-    description: { pending: true, note: 'Nombre y descripción reales de la línea pendientes.' },
-  },
-  {
-    slug: 'categoria-03',
-    name: { es: 'Categoría 03', en: 'Category 03' },
-    description: { pending: true, note: 'Nombre y descripción reales de la línea pendientes.' },
-  },
+  // Confirmed name for the power-station line, reserved but not active yet —
+  // add it above once the first "energia" product is loaded into products.ts:
+  // { slug: 'energia', name: { es: 'Energía', en: 'Energy' }, description: { pending: true, note: '…' } },
 ];

@@ -5,17 +5,13 @@ import { ProductCard } from '../components/ProductCard';
 import { WarrantyBadge } from '../components/WarrantyBadge';
 import { Reveal } from '../components/Reveal';
 import { getFeaturedProducts } from '../data/products';
-import { categories } from '../data/categories';
 import { useContent } from '../i18n/useContent';
-import { useLocale } from '../i18n/LocaleContext';
-import { t } from '../utils/t';
 import { useSeo } from '../utils/useSeo';
 import { useJsonLd } from '../utils/useJsonLd';
 import { organizationJsonLd } from '../data/structuredData';
 
 export function HomePage() {
   const content = useContent();
-  const { locale } = useLocale();
 
   useSeo({
     title: content.home.seoTitle,
@@ -29,31 +25,6 @@ export function HomePage() {
   return (
     <>
       <Hero products={featured} />
-
-      <section className="bg-wm-wine">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <Reveal>
-            <SectionHeading
-              eyebrow={content.categories.heading}
-              eyebrowClassName="text-white/80"
-              title={content.categories.subheading}
-              titleClassName="text-white"
-            />
-          </Reveal>
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {categories.map((cat, i) => (
-              <Reveal key={cat.slug} delay={i * 80}>
-                <Link
-                  to={`/productos?categoria=${cat.slug}`}
-                  className="flex h-32 items-center justify-center border-2 border-transparent bg-white px-4 text-center text-sm font-semibold uppercase tracking-wide text-wm-black shadow-sm transition-colors hover:border-wm-black"
-                >
-                  {t(cat.name, locale)}
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="border-y border-wm-gray-300">
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">

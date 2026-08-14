@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useMainNav } from '../data/navigation';
 import { useContent } from '../i18n/useContent';
 import { LanguageSwitcher } from './LanguageSwitcher';
@@ -13,6 +14,16 @@ interface MobileMenuProps {
 export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const mainNav = useMainNav();
   const content = useContent();
+  const navigate = useNavigate();
+  const [query, setQuery] = useState('');
+
+  function submitSearch(e: React.FormEvent) {
+    e.preventDefault();
+    const trimmed = query.trim();
+    navigate(trimmed ? `/productos?buscar=${encodeURIComponent(trimmed)}` : '/productos');
+    setQuery('');
+    onClose();
+  }
 
   return createPortal(
     <div
@@ -37,6 +48,19 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           open ? 'translate-x-0' : 'translate-x-full',
         )}
       >
+        <form onSubmit={submitSearch} className="mb-3">
+          <label className="sr-only" htmlFor="mobile-search">
+            {content.common.openSearch}
+          </label>
+          <input
+            id="mobile-search"
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={content.productsPage.searchPlaceholder}
+            className="w-full border border-wm-gray-300 px-3 py-2.5 text-sm outline-none focus:border-wm-black"
+          />
+        </form>
         {mainNav.map((item) => (
           <NavLink
             key={item.path}
