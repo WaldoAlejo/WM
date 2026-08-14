@@ -61,7 +61,7 @@ export const content = {
     title: 'Productos',
     intro: `Catálogo completo de productos ${brand.name} — ${productLine.name}.`,
     searchPlaceholder: 'Buscar productos…',
-    featuredBadge: 'Destacado',
+    featuredBadge: 'Nuevo',
     categoryAllLabel: 'Todas las categorías',
     noResults: 'No se encontraron productos con esos criterios.',
     filterAriaLabel: 'Filtrar por categoría',

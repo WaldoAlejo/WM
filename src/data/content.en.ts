@@ -60,7 +60,7 @@ export const content = {
     title: 'Products',
     intro: `Full catalog of ${brand.name} — ${productLine.name} products.`,
     searchPlaceholder: 'Search products…',
-    featuredBadge: 'Featured',
+    featuredBadge: 'New',
     categoryAllLabel: 'All categories',
     noResults: 'No products found matching those criteria.',
     filterAriaLabel: 'Filter by category',
