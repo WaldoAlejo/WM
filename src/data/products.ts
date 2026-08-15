@@ -991,6 +991,160 @@ export const products: Product[] = [
     specSheetUrl: { pending: true, note: 'Ficha técnica pendiente de proporcionar.' },
     featured: true,
   },
+  {
+    id: 'p09',
+    slug: 'estacion-de-energia-portatil-p3200',
+    name: { es: 'Estación de Energía Portátil P3200', en: 'P3200 Portable Power Station' },
+    model: 'P3200',
+    categorySlug: 'energia',
+    shortDescription: {
+      es: 'Estación de energía portátil WM® P3200, con batería LiFePO4 de 2048 Wh, salida AC de 3200 W de onda senoidal pura y más de 4000 ciclos de carga. Cuenta con 6 salidas AC, puertos USB-C de hasta 100 W, salida para vehículo, y carga por red eléctrica, panel solar o auto. Con garantía de 3 años.',
+      en: 'WM® P3200 portable power station, with a 2048 Wh LiFePO4 battery, 3200 W pure sine wave AC output and 4000+ charge cycles. Features 6 AC outlets, USB-C ports up to 100 W, a car output, and charging via wall power, solar panel or vehicle. Backed by a 3-year warranty.',
+    },
+    seoTitle: {
+      es: 'Estación de Energía Portátil WM® P3200 | 2048 Wh / 3200 W',
+      en: 'WM® P3200 Portable Power Station | 2048 Wh / 3200 W',
+    },
+    seoDescription: {
+      es: 'Estación de energía portátil WM® P3200 con batería LiFePO4 de 2048 Wh, 3200 W de potencia AC, 6 salidas AC, USB-C 100 W y carga por red, panel solar o auto.',
+      en: 'WM® P3200 portable power station with a 2048 Wh LiFePO4 battery, 3200 W AC power, 6 AC outlets, 100 W USB-C and charging via wall power, solar panel or car.',
+    },
+    benefits: [
+      {
+        title: { es: 'Batería LiFePO4 de 2048 Wh', en: '2048 Wh LiFePO4 battery' },
+        description: {
+          es: 'Más de 4000 ciclos de carga, para años de uso confiable.',
+          en: '4000+ charge cycles, for years of reliable use.',
+        },
+      },
+      {
+        title: { es: '3200 W con onda senoidal pura', en: '3200 W pure sine wave' },
+        description: {
+          es: 'Una potencia AC limpia y segura para equipos electrónicos sensibles, desde laptops hasta refrigeradoras portátiles.',
+          en: 'Clean, safe AC power for sensitive electronics, from laptops to portable fridges.',
+        },
+      },
+      {
+        title: { es: '6 salidas AC', en: '6 AC outlets' },
+        description: {
+          es: 'Hasta 3200 W en total, para conectar varios equipos a la vez.',
+          en: 'Up to 3200 W total, to connect several devices at once.',
+        },
+      },
+      {
+        title: { es: 'Carga rápida USB-C de hasta 100 W', en: 'Up to 100 W USB-C fast charging' },
+        description: {
+          es: 'Además de salidas USB-A, salida DC de 13,2 V y salida para vehículo.',
+          en: 'Plus USB-A outputs, a 13.2 V DC output and a car output.',
+        },
+      },
+      {
+        title: { es: '3 formas de cargarla', en: '3 ways to recharge it' },
+        description: {
+          es: 'Por red eléctrica, panel solar (12–60 V) o el encendedor del auto.',
+          en: 'Via wall power, a solar panel (12–60 V) or your car’s outlet.',
+        },
+      },
+      {
+        title: { es: 'Protección inteligente (BMS)', en: 'Smart protection (BMS)' },
+        description: {
+          es: 'Contra sobrecarga, cortocircuito, sobretemperatura, sobretensión y subtensión.',
+          en: 'Against overload, short-circuit, over-temperature, over-voltage and under-voltage.',
+        },
+      },
+      {
+        title: { es: 'Linterna LED integrada', en: 'Built-in LED flashlight' },
+        description: {
+          es: 'Con 3 modos: fija, SOS y estroboscópico.',
+          en: 'With 3 modes: steady, SOS and strobe.',
+        },
+      },
+    ],
+    specifications: [
+      { label: { es: 'Tipo de producto', en: 'Product type' }, value: { es: 'Estación de energía portátil', en: 'Portable power station' } },
+      { label: { es: 'Batería', en: 'Battery' }, value: { es: 'LiFePO4, 2048 Wh', en: 'LiFePO4, 2048 Wh' } },
+      { label: { es: 'Ciclos de vida', en: 'Lifecycles' }, value: { es: 'Más de 4000 ciclos', en: '4000+ cycles' } },
+      { label: { es: 'Potencia de salida AC', en: 'AC output power' }, value: { es: '3200 W, onda senoidal pura', en: '3200 W, pure sine wave' } },
+      { label: { es: 'Salidas AC', en: 'AC outlets' }, value: { es: '6 tomacorrientes', en: '6 outlets' } },
+      { label: { es: 'Salida USB-A (x4)', en: 'USB-A output (x4)' }, value: { es: '30 W — 5V=3A, 9V=3A, 12V=3A', en: '30W — 5V=3A, 9V=3A, 12V=3A' } },
+      { label: { es: 'Salida USB-C 1/2', en: 'USB-C 1/2 output' }, value: { es: '100 W — 5V=3A, 9V=3A, 12V=3A, 15V=3A, 20V=5A', en: '100W — 5V=3A, 9V=3A, 12V=3A, 15V=3A, 20V=5A' } },
+      { label: { es: 'Salida USB-C 3/4', en: 'USB-C 3/4 output' }, value: { es: '30 W — 5V=3A, 9V=3A, 12V=2.5A, 15V=2A, 20V=1.5A', en: '30W — 5V=3A, 9V=3A, 12V=2.5A, 15V=2A, 20V=1.5A' } },
+      { label: { es: 'Salida DC5525', en: 'DC5525 output' }, value: { es: '13,2V=8A', en: '13.2V=8A' } },
+      { label: { es: 'Salida para vehículo', en: 'Car output' }, value: { es: '13,2V=10A y 24V=10A', en: '13.2V=10A and 24V=10A' } },
+      {
+        label: { es: 'Entrada de carga', en: 'Charging input' },
+        value: {
+          es: 'Red AC (máx. 1800 W), panel solar 12–60V (máx. 1000 W), auto (120 W); corriente máxima de carga 20A',
+          en: 'AC (max 1800W), solar panel 12–60V (max 1000W), car (120W); max charging current 20A',
+        },
+      },
+      { label: { es: 'Pantalla', en: 'Display' }, value: { es: 'LCD, con estado de batería, potencia y tiempo restante', en: 'LCD, with battery status, power and remaining time' } },
+      { label: { es: 'Iluminación', en: 'Lighting' }, value: { es: 'Linterna LED con 3 modos (fija, SOS, estroboscópico)', en: 'LED flashlight with 3 modes (steady, SOS, strobe)' } },
+      { label: { es: 'Temperatura de uso', en: 'Operating temperature' }, value: { es: '0 a 40°C (carga), -15 a 40°C (descarga)', en: '0 to 40°C (charging), -15 to 40°C (discharging)' } },
+      { label: { es: 'Color', en: 'Color' }, value: { es: 'Negro con detalles turquesa', en: 'Black with turquoise accents' } },
+      { label: { es: 'Dimensiones', en: 'Dimensions' }, value: { es: '445 x 298 x 367 mm', en: '445 x 298 x 367 mm' } },
+      { label: { es: 'Peso', en: 'Weight' }, value: { es: '24 kg', en: '24 kg' } },
+      { label: { es: 'Material', en: 'Material' }, value: { pending: true } },
+    ],
+    safetyAndQuality: [
+      {
+        es: 'Cuenta con protección inteligente (BMS) contra sobrecarga, cortocircuito, sobretemperatura, sobretensión y subtensión, con códigos de diagnóstico en pantalla para facilitar el mantenimiento.',
+        en: 'Features smart protection (BMS) against overload, short-circuit, over-temperature, over-voltage and under-voltage, with on-screen diagnostic codes to ease maintenance.',
+      },
+      {
+        es: 'Su batería de litio LiFePO4 no es removible; no intente abrir, perforar o desarmar el equipo.',
+        en: 'Its LiFePO4 lithium battery is not removable; do not attempt to open, puncture or disassemble the unit.',
+      },
+      {
+        es: 'Manténgala alejada de fuentes de calor, agua y otros líquidos; no la exponga a luz solar directa ni a ambientes húmedos o con polvo.',
+        en: 'Keep it away from heat sources, water and other liquids; do not expose it to direct sunlight or humid, dusty environments.',
+      },
+      {
+        es: 'Cuenta con 3 años de garantía contra defectos de fabricación, conforme a sus términos y condiciones.',
+        en: 'Backed by a 3-year warranty against manufacturing defects, subject to its terms and conditions.',
+      },
+    ],
+    mainImage: {
+      src: '/products/estacion-de-energia-portatil-p3200/main.jpg',
+      alt: {
+        es: 'Estación de energía portátil WM P3200, vista de tres cuartos',
+        en: 'WM P3200 portable power station, three-quarter view',
+      },
+    },
+    gallery: [
+      {
+        src: '/products/estacion-de-energia-portatil-p3200/gallery-1.jpg',
+        alt: {
+          es: 'Estación de energía portátil WM P3200, vista frontal con panel de control y salidas',
+          en: 'WM P3200 portable power station, front view with control panel and outlets',
+        },
+      },
+      {
+        src: '/products/estacion-de-energia-portatil-p3200/gallery-2.jpg',
+        alt: {
+          es: 'Estación de energía portátil WM P3200 alimentando una licuadora, hervidor, router, laptop y dron',
+          en: 'WM P3200 portable power station powering a blender, kettle, router, laptop and drone',
+        },
+      },
+      {
+        src: '/products/estacion-de-energia-portatil-p3200/gallery-3.jpg',
+        alt: {
+          es: 'Estación de energía portátil WM P3200 alimentando una laptop, cafetera, teléfono, cámara y dron',
+          en: 'WM P3200 portable power station powering a laptop, coffee maker, phone, camera and drone',
+        },
+      },
+      {
+        src: '/products/estacion-de-energia-portatil-p3200/gallery-4.jpg',
+        alt: {
+          es: 'Estación de energía portátil WM P3200 con tabla de autonomía estimada para distintos equipos',
+          en: 'WM P3200 portable power station with an estimated runtime table for different devices',
+        },
+      },
+    ],
+    manualUrl: { pending: true, note: 'Se recibió el manual de usuario completo; falta publicar el PDF en public/manuals/estacion-de-energia-portatil-p3200.pdf.' },
+    specSheetUrl: { pending: true, note: 'Ficha técnica pendiente de proporcionar.' },
+    featured: true,
+  },
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {

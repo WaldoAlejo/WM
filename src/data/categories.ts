@@ -11,7 +11,9 @@ export const categories: CategoryDef[] = [
     name: { es: 'Hogar', en: 'Home' },
     description: { pending: true, note: 'Descripción de la categoría pendiente.' },
   },
-  // Confirmed name for the power-station line, reserved but not active yet —
-  // add it above once the first "energia" product is loaded into products.ts:
-  // { slug: 'energia', name: { es: 'Energía', en: 'Energy' }, description: { pending: true, note: '…' } },
+  {
+    slug: 'energia',
+    name: { es: 'Energía', en: 'Energy' },
+    description: { pending: true, note: 'Descripción de la categoría pendiente.' },
+  },
 ];
