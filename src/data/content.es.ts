@@ -85,6 +85,10 @@ export const content = {
     safetyPending: 'Información de seguridad y calidad por confirmar',
     breadcrumbSeparator: '/',
     galleryAriaLabel: 'Galería de imágenes',
+    zoomAriaLabel: 'Ver imagen en pantalla completa',
+    closeZoomAriaLabel: 'Cerrar vista de pantalla completa',
+    previousImageAriaLabel: 'Imagen anterior',
+    nextImageAriaLabel: 'Siguiente imagen',
   },
   warrantyPage: {
     title: 'Garantía',

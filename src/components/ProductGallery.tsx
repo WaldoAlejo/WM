@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import type { Pending, Product, ProductImage } from '../types';
+import { isPending } from '../types';
 import { ProductPhoto } from './ProductPhoto';
+import { ImageLightbox } from './ImageLightbox';
 import { useContent } from '../i18n/useContent';
 import { cn } from '../utils/cn';
 
@@ -13,14 +15,38 @@ interface ProductGalleryProps {
 export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
   const content = useContent();
   const allImages: Pending<ProductImage>[] = [mainImage, ...gallery];
+  const realImages = allImages.filter((img): img is ProductImage => !isPending(img));
   const [activeIndex, setActiveIndex] = useState(0);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
   const active = allImages[activeIndex] ?? mainImage;
+  const activeRealIndex = !isPending(active) ? realImages.indexOf(active) : -1;
 
   return (
     <div className="flex flex-col gap-4 sm:flex-row">
       <div className="min-w-0 flex-1">
-        <ProductPhoto image={active} className="border border-wm-gray-300" loading="eager" />
+        <button
+          type="button"
+          onClick={() => activeRealIndex >= 0 && setLightboxOpen(true)}
+          disabled={activeRealIndex < 0}
+          aria-label={content.productDetail.zoomAriaLabel}
+          className="block w-full disabled:cursor-default"
+        >
+          <ProductPhoto image={active} className="border border-wm-gray-300 transition-opacity hover:opacity-90" loading="eager" />
+        </button>
       </div>
+
+      {lightboxOpen && activeRealIndex >= 0 && (
+        <ImageLightbox
+          images={realImages}
+          activeIndex={activeRealIndex}
+          onClose={() => setLightboxOpen(false)}
+          onNavigate={(realIndex) => {
+            const target = realImages[realIndex];
+            const indexInAll = allImages.indexOf(target);
+            if (indexInAll >= 0) setActiveIndex(indexInAll);
+          }}
+        />
+      )}
 
       {allImages.length > 1 && (
         <div

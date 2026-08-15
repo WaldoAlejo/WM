@@ -1141,7 +1141,7 @@ export const products: Product[] = [
         },
       },
     ],
-    manualUrl: { pending: true, note: 'Se recibió el manual de usuario completo; falta publicar el PDF en public/manuals/estacion-de-energia-portatil-p3200.pdf.' },
+    manualUrl: '/manuals/P3200.pdf',
     specSheetUrl: { pending: true, note: 'Ficha técnica pendiente de proporcionar.' },
     featured: true,
   },
