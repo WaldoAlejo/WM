@@ -334,8 +334,8 @@ export const products: Product[] = [
       {
         label: { es: 'Menús de cocción (15)', en: 'Cooking menus (15)' },
         value: {
-          es: 'Arroz, sopas, carnes, cocción lenta, papillas/porridge, cocción abierta, vegetales, multigranos, yogur, vapor, saltear, salsas, hornear, purés y otras consistencias',
-          en: 'Rice, soups, meats, slow cook, porridge, open cook, vegetables, multigrain, yogurt, steam, sauté, sauce, bake, purées and other consistencies',
+          es: 'Carne de res, aves, pescado, vegetales, vegetariano, papilla/porridge, frijoles/chili, sopa, guiso, vapor, yogur, cocción lenta, arroz/granos, saltear y postre',
+          en: 'Beef, poultry, fish, vegetables, vegetarian, porridge, beans/chili, soup, stew, steam, yogurt, slow cook, rice/grains, sauté and dessert',
         },
       },
       { label: { es: 'Pantalla', en: 'Display' }, value: { es: 'Digital de cuatro dígitos', en: '4-digit digital' } },
@@ -372,8 +372,8 @@ export const products: Product[] = [
     mainImage: {
       src: '/products/olla-presion-multifuncion-6l/main.jpg',
       alt: {
-        es: 'Olla de presión multifunción WM en uso, en una cocina con platos de arroz, sopa y carne',
-        en: 'WM multifunction pressure cooker in use, in a kitchen with rice, soup and meat dishes',
+        es: 'Olla de presión multifunción WM en uso, sobre una encimera de cocina',
+        en: 'WM multifunction pressure cooker in use, on a kitchen countertop',
       },
     },
     gallery: [
@@ -396,6 +396,13 @@ export const products: Product[] = [
         alt: {
           es: 'Olla de presión multifunción WM con platos de arroz, sopa y carne preparados',
           en: 'WM multifunction pressure cooker with prepared rice, soup and meat dishes',
+        },
+      },
+      {
+        src: '/products/olla-presion-multifuncion-6l/gallery-4.jpg',
+        alt: {
+          es: 'Olla de presión multifunción WM en uso, en una cocina con platos de arroz, sopa y carne',
+          en: 'WM multifunction pressure cooker in use, in a kitchen with rice, soup and meat dishes',
         },
       },
     ],
