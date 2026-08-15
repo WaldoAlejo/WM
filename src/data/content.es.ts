@@ -10,6 +10,7 @@ export const content = {
     seoTitle: 'Inicio',
   },
   hero: {
+    spotlightLabel: 'Producto en foco',
     title: 'Diseñados para hacer mejor tu hogar.',
     subtitle:
       'Productos funcionales, duraderos y contemporáneos, respaldados por 3 años de garantía.',

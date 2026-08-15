@@ -85,6 +85,9 @@ export function Hero({ products = [] }: HeroProps) {
         <div className="mx-auto w-full max-w-md lg:max-w-none">
           <div className="flex flex-col gap-4 sm:flex-row">
             <div className="min-w-0 flex-1">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-wm-wine">
+                {content.hero.spotlightLabel}
+              </p>
               <div className="relative">
                 <Link
                   to={activeProduct ? `/productos/${activeProduct.slug}` : '/productos'}

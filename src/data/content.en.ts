@@ -10,6 +10,7 @@ export const content = {
     seoTitle: 'Home',
   },
   hero: {
+    spotlightLabel: 'In the spotlight',
     title: 'Designed to make your home better.',
     subtitle: 'Functional, durable and contemporary products, backed by a 3-year warranty.',
     cta: 'Explore products',
