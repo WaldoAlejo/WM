@@ -10,6 +10,9 @@ export const content = {
     seoTitle: 'Home',
   },
   hero: {
+    pauseRotation: 'Pause carousel',
+    resumeRotation: 'Resume carousel',
+    manualRotation: 'Automatic rotation disabled',
     spotlightLabel: 'In the spotlight',
     title: 'Designed to make your home better.',
     subtitle: 'Functional, durable and contemporary products, backed by a 3-year warranty.',
@@ -60,8 +63,11 @@ export const content = {
   productsPage: {
     title: 'Products',
     intro: `Full catalog of ${brand.name} — ${productLine.name} products.`,
-    searchPlaceholder: 'Search products…',
-    featuredBadge: 'New',
+    searchPlaceholder: 'Search by name or model…',
+    clearFilters: 'Clear search and filters',
+    resultsLabel: 'Products found',
+    featuredBadge: 'Featured',
+    newBadge: 'New',
     categoryAllLabel: 'All categories',
     noResults: 'No products found matching those criteria.',
     filterAriaLabel: 'Filter by category',
@@ -100,7 +106,7 @@ export const content = {
       'Send your request to contact@wmglobalcorp.com with: your full name and a contact number, the city where you are located, the product model and serial number, proof of purchase, a detailed description of the issue, and photos or a video showing the fault. Our team will review the information and send you instructions for the product evaluation. Do not ship or hand over the equipment before receiving confirmation.',
     formHeading: 'Warranty inquiry form',
     formIntro:
-      "Fill out the form and attach your proof of purchase and photos or video of the issue directly — no need to also send a separate email.",
+      'Prepare your inquiry with your details and a description of the issue. Then send it from your email app, attaching your proof of purchase and photos or video there.',
     subjectOptions: [
       'Repair or technical inspection',
       'Parts replacement',
@@ -166,7 +172,7 @@ export const content = {
       warranty: {
         title: 'Warranty',
         description:
-          'Request a repair, parts replacement or technical assistance under warranty. You can attach your proof of purchase and photos or video of the issue.',
+          'Prepare your warranty inquiry and send it by email with your proof of purchase and photos or video of the issue.',
         cta: 'Go to Warranty',
       },
       support: {
@@ -183,6 +189,7 @@ export const content = {
     backToCategories: 'Choose a different reason',
     selectCta: 'Select',
     form: {
+      productLabel: 'Product inquiry',
       name: 'Name',
       namePlaceholder: 'First and last name',
       email: 'Email',
@@ -201,25 +208,18 @@ export const content = {
       message: 'Message',
       messagePlaceholder:
         'Describe in detail how we can help. If your inquiry is about a product, please include the model, serial number and a description of the issue.',
-      attachmentsLabel: 'Attachments',
-      attachmentsOptional: 'Optional',
-      attachmentsHint:
-        'Proof of purchase, photos or video of the issue — especially useful for warranty requests. Formats: JPG, PNG, PDF or video. Maximum 5 files.',
-      attachmentsButton: 'Choose files',
-      attachmentsEmpty: 'No files selected.',
-      attachmentsRemove: 'Remove',
-      attachmentsTooMany: 'You can attach up to 5 files.',
-      privacyLabel: 'I have read and accept the Privacy Policy and authorize the processing of my data to handle this request.',
-      submit: 'Send message',
-      submitting: 'Sending…',
-      successTitle: 'Your message was sent successfully.',
-      success: "We've received your request. Our team will review it and reply to the email address you provided.",
-      errorTitle: "We couldn't send your message.",
-      error:
-        'Check that all required fields are complete and try again. You can also write to us directly at contact@wmglobalcorp.com.',
+      attachmentsHint: 'Attach your proof of purchase, photos or video in your email app before sending. This page does not attach files.',
+      emailNotice: 'Prepare your message here and send it from your email app. This page does not send or save your inquiry; keep a copy before leaving.',
+      prepareEmail: 'Prepare email',
+      preparedNotice: 'Your draft is ready. It has not been sent: review it and send it from your email app.',
+      openEmail: 'Open email app',
+      copyEmail: 'Copy draft',
+      draftLabel: 'Email draft',
+      emailFallback: 'If your email app does not open or part of the message is missing, copy this draft and paste it into your email. It includes the recipient and subject.',
+      copiedNotice: 'Draft copied. Paste it into your email and send it to complete your inquiry.',
+      copyError: 'The draft could not be copied automatically. Select and copy the draft text.',
       required: 'This field is required.',
       invalidEmail: 'Enter a valid email address.',
-      privacyRequired: 'You must accept the privacy policy to continue.',
     },
     infoHeading: 'Other ways to reach us',
     infoItems: {

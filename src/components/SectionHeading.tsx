@@ -1,6 +1,7 @@
 import { cn } from '../utils/cn';
 
 interface SectionHeadingProps {
+  as?: 'h1' | 'h2' | 'h3';
   eyebrow?: string;
   title: string;
   subtitle?: string;
@@ -14,7 +15,7 @@ interface SectionHeadingProps {
   subtitleClassName?: string;
 }
 
-export function SectionHeading({ eyebrow, title, subtitle, align = 'left', className, eyebrowClassName, titleClassName, subtitleClassName }: SectionHeadingProps) {
+export function SectionHeading({ as: Heading = 'h2', eyebrow, title, subtitle, align = 'left', className, eyebrowClassName, titleClassName, subtitleClassName }: SectionHeadingProps) {
   return (
     <div className={cn(align === 'center' && 'text-center', className)}>
       {eyebrow && (
@@ -22,7 +23,7 @@ export function SectionHeading({ eyebrow, title, subtitle, align = 'left', class
           {eyebrow}
         </p>
       )}
-      <h2 className={cn('text-2xl font-bold sm:text-3xl', titleClassName ?? 'text-wm-black')}>{title}</h2>
+      <Heading className={cn('text-2xl font-bold sm:text-3xl', titleClassName ?? 'text-wm-black')}>{title}</Heading>
       {subtitle && <p className={cn('mt-3 max-w-2xl [font-family:var(--font-body)]', subtitleClassName ?? 'text-wm-gray-700')} style={align === 'center' ? { marginInline: 'auto' } : undefined}>{subtitle}</p>}
     </div>
   );

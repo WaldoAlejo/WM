@@ -6,17 +6,20 @@ línea de producto que cubre este sitio hoy (no limitada a electrodomésticos de
 distintas categorías que WM va incorporando). WM tendrá más líneas en el futuro (Energy, Bags, Toys,
 ...) — ver [Marca vs. línea de producto](#marca-vs-línea-de-producto) más abajo antes de agregar una.
 
-Catálogo de 6 productos, garantía de 3 años, formulario de contacto, sin comercio electrónico
+Catálogo de 9 productos, garantía de 3 años, formulario de contacto, sin comercio electrónico
 (arquitectura preparada para agregarlo después).
 
 ## Ejecutar el proyecto
 
+Usar Node.js 24 o superior: la generación estática y las pruebas importan los datos TypeScript directamente.
+
 ```bash
 npm install
 npm run dev        # servidor de desarrollo (http://localhost:5173)
-npm run build      # type-check (tsc -b) + build de producción a dist/
+npm run build      # TypeScript + Vite + metadatos HTML por ruta y sitemap a dist/
 npm run preview    # sirve dist/ localmente para revisar el build
 npm run lint        # oxlint
+npm test            # pruebas de búsqueda, correo y generación SEO
 ```
 
 ## Estructura
@@ -30,9 +33,11 @@ src/
   layouts/          MainLayout (Header + Footer)
   pages/            HomePage, ProductsPage, ProductDetailPage, WarrantyPage, AboutPage, ContactPage
   types/            Product, CategoryDef, ContactInfo, Pending<T>, Localized<T>
-  utils/            cn, validation, submitForm, useSeo, useJsonLd, t (pick locale from Localized<T>)
+  utils/            cn, validation, contactEmail, useSeo, useJsonLd, t (pick locale from Localized<T>)
 public/
-  robots.txt, sitemap.xml, favicon.svg (logotipo oficial)
+  robots.txt, favicon.svg (logotipo oficial)
+scripts/
+  generateSeo.mjs, seoFiles.mjs  Generación de HTML por ruta y sitemap en dist/
 ```
 
 ## Idiomas (ES / EN)
@@ -60,7 +65,7 @@ internacional se vuelve relevante, vale la pena reconsiderar URLs por idioma tip
 
 ### Agregar un producto nuevo (con ambos idiomas)
 
-Cada campo de texto va como `{ es: '...', en: '...' }` en vez de un string simple — ver los 3
+Cada campo de texto va como `{ es: '...', en: '...' }` en vez de un string simple — ver los 9
 productos ya cargados en `products.ts` como referencia. Si todavía no se tiene la traducción al
 inglés de un producto nuevo, avisar explícitamente en vez de dejarlo a medias (no hay un patrón
 `Pending` por-idioma; `Pending<Localized<string>>` pasa a "resuelto" cuando **ambos** idiomas están
@@ -91,9 +96,21 @@ se imprime aparte, en la tipografía normal del sitio, junto al logo (ver
 
 ## Cómo editar los productos
 
+### Búsqueda y consultas desde el catálogo
+
+El catálogo usa `buscar` y `categoria` en la URL como fuente de sus filtros. Escribir reemplaza
+la entrada actual del historial; elegir categoría crea una entrada. La búsqueda admite nombre
+en español o inglés y modelo, sin distinguir acentos ni mayúsculas. Un botón permite limpiar
+ambos filtros. `src/utils/catalogSearch.ts` concentra la lógica de filtrado.
+
+El botón de consulta de cada ficha abre `/contacto?motivo=sales&producto=<slug>` y muestra el
+producto en el formulario y el borrador del correo. Solo se aceptan productos del catálogo;
+los datos personales no se agregan a la URL. Cambiar ES/EN traduce el contexto del producto
+sin borrar el mensaje escrito. Todo funciona en el cliente, sin backend.
+
 Todo el contenido vive en `src/data/`, no está repetido en los componentes:
 
-- **`src/data/products.ts`** — los 6 productos. Cada uno tiene `name`, `model`, `categorySlug`,
+- **`src/data/products.ts`** — los 9 productos. Cada uno tiene `name`, `model`, `categorySlug`,
   `shortDescription`, `benefits`, `specifications`, `safetyAndQuality`, `mainImage`, `gallery`,
   `manualUrl` (PDF del manual, `Pending<string>` — colocar el archivo en `public/manuals/<slug>.pdf`
   y actualizar la ruta), `specSheetUrl` (ficha técnica en PDF, mismo patrón, en
@@ -101,8 +118,7 @@ Todo el contenido vive en `src/data/`, no está repetido en los componentes:
 - **`src/data/categories.ts`** — taxonomía de categorías (slug + nombre).
 - **`src/data/company.ts`** — `brand` (marca WM), `productLine` (línea actual: WM Global),
   datos de contacto y redes sociales.
-- **`src/data/content.ts`** — todos los textos de interfaz en español, centralizados para poder
-  añadir una versión en inglés (`content.en.ts`) sin tocar componentes.
+- **`src/data/content.es.ts`** y **`content.en.ts`** — textos de interfaz en español e inglés.
 
 ### El patrón `Pending<T>`
 
@@ -123,10 +139,10 @@ imágenes) y la marca desaparece automáticamente.
 ```ts
 mainImage: {
   src: '/products/producto-01/main.webp', // colocar el archivo en public/products/...
-  alt: 'Descripción del producto para lectores de pantalla',
+  alt: { es: 'Descripción del producto', en: 'Product description' },
 },
 gallery: [
-  { src: '/products/producto-01/gallery-1.webp', alt: '...' },
+  { src: '/products/producto-01/gallery-1.webp', alt: { es: 'Vista lateral', en: 'Side view' } },
 ],
 ```
 
@@ -137,22 +153,22 @@ Usar PNG o WebP con fondo transparente cuando estén disponibles, igual que en e
 Nada de lo siguiente fue inventado; todo queda marcado como pendiente en el código y visible en la
 UI como "Por confirmar" hasta que se reemplace:
 
-- **Nombres, modelos, categorías reales y fotografías de los 6 productos**: 3 de 6 ya tienen datos
-  reales (batidora de inmersión, licuadora profesional, olla de presión — todos bajo `categoria-01`
-  "Cocina"); faltan `producto-04`–`06` y las categorías 02/03 siguen genéricas.
-- **Especificaciones técnicas**: voltaje y material siguen pendientes en los 3 productos cargados
-  (ningún documento de fábrica los ha especificado todavía); información de seguridad/calidad
-  también pendiente en los 3.
-- **Datos de contacto** (`src/data/company.ts`): correo y dirección confirmados
-  (`contact@wmglobalcorp.com`, Quito, Pichincha, Ecuador). Teléfono, horario y redes siguen pendientes.
-- ~~Condiciones legales de garantía y procedimiento de solicitud de asistencia~~ — confirmados,
-  ver `content.warrantyPage` en `src/data/content.ts`.
-- **Texto "Nosotros"**: propósito de marca (sin años de fundación, países ni cifras — no se
-  incluyeron por no haber sido proporcionados).
-- ~~Dominio de producción real~~ — confirmado: `wmglobalcorp.com` (`brand.domain` en
-  `src/data/company.ts`, usado por `useSeo.ts`, `structuredData.ts`, `robots.txt` y `sitemap.xml`).
-- **Endpoint del formulario de contacto**: no hay backend. `src/utils/submitForm.ts` simula el envío;
-  reemplazar su cuerpo por una llamada real (`fetch('/api/contact', ...)`) cuando exista.
+- El catálogo contiene nueve productos con fotografías y nombres ES/EN, en Hogar y Energía.
+- Faltan ocho manuales y las nueve fichas técnicas PDF. El manual P3200 está disponible.
+- La licuadora de vidrio tiene modelo y datos de seguridad pendientes; también faltan
+  especificaciones de varios productos. Consultar el inventario por producto en
+  [Contenidos pendientes](review-output/CONTENIDOS-PENDIENTES-WM.md).
+- Correo, dominio y horario están configurados. Teléfono y redes sociales siguen pendientes.
+  La dirección no se muestra por decisión de WM.
+- Los contenidos pendientes solo se completan con información proporcionada por WM.
+- **Contacto sin backend**: por decisión de WM, el sitio no incorpora un servidor ni un servicio
+  de recepción. `src/utils/contactEmail.ts` prepara un borrador local; el usuario lo revisa y lo
+  envía desde su aplicación de correo mediante un enlace `mailto:`, o copia el texto para pegarlo
+  en su servicio de correo. La página nunca confirma recepción ni borra los campos al preparar
+  el borrador. Los documentos se adjuntan en la aplicación de correo. No se persisten datos del
+  formulario en el navegador; al salir o cambiar de tipo de consulta se descarta el formulario.
+  Se retiró la aceptación de una política inexistente. No se genera una política sin contenido
+  proporcionado por WM.
 
 ## Identidad de marca — reglas que se respetaron
 
@@ -165,9 +181,9 @@ UI como "Por confirmar" hasta que se reemplace:
 - El sello de garantía de 3 años (`WM_HOME_WARRANTY_SEAL_3YEARS.svg`) se extrajo sin modificar del
   master packing (`WM_HOME_MASTER_PACKING_UNIVERSAL_EN.svg`) y nunca se superpone a fotografías de
   producto.
-- Paleta: negro (`#000000`), blanco y grises neutros — sin colores ajenos a la identidad.
+- Paleta: negro, blanco cálido, grises y acento vino (`#6b1f2a`).
 - Tipografías: Montserrat (títulos) y Poppins (texto), autoalojadas vía `@fontsource`
-  (subconjuntos `latin` + `latin-ext`, suficientes para español e inglés).
+  (subconjunto `latin` para español e inglés; evita cargar también `latin-ext`).
 
 ## Accesibilidad y SEO
 
@@ -175,13 +191,44 @@ UI como "Por confirmar" hasta que se reemplace:
   formularios con `<label>` y mensajes de error asociados vía `aria-describedby`.
 - Metadatos por página, Open Graph y JSON-LD (`Organization` en Inicio, `Product` en cada ficha) sin
   precio/disponibilidad/reseñas inventadas.
-- `robots.txt` y `sitemap.xml` en `public/`.
+- `robots.txt` en `public/`; `sitemap.xml` se genera directamente en `dist/` desde
+  `src/data/seoPages.ts`, que incorpora todos los productos del catálogo. No mantener una lista manual.
+- Menú móvil y visor con `<dialog>` nativo, cierre por Escape, foco inicial, ciclo Tab/Shift+Tab,
+  fondo no interactivo y restauración del foco. El menú se cierra al pasar a escritorio.
+- Encabezado h1 en el catálogo; miniaturas como botones con `aria-pressed` y listas semánticas.
+
+### HTML y metadatos estáticos
+
+`npm run build` termina ejecutando `scripts/generateSeo.mjs`. Produce `index.html`, las páginas
+institucionales y de producto como archivos `.html`, además de `404.html` y el sitemap. Los
+metadatos iniciales (título, descripción, canonical, Open Graph, imagen y Twitter) están en el HTML,
+sin ejecutar React. El contenido y las interacciones siguen siendo una SPA: esto no es renderizado
+completo del contenido en servidor. No se agrega un backend.
+
+Los enlaces compartidos usan español, porque ES/EN comparten URL por decisión del proyecto.
+El hook `useSeo` usa la misma definición de metadatos y actualiza el idioma al navegar. Cada ficha
+usa su foto principal; las páginas generales usan una foto existente del catálogo. La página 404
+incluye `noindex` y queda fuera del sitemap. Los datos JSON-LD siguen siendo generados en el cliente.
+
+Vercel usa `cleanUrls: true` para servir `/productos` desde `productos.html` y las fichas desde
+sus archivos correspondientes. Se retiró la reescritura universal a Inicio; las rutas desconocidas
+pueden usar el archivo estático `404.html`. Se debe desplegar todo `dist/`, no únicamente el index.
+En desarrollo, Vite sirve la SPA; la generación de archivos SEO ocurre en la compilación.
 - Respeta `prefers-reduced-motion` (las animaciones de aparición se desactivan).
 
 ## Notas técnicas
 
 - Sin carrito ni checkout. La capa de datos (`Product`, `CategoryDef`) ya está separada de la UI,
   por lo que agregar precios/inventario/checkout más adelante no requiere rediseñar el catálogo.
-- Advertencia de `npm audit` sobre `react-router-dom`: las vulnerabilidades reportadas son de modo
-  SSR/RSC (server actions, prerender, `ScrollRestoration`) — no aplican a esta SPA cliente-only sin
-  servidor ni loaders/actions.
+
+### Destacados, novedades y carrusel
+
+`featured` controla la selección de Inicio y la etiqueta Destacado/Featured.
+`isNew: true` activa de forma independiente Nuevo/New; usarlo solo cuando WM confirme
+la novedad y retirarlo al terminar esa condición. Actualmente los nueve productos siguen
+destacados y ninguno está marcado como nuevo.
+
+El carrusel cambia cada diez segundos. Permite pausar/reanudar; se detiene al seleccionar
+una miniatura, mientras tiene foco o el puntero encima y al ocultar la pestaña.
+Con movimiento reducido usa selección manual. La navegación compacta se usa por debajo
+de 1024 px. Los resultados de la fase 4 están en [el registro de fases](review-output/FASES-MEJORAS-WM.md).

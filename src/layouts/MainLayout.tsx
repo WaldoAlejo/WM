@@ -15,7 +15,7 @@ export function MainLayout({ children }: { children: ReactNode }) {
         {content.common.skipToContent}
       </a>
       <Header />
-      <main id="main-content" className="flex-1">
+      <main id="main-content" tabIndex={-1} className="flex-1">
         {children}
       </main>
       <Footer />

@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+review-output/build-*/
 *.local
 
 # Raw product photos as uploaded (not used by the app — the ones actually

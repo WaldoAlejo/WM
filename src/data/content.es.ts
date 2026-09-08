@@ -1,4 +1,4 @@
-import { brand, productLine } from './company';
+import { brand, productLine } from './company.ts';
 
 /**
  * Centralized site copy (es). Mirrored 1:1 by content.en.ts — both are
@@ -10,6 +10,9 @@ export const content = {
     seoTitle: 'Inicio',
   },
   hero: {
+    pauseRotation: 'Pausar carrusel',
+    resumeRotation: 'Reanudar carrusel',
+    manualRotation: 'Rotación automática desactivada',
     spotlightLabel: 'Producto en foco',
     title: 'Diseñados para hacer mejor tu hogar.',
     subtitle:
@@ -61,8 +64,11 @@ export const content = {
   productsPage: {
     title: 'Productos',
     intro: `Catálogo completo de productos ${brand.name} — ${productLine.name}.`,
-    searchPlaceholder: 'Buscar productos…',
-    featuredBadge: 'Nuevo',
+    searchPlaceholder: 'Buscar por nombre o modelo…',
+    clearFilters: 'Limpiar búsqueda y filtros',
+    resultsLabel: 'Productos encontrados',
+    featuredBadge: 'Destacado',
+    newBadge: 'Nuevo',
     categoryAllLabel: 'Todas las categorías',
     noResults: 'No se encontraron productos con esos criterios.',
     filterAriaLabel: 'Filtrar por categoría',
@@ -101,7 +107,7 @@ export const content = {
       'Envía tu solicitud a contact@wmglobalcorp.com con: nombre completo y número de contacto, ciudad donde te encuentras, modelo y número de serie del producto, comprobante de compra, descripción detallada del inconveniente, y fotografías o un video donde pueda observarse la falla. Nuestro equipo revisará la información y te enviará las instrucciones para la evaluación del producto. No envíes ni entregues el equipo antes de recibir la confirmación correspondiente.',
     formHeading: 'Formulario de consulta de garantía',
     formIntro:
-      'Completa el formulario y adjunta directamente tu comprobante de compra y fotografías o video de la falla — no es necesario que también envíes un correo aparte.',
+      'Prepara tu consulta con tus datos y la descripción del caso. Después, envíala desde tu correo y adjunta allí el comprobante de compra y las fotografías o el video de la falla.',
     subjectOptions: [
       'Reparación o revisión técnica',
       'Reemplazo de piezas',
@@ -167,7 +173,7 @@ export const content = {
       warranty: {
         title: 'Garantía',
         description:
-          'Solicita reparación, reemplazo de piezas o asistencia técnica bajo garantía. Podrás adjuntar tu comprobante de compra y fotos o video de la falla.',
+          'Prepara tu consulta de garantía y envíala por correo con tu comprobante de compra y fotos o video de la falla.',
         cta: 'Ir a Garantía',
       },
       support: {
@@ -184,6 +190,7 @@ export const content = {
     backToCategories: 'Elegir otro motivo',
     selectCta: 'Seleccionar',
     form: {
+      productLabel: 'Producto de la consulta',
       name: 'Nombre',
       namePlaceholder: 'Nombre y apellido',
       email: 'Correo electrónico',
@@ -202,26 +209,18 @@ export const content = {
       message: 'Mensaje',
       messagePlaceholder:
         'Describe detalladamente cómo podemos ayudarte. Si tu consulta está relacionada con un producto, incluye el modelo, número de serie y una descripción del caso.',
-      attachmentsLabel: 'Documentos adjuntos',
-      attachmentsOptional: 'Opcional',
-      attachmentsHint:
-        'Comprobante de compra, fotografías o video de la falla — útil especialmente para solicitudes de garantía. Formatos: JPG, PNG, PDF o video. Máximo 5 archivos.',
-      attachmentsButton: 'Seleccionar archivos',
-      attachmentsEmpty: 'Ningún archivo seleccionado.',
-      attachmentsRemove: 'Quitar',
-      attachmentsTooMany: 'Puedes adjuntar hasta 5 archivos.',
-      privacyLabel:
-        'He leído y acepto la Política de privacidad y autorizo el tratamiento de mis datos para atender esta solicitud.',
-      submit: 'Enviar mensaje',
-      submitting: 'Enviando…',
-      successTitle: 'Tu mensaje fue enviado correctamente.',
-      success: 'Hemos recibido tu solicitud. Nuestro equipo revisará la información y responderá al correo electrónico proporcionado.',
-      errorTitle: 'No fue posible enviar tu mensaje.',
-      error:
-        'Verifica que los campos obligatorios estén completos e inténtalo nuevamente. También puedes escribirnos directamente a contact@wmglobalcorp.com.',
+      attachmentsHint: 'Adjunta el comprobante de compra, las fotografías o el video directamente en tu aplicación de correo antes de enviar. Esta página no adjunta archivos.',
+      emailNotice: 'Prepara tu mensaje aquí y envíalo desde tu correo. La página no envía ni guarda tu consulta; conserva una copia antes de salir.',
+      prepareEmail: 'Preparar correo',
+      preparedNotice: 'Tu borrador está listo. Aún no se ha enviado: revísalo y envíalo desde tu aplicación de correo.',
+      openEmail: 'Abrir aplicación de correo',
+      copyEmail: 'Copiar borrador',
+      draftLabel: 'Borrador del correo',
+      emailFallback: 'Si no se abre tu aplicación o falta parte del mensaje, copia este borrador y pégalo en tu correo. Incluye el destinatario y el asunto.',
+      copiedNotice: 'Borrador copiado. Pégalo en tu correo y envíalo para completar la consulta.',
+      copyError: 'No se pudo copiar automáticamente. Selecciona y copia el texto del borrador.',
       required: 'Este campo es obligatorio.',
       invalidEmail: 'Ingresa un correo electrónico válido.',
-      privacyRequired: 'Debes aceptar la política de privacidad para continuar.',
     },
     infoHeading: 'Otros medios de contacto',
     infoItems: {

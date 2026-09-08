@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { SectionHeading } from '../components/SectionHeading';
 import { ProductGrid } from '../components/ProductGrid';
@@ -9,6 +9,7 @@ import { useLocale } from '../i18n/LocaleContext';
 import { t } from '../utils/t';
 import { useSeo } from '../utils/useSeo';
 import { cn } from '../utils/cn';
+import { filterProducts, updateCatalogParams } from '../utils/catalogSearch';
 
 export function ProductsPage() {
   const content = useContent();
@@ -22,29 +23,21 @@ export function ProductsPage() {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const activeCategory = searchParams.get('categoria') ?? '';
-  const [query, setQuery] = useState(() => searchParams.get('buscar') ?? '');
+  const query = searchParams.get('buscar') ?? '';
 
-  const filtered = useMemo(() => {
-    return products.filter((product) => {
-      const matchesCategory = !activeCategory || product.categorySlug === activeCategory;
-      const matchesQuery =
-        !query.trim() || t(product.name, locale).toLowerCase().includes(query.trim().toLowerCase());
-      return matchesCategory && matchesQuery;
-    });
-  }, [activeCategory, query, locale]);
+  const filtered = useMemo(() => filterProducts(products, query, activeCategory), [activeCategory, query]);
+
+  function setQuery(value: string) {
+    setSearchParams(updateCatalogParams(searchParams, 'buscar', value), { replace: true });
+  }
 
   function setCategory(slug: string) {
-    if (!slug) {
-      searchParams.delete('categoria');
-    } else {
-      searchParams.set('categoria', slug);
-    }
-    setSearchParams(searchParams, { replace: true });
+    setSearchParams(updateCatalogParams(searchParams, 'categoria', slug));
   }
 
   return (
     <section className="mx-auto max-w-7xl px-4 pb-14 pt-6 sm:px-6 lg:px-8 lg:pb-20 lg:pt-8">
-      <SectionHeading title={content.productsPage.title} subtitle={content.productsPage.intro} />
+      <SectionHeading as="h1" title={content.productsPage.title} subtitle={content.productsPage.intro} />
 
       <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <label className="relative w-full sm:max-w-xs">
@@ -62,6 +55,7 @@ export function ProductsPage() {
           <button
             type="button"
             onClick={() => setCategory('')}
+            aria-pressed={activeCategory === ''}
             className={cn(
               'border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors',
               activeCategory === '' ? 'border-wm-wine bg-wm-wine text-white' : 'border-wm-gray-300 text-wm-black hover:border-wm-wine',
@@ -74,6 +68,7 @@ export function ProductsPage() {
               key={cat.slug}
               type="button"
               onClick={() => setCategory(cat.slug)}
+              aria-pressed={activeCategory === cat.slug}
               className={cn(
                 'border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors',
                 activeCategory === cat.slug ? 'border-wm-wine bg-wm-wine text-white' : 'border-wm-gray-300 text-wm-black hover:border-wm-wine',
@@ -86,6 +81,12 @@ export function ProductsPage() {
       </div>
 
       <div className="mt-10">
+        {(query || activeCategory) && (
+          <button type="button" onClick={() => setSearchParams({})} className="mb-5 text-sm font-semibold underline">
+            {content.productsPage.clearFilters}
+          </button>
+        )}
+        <p role="status" className="sr-only">{content.productsPage.resultsLabel}: {filtered.length}</p>
         <ProductGrid products={filtered} />
       </div>
     </section>

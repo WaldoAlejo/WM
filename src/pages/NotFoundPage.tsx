@@ -9,6 +9,7 @@ export function NotFoundPage() {
     title: content.notFound.title,
     description: content.notFound.body,
     path: '/404',
+    noindex: true,
   });
 
   return (

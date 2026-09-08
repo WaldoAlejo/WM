@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import type { Localized, ProductImage } from '../types';
+import type { ProductImage } from '../types';
 import { useContent } from '../i18n/useContent';
 import { useLocale } from '../i18n/LocaleContext';
 import { t } from '../utils/t';
+import { useModalDialog } from '../utils/useModalDialog';
 
 interface ImageLightboxProps {
   images: ProductImage[];
@@ -19,22 +20,16 @@ export function ImageLightbox({ images, activeIndex, onClose, onNavigate }: Imag
   const content = useContent();
   const { locale } = useLocale();
   const active = images[activeIndex];
-
-  useEffect(() => {
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = previousOverflow;
-    };
-  }, []);
+  const dialogRef = useModalDialog(Boolean(active));
 
   useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') onClose();
       if (e.key === 'ArrowRight' && images.length > 1) {
+        e.preventDefault();
         onNavigate((activeIndex + 1) % images.length);
       }
       if (e.key === 'ArrowLeft' && images.length > 1) {
+        e.preventDefault();
         onNavigate((activeIndex - 1 + images.length) % images.length);
       }
     }
@@ -45,14 +40,16 @@ export function ImageLightbox({ images, activeIndex, onClose, onNavigate }: Imag
   if (!active) return null;
 
   return createPortal(
-    <div
-      role="dialog"
-      aria-modal="true"
-      className="fixed inset-0 z-[60] flex items-center justify-center bg-black/95 p-4 sm:p-8"
-      onClick={onClose}
+    <dialog
+      ref={dialogRef}
+      aria-label={content.productDetail.galleryAriaLabel}
+      className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none items-center justify-center border-0 bg-black/95 p-4 text-white open:flex sm:p-8 [&_:focus-visible]:outline-white"
+      onCancel={(event) => { event.preventDefault(); onClose(); }}
+      onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}
     >
       <button
         type="button"
+        autoFocus
         onClick={onClose}
         aria-label={content.productDetail.closeZoomAriaLabel}
         className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center text-white/80 transition-colors hover:text-white"
@@ -71,7 +68,7 @@ export function ImageLightbox({ images, activeIndex, onClose, onNavigate }: Imag
               onNavigate((activeIndex - 1 + images.length) % images.length);
             }}
             aria-label={content.productDetail.previousImageAriaLabel}
-            className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center text-white/80 transition-colors hover:text-white sm:left-4"
+            className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/75 text-white transition-colors hover:bg-black sm:left-4"
           >
             <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8" aria-hidden="true">
               <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -84,7 +81,7 @@ export function ImageLightbox({ images, activeIndex, onClose, onNavigate }: Imag
               onNavigate((activeIndex + 1) % images.length);
             }}
             aria-label={content.productDetail.nextImageAriaLabel}
-            className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center text-white/80 transition-colors hover:text-white sm:right-4"
+            className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/75 text-white transition-colors hover:bg-black sm:right-4"
           >
             <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8" aria-hidden="true">
               <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -95,11 +92,10 @@ export function ImageLightbox({ images, activeIndex, onClose, onNavigate }: Imag
 
       <img
         src={active.src}
-        alt={t(active.alt as Localized<string>, locale)}
+        alt={t(active.alt, locale)}
         className="max-h-full max-w-full object-contain"
-        onClick={(e) => e.stopPropagation()}
       />
-    </div>,
+    </dialog>,
     document.body,
   );
 }

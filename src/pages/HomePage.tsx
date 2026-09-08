@@ -33,7 +33,7 @@ export function HomePage() {
           </Reveal>
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {featured.map((product, i) => (
-              <Reveal key={product.id} delay={i * 80}>
+              <Reveal key={product.id} delay={i * 80} className="h-full">
                 <ProductCard product={product} />
               </Reveal>
             ))}
@@ -55,12 +55,12 @@ export function HomePage() {
         </Reveal>
         <ul className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
           {content.quality.points.map((point, i) => (
-            <Reveal key={point.title} delay={i * 80}>
-              <li className="border border-wm-gray-300 p-6">
+            <li key={point.title} className="border border-wm-gray-300 p-6">
+              <Reveal delay={i * 80}>
                 <h3 className="text-sm font-semibold uppercase tracking-wide text-wm-black">{point.title}</h3>
                 <p className="mt-2 text-sm text-wm-gray-700">{point.description}</p>
-              </li>
-            </Reveal>
+              </Reveal>
+            </li>
           ))}
         </ul>
       </section>

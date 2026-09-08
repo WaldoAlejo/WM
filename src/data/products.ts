@@ -1,5 +1,5 @@
-import type { Product, ProductImage } from '../types';
-import { isPending } from '../types';
+import type { Product, ProductImage } from '../types/index.ts';
+import { isPending } from '../types/index.ts';
 
 /**
  * The WM products. All have real data (name, model, specs, images) sourced

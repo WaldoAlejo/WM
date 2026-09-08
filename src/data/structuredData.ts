@@ -33,7 +33,7 @@ export function productJsonLd(product: Product, locale: Locale) {
     name: t(product.name, locale),
     ...(isPending(product.model) ? {} : { model: product.model }),
     ...(isPending(product.shortDescription) ? {} : { description: t(product.shortDescription, locale) }),
-    ...(isPending(product.mainImage) ? {} : { image: [product.mainImage.src] }),
+    ...(isPending(product.mainImage) ? {} : { image: [new URL(product.mainImage.src, SITE_URL).href] }),
     brand: {
       '@type': 'Brand',
       name: brand.name,

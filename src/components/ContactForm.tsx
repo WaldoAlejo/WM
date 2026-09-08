@@ -1,34 +1,36 @@
-import { useRef, useState, type ChangeEvent, type FormEvent } from 'react';
+import { useRef, useState, type FormEvent } from 'react';
 import { useContent } from '../i18n/useContent';
 import { isValidEmail } from '../utils/validation';
-import { submitContactForm } from '../utils/submitForm';
+import { prepareContactEmail } from '../utils/contactEmail';
+import { contactInfo } from '../data/company';
+import { isPending, type Product } from '../types';
+import { useLocale } from '../i18n/LocaleContext';
 import { cn } from '../utils/cn';
 
 interface ContactFormProps {
+  inquiryProduct?: Product;
   /** Reasons shown in the "subject" dropdown — scoped per form (warranty / support / sales), not shared globally. */
   subjectOptions: readonly string[];
   /** Index into subjectOptions to preselect. */
   defaultSubjectIndex?: number;
-  /** Show the file-attachment field. Only relevant where documents are actually expected (warranty, support). */
+  /** Remind users to attach documents in their email application. */
   showAttachments?: boolean;
   /** Show the "model and serial number" + "city" fields. Relevant when the inquiry is about a specific product a customer owns. */
   showModelAndCity?: boolean;
 }
 
-const MAX_FILES = 5;
-
-type FieldErrors = Partial<Record<'name' | 'email' | 'subject' | 'message' | 'privacy', string>>;
-type Status = 'idle' | 'submitting' | 'success' | 'error';
+type FieldErrors = Partial<Record<'name' | 'email' | 'subject' | 'message', string>>;
 
 export function ContactForm({
+  inquiryProduct,
   subjectOptions,
   defaultSubjectIndex,
   showAttachments = false,
   showModelAndCity = false,
 }: ContactFormProps) {
   const content = useContent();
+  const { locale } = useLocale();
   const t = content.contactPage.form;
-  const defaultSubject = defaultSubjectIndex !== undefined ? subjectOptions[defaultSubjectIndex] : '';
 
   const [values, setValues] = useState({
     name: '',
@@ -36,39 +38,24 @@ export function ContactForm({
     phone: '',
     model: '',
     city: '',
-    subject: defaultSubject,
     message: '',
   });
-  const [attachments, setAttachments] = useState<File[]>([]);
-  const [attachmentsNotice, setAttachmentsNotice] = useState<string | null>(null);
-  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+  const [subjectIndex, setSubjectIndex] = useState(defaultSubjectIndex === undefined ? '' : String(defaultSubjectIndex));
   const [errors, setErrors] = useState<FieldErrors>({});
-  const [status, setStatus] = useState<Status>('idle');
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [prepared, setPrepared] = useState(false);
+  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'error'>('idle');
+  const draftRef = useRef<HTMLTextAreaElement>(null);
+  const recipient = isPending(contactInfo.email) ? '' : contactInfo.email;
+  const subject = subjectIndex === '' ? '' : subjectOptions[Number(subjectIndex)] ?? '';
+  const productContext = inquiryProduct
+    ? `${t.productLabel}: ${inquiryProduct.name[locale]}${isPending(inquiryProduct.model) ? '' : ` (${inquiryProduct.model})`}`
+    : '';
+  const draft = prepareContactEmail(recipient, { ...values, subject }, t, showModelAndCity, productContext);
 
   function update<K extends keyof typeof values>(key: K, value: string) {
     setValues((prev) => ({ ...prev, [key]: value }));
-  }
-
-  function handleFilesSelected(event: ChangeEvent<HTMLInputElement>) {
-    const picked = Array.from(event.target.files ?? []);
-    event.target.value = '';
-    if (picked.length === 0) return;
-
-    setAttachments((prev) => {
-      const combined = [...prev, ...picked];
-      if (combined.length > MAX_FILES) {
-        setAttachmentsNotice(t.attachmentsTooMany);
-        return combined.slice(0, MAX_FILES);
-      }
-      setAttachmentsNotice(null);
-      return combined;
-    });
-  }
-
-  function removeAttachment(index: number) {
-    setAttachments((prev) => prev.filter((_, i) => i !== index));
-    setAttachmentsNotice(null);
+    setPrepared(false);
+    setCopyStatus('idle');
   }
 
   function validate(): FieldErrors {
@@ -76,32 +63,32 @@ export function ContactForm({
     if (!values.name.trim()) next.name = t.required;
     if (!values.email.trim()) next.email = t.required;
     else if (!isValidEmail(values.email)) next.email = t.invalidEmail;
-    if (!values.subject.trim()) next.subject = t.required;
+    if (!subject) next.subject = t.required;
     if (!values.message.trim()) next.message = t.required;
-    if (!privacyAccepted) next.privacy = t.privacyRequired;
     return next;
   }
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const validationErrors = validate();
     setErrors(validationErrors);
-    if (Object.keys(validationErrors).length > 0) return;
+    const firstInvalid = Object.keys(validationErrors)[0];
+    if (firstInvalid) {
+      event.currentTarget.querySelector<HTMLElement>(`#cf-${firstInvalid}`)?.focus();
+      return;
+    }
+    setPrepared(true);
+    setCopyStatus('idle');
+  }
 
-    setStatus('submitting');
+  async function copyDraft() {
     try {
-      const result = await submitContactForm({ ...values, attachments });
-      if (result.ok) {
-        setStatus('success');
-        setValues({ name: '', email: '', phone: '', model: '', city: '', subject: '', message: '' });
-        setAttachments([]);
-        setAttachmentsNotice(null);
-        setPrivacyAccepted(false);
-      } else {
-        setStatus('error');
-      }
+      await navigator.clipboard.writeText(draft.text);
+      setCopyStatus('copied');
     } catch {
-      setStatus('error');
+      setCopyStatus('error');
+      draftRef.current?.focus();
+      draftRef.current?.select();
     }
   }
 
@@ -113,6 +100,11 @@ export function ContactForm({
 
   return (
     <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      {productContext && <p className="border-l-2 border-wm-wine pl-4 text-sm font-semibold">{productContext}</p>}
+      <div className="border border-wm-gray-300 bg-white p-4 text-sm text-wm-gray-700">
+        <p>{t.emailNotice}</p>
+        {recipient && <a href={`mailto:${recipient}`} className="mt-2 inline-block font-semibold underline">{recipient}</a>}
+      </div>
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="cf-name" className="mb-1.5 block text-sm font-medium text-wm-black">
@@ -185,8 +177,12 @@ export function ContactForm({
           <select
             id="cf-subject"
             name="subject"
-            value={values.subject}
-            onChange={(e) => update('subject', e.target.value)}
+            value={subjectIndex}
+            onChange={(e) => {
+              setSubjectIndex(e.target.value);
+              setPrepared(false);
+              setCopyStatus('idle');
+            }}
             aria-invalid={Boolean(errors.subject)}
             aria-describedby={errors.subject ? 'cf-subject-error' : undefined}
             className={inputClass(Boolean(errors.subject))}
@@ -194,8 +190,8 @@ export function ContactForm({
             <option value="" disabled>
               {t.subjectPlaceholder}
             </option>
-            {subjectOptions.map((option) => (
-              <option key={option} value={option}>
+            {subjectOptions.map((option, index) => (
+              <option key={index} value={String(index)}>
                 {option}
               </option>
             ))}
@@ -265,95 +261,41 @@ export function ContactForm({
         )}
       </div>
 
-      {showAttachments && (
-        <div>
-          <label className="mb-1.5 block text-sm font-medium text-wm-black">
-            {t.attachmentsLabel} <span className="font-normal text-wm-gray-500">({t.attachmentsOptional})</span>
-          </label>
-          <p className="mb-2.5 text-xs text-wm-gray-500">{t.attachmentsHint}</p>
-
-          <input
-            ref={fileInputRef}
-            id="cf-attachments"
-            type="file"
-            multiple
-            accept="image/*,video/*,application/pdf"
-            onChange={handleFilesSelected}
-            className="sr-only"
-          />
-          <button
-            type="button"
-            onClick={() => fileInputRef.current?.click()}
-            disabled={attachments.length >= MAX_FILES}
-            className="inline-flex items-center justify-center border border-wm-gray-300 px-5 py-2.5 text-sm font-semibold uppercase tracking-wide text-wm-black transition-colors hover:border-wm-black disabled:cursor-not-allowed disabled:opacity-50"
-          >
-            {t.attachmentsButton}
-          </button>
-
-          {attachments.length > 0 ? (
-            <ul className="mt-3 space-y-1.5">
-              {attachments.map((file, index) => (
-                <li
-                  key={`${file.name}-${file.lastModified}-${index}`}
-                  className="flex items-center justify-between gap-3 border border-wm-gray-300 bg-wm-gray-50 px-3 py-2 text-xs text-wm-gray-700"
-                >
-                  <span className="truncate">{file.name}</span>
-                  <button
-                    type="button"
-                    onClick={() => removeAttachment(index)}
-                    className="shrink-0 font-semibold uppercase tracking-wide text-wm-gray-500 hover:text-wm-black"
-                  >
-                    {t.attachmentsRemove}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="mt-3 text-xs text-wm-gray-500">{t.attachmentsEmpty}</p>
-          )}
-          {attachmentsNotice && <p className="mt-1.5 text-xs text-red-600">{attachmentsNotice}</p>}
-        </div>
-      )}
-
-      <div>
-        <label className="flex items-start gap-2.5 text-sm text-wm-gray-700">
-          <input
-            type="checkbox"
-            checked={privacyAccepted}
-            onChange={(e) => setPrivacyAccepted(e.target.checked)}
-            aria-invalid={Boolean(errors.privacy)}
-            aria-describedby={errors.privacy ? 'cf-privacy-error' : undefined}
-            className="mt-0.5 h-4 w-4 shrink-0 border-wm-gray-300"
-          />
-          <span>{t.privacyLabel}</span>
-        </label>
-        {errors.privacy && (
-          <p id="cf-privacy-error" className="mt-1.5 text-xs text-red-600">
-            {errors.privacy}
-          </p>
-        )}
-      </div>
+      {showAttachments && <p className="text-sm text-wm-gray-700">{t.attachmentsHint}</p>}
 
       <button
         type="submit"
-        disabled={status === 'submitting'}
-        className="inline-flex items-center justify-center border border-wm-black bg-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-wm-black disabled:cursor-not-allowed disabled:opacity-60"
+        className="inline-flex items-center justify-center border border-wm-black bg-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-wm-black"
       >
-        {status === 'submitting' ? t.submitting : t.submit}
+        {t.prepareEmail}
       </button>
 
       <div aria-live="polite">
-        {status === 'success' && (
-          <p className="text-sm text-green-700">
-            <span className="font-semibold">{t.successTitle}</span> {t.success}
-          </p>
-        )}
-        {status === 'error' && (
-          <p className="text-sm text-red-600">
-            <span className="font-semibold">{t.errorTitle}</span> {t.error}
-          </p>
-        )}
+        {prepared && <p className="text-sm text-wm-gray-700">{t.preparedNotice}</p>}
       </div>
+      {prepared && (
+        <section className="space-y-4 border border-wm-gray-300 bg-white p-5" aria-label={t.draftLabel}>
+          <p className="text-sm text-wm-gray-700">{t.emailFallback}</p>
+          <div className="flex flex-wrap gap-3">
+            {recipient && (
+              <a
+                href={draft.href}
+                className="inline-flex items-center justify-center border border-wm-black bg-wm-black px-5 py-3 text-sm font-semibold text-white hover:bg-white hover:text-wm-black"
+              >
+                {t.openEmail}
+              </a>
+            )}
+            <button type="button" onClick={copyDraft} className="border border-wm-black px-5 py-3 text-sm font-semibold hover:bg-wm-black hover:text-white">
+              {t.copyEmail}
+            </button>
+          </div>
+          <label htmlFor="cf-draft" className="block text-sm font-medium">{t.draftLabel}</label>
+          <textarea ref={draftRef} id="cf-draft" value={draft.text} readOnly rows={10} className={inputClass(false)} />
+          <p role="status" className="text-sm text-wm-gray-700">
+            {copyStatus === 'copied' ? t.copiedNotice : copyStatus === 'error' ? t.copyError : ''}
+          </p>
+        </section>
+      )}
     </form>
   );
 }

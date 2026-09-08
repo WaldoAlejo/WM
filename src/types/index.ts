@@ -50,6 +50,8 @@ export interface Product {
   mainImage: Pending<ProductImage>;
   gallery: ProductImage[];
   featured: boolean;
+  /** Only set when the product is confirmed as a new release; independent of featuring. */
+  isNew?: boolean;
   /** Link to a downloadable PDF manual, e.g. '/manuals/producto-01.pdf'. */
   manualUrl: Pending<string>;
   /** Link to a downloadable PDF spec sheet (datasheet), e.g. '/spec-sheets/producto-01.pdf'. Useful for B2B buyers evaluating the product for their own catalog. */

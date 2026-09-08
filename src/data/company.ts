@@ -1,4 +1,4 @@
-import type { ContactInfo } from '../types';
+import type { ContactInfo } from '../types/index.ts';
 
 /** WM is the registered brand. Every product line (WM Global, Energy, Bags, Toys, ...) sits under it. */
 export const brand = {

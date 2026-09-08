@@ -34,6 +34,8 @@ export function ProductDetailPage() {
       `${name} — ${brand.name} ${productLine.name}`,
     path: `/productos/${slug ?? ''}`,
     type: 'product',
+    image: product && !isPending(product.mainImage) ? product.mainImage.src : undefined,
+    imageAlt: product && !isPending(product.mainImage) ? t(product.mainImage.alt, locale) : undefined,
   });
   useJsonLd(product ? productJsonLd(product, locale) : {});
 
@@ -57,12 +59,12 @@ export function ProductDetailPage() {
 
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start">
         <div className="bg-white p-8 lg:sticky lg:top-20">
-          <ProductGallery mainImage={product.mainImage} gallery={product.gallery} />
+          <ProductGallery key={product.slug} mainImage={product.mainImage} gallery={product.gallery} />
 
           <div className="mt-8 border-t border-wm-gray-300 pt-8">
             <div className="flex flex-wrap items-center gap-4">
               <Link
-                to="/contacto"
+                to={`/contacto?motivo=sales&producto=${encodeURIComponent(product.slug)}`}
                 className="inline-flex items-center justify-center border border-wm-black bg-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-wm-black"
               >
                 {content.productDetail.inquiryCta}

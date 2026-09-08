@@ -21,14 +21,17 @@ const ROTATE_INTERVAL_MS = 10_000;
  * grid of small, unevenly-filled tiles. The warranty seal sits as a small
  * corner badge rather than competing for equal visual weight, and a
  * thumbnail strip below keeps the other featured products one click away.
- * Only the fade transition is skipped for prefers-reduced-motion — the
- * rotation itself keeps happening, since it's the feature, not decoration.
+ * Rotation pauses while someone interacts and respects reduced motion.
  */
 export function Hero({ products = [] }: HeroProps) {
   const content = useContent();
   const { locale } = useLocale();
   const [activeIndex, setActiveIndex] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [pageHidden, setPageHidden] = useState(() => document.hidden);
 
   useEffect(() => {
     const query = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -39,16 +42,25 @@ export function Hero({ products = [] }: HeroProps) {
   }, []);
 
   useEffect(() => {
-    if (products.length < 2) return;
+    const onVisibilityChange = () => setPageHidden(document.hidden);
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', onVisibilityChange);
+  }, []);
+
+  const rotating = !paused && !reducedMotion && !hovered && !focused && !pageHidden;
+
+  useEffect(() => {
+    if (products.length < 2 || !rotating) return;
 
     const id = window.setInterval(() => {
       setActiveIndex((i) => (i + 1) % products.length);
     }, ROTATE_INTERVAL_MS);
 
     return () => window.clearInterval(id);
-  }, [products.length]);
+  }, [products.length, rotating]);
 
-  const activeProduct = products[activeIndex];
+  const currentIndex = products.length ? activeIndex % products.length : 0;
+  const activeProduct = products[currentIndex];
 
   return (
     <section className="border-b border-wm-gray-300">
@@ -82,8 +94,18 @@ export function Hero({ products = [] }: HeroProps) {
           </ul>
         </div>
 
-        <div className="mx-auto w-full max-w-md lg:max-w-none">
-          <div className="flex flex-col gap-4 sm:flex-row">
+        <div
+          className="mx-auto w-full min-w-0 max-w-md lg:max-w-none"
+          role="group"
+          aria-label={content.hero.spotlightLabel}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          onFocusCapture={() => setFocused(true)}
+          onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
+          }}
+        >
+          <div className="flex flex-col gap-4">
             <div className="min-w-0 flex-1">
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-wm-wine">
                 {content.hero.spotlightLabel}
@@ -101,7 +123,7 @@ export function Hero({ products = [] }: HeroProps) {
                     />
                   </div>
                 </Link>
-                <div className="absolute -bottom-4 -right-4 flex h-16 w-16 items-center justify-center rounded-full border border-wm-gray-300 bg-white shadow-md sm:h-20 sm:w-20">
+                <div className="absolute -bottom-4 right-3 flex h-16 w-16 items-center justify-center rounded-full border border-wm-gray-300 bg-white shadow-md sm:h-20 sm:w-20">
                   <WarrantyBadge size={60} />
                 </div>
               </div>
@@ -109,7 +131,7 @@ export function Hero({ products = [] }: HeroProps) {
               {activeProduct && (
                 <Link
                   to={`/productos/${activeProduct.slug}`}
-                  className="mt-6 block text-sm font-semibold uppercase tracking-[0.1em] text-wm-black transition-colors hover:text-wm-wine"
+                  className="mt-6 block min-h-16 text-sm font-semibold uppercase tracking-[0.1em] text-wm-black transition-colors hover:text-wm-wine"
                 >
                   {t(activeProduct.name, locale)}
                 </Link>
@@ -117,22 +139,39 @@ export function Hero({ products = [] }: HeroProps) {
             </div>
 
             {products.length > 1 && (
-              <div className="flex gap-3 overflow-x-auto no-scrollbar sm:w-16 sm:shrink-0 sm:flex-col sm:overflow-visible lg:w-20">
+              <div className="grid grid-cols-5 gap-2 sm:grid-cols-9">
                 {products.map((product, i) => (
                   <button
                     key={product.id}
                     type="button"
-                    onClick={() => setActiveIndex(i)}
+                    onClick={() => { setActiveIndex(i); setPaused(true); }}
                     aria-label={t(product.name, locale)}
-                    aria-pressed={i === activeIndex}
+                    aria-pressed={i === currentIndex}
                     className={cn(
-                      'h-14 w-14 shrink-0 overflow-hidden border bg-white p-1.5 transition-colors sm:h-16 sm:w-16 lg:h-20 lg:w-20',
-                      i === activeIndex ? 'border-wm-wine' : 'border-wm-gray-300 hover:border-wm-wine',
+                      'aspect-square min-h-11 min-w-0 overflow-hidden border bg-white p-1 transition-colors',
+                      i === currentIndex ? 'border-2 border-wm-wine' : 'border-wm-gray-300 hover:border-wm-wine',
                     )}
                   >
                     <ProductPhoto image={product.mainImage} loading="lazy" />
                   </button>
                 ))}
+              </div>
+            )}
+            {products.length > 1 && (
+              <div className="flex min-h-11 items-center justify-between gap-3 border-t border-wm-gray-300 pt-3">
+                <span className="text-xs tabular-nums text-wm-gray-700">{currentIndex + 1} / {products.length}</span>
+                {reducedMotion ? (
+                  <span className="text-right text-xs text-wm-gray-700">{content.hero.manualRotation}</span>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setPaused((value) => !value)}
+                    className="inline-flex min-h-11 items-center gap-2 px-2 text-xs font-semibold text-wm-wine underline underline-offset-4 hover:text-wm-black"
+                  >
+                    <span aria-hidden="true">{paused ? '▶' : 'Ⅱ'}</span>
+                    {paused ? content.hero.resumeRotation : content.hero.pauseRotation}
+                  </button>
+                )}
               </div>
             )}
           </div>

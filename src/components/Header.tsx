@@ -37,11 +37,11 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [menuOpen]);
+    const desktop = window.matchMedia('(min-width: 1024px)');
+    const closeOnDesktop = () => { if (desktop.matches) setMenuOpen(false); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => desktop.removeEventListener('change', closeOnDesktop);
+  }, []);
 
   return (
     <header
@@ -55,8 +55,8 @@ export function Header() {
           <Logo height={46} />
         </NavLink>
 
-        <nav aria-label={content.common.mainNavAriaLabel} className="hidden md:block">
-          <ul className="flex items-center gap-8">
+        <nav aria-label={content.common.mainNavAriaLabel} className="hidden lg:block">
+          <ul className="flex items-center gap-4 xl:gap-8">
             {mainNav.map((item) => (
               <li key={item.path}>
                 <NavLink
@@ -75,12 +75,12 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="hidden items-center gap-2 md:flex">
+        <div className="hidden items-center gap-2 lg:flex">
           <form
             onSubmit={submitSearch}
             className={cn(
               'flex items-center overflow-hidden border border-transparent transition-all duration-200',
-              searchOpen ? 'w-48 border-wm-gray-300 pl-3' : 'w-0',
+              searchOpen ? 'w-40 border-wm-gray-300 pl-3 xl:w-48' : 'w-0',
             )}
           >
             <span className="sr-only">
@@ -120,7 +120,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
           aria-label={menuOpen ? content.common.closeMenu : content.common.openMenu}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"

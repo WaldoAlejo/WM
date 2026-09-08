@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ContactForm } from '../components/ContactForm';
 import { PendingNote } from '../components/PendingNote';
 import { useContent } from '../i18n/useContent';
@@ -9,6 +8,7 @@ import { brand, contactInfo } from '../data/company';
 import { isPending } from '../types';
 import { useSeo } from '../utils/useSeo';
 import { cn } from '../utils/cn';
+import { getProductBySlug } from '../data/products';
 
 type Category = 'support' | 'sales';
 
@@ -48,7 +48,18 @@ function ProductsIcon({ className }: { className?: string }) {
 export function ContactPage() {
   const content = useContent();
   const { locale } = useLocale();
-  const [category, setCategory] = useState<Category | null>(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const product = getProductBySlug(searchParams.get('producto') ?? '');
+  const reason = searchParams.get('motivo');
+  const category: Category | null = reason === 'support' || reason === 'sales' ? reason : product ? 'sales' : null;
+  function setCategory(next: Category | null) {
+    if (next === category) return;
+    const params = new URLSearchParams(searchParams);
+    if (next) params.set('motivo', next);
+    else params.delete('motivo');
+    if (!next) params.delete('producto');
+    setSearchParams(params);
+  }
   const categories = content.contactPage.categories;
 
   useSeo({
@@ -184,9 +195,9 @@ export function ContactPage() {
               </div>
 
               {category === 'support' ? (
-                <ContactForm subjectOptions={categories.support.subjectOptions} showAttachments showModelAndCity />
+                <ContactForm key={`support-${product?.slug ?? ''}`} inquiryProduct={product} subjectOptions={categories.support.subjectOptions} showAttachments showModelAndCity />
               ) : (
-                <ContactForm subjectOptions={categories.sales.subjectOptions} />
+                <ContactForm key={`sales-${product?.slug ?? ''}`} inquiryProduct={product} defaultSubjectIndex={product ? 0 : undefined} subjectOptions={categories.sales.subjectOptions} />
               )}
             </div>
           )}

@@ -1,17 +1,6 @@
 import { useEffect } from 'react';
-import { brand, productLine } from '../data/company';
-
-interface SeoOptions {
-  title: string;
-  description: string;
-  path: string;
-  type?: 'website' | 'product';
-}
-
-/** Browser-tab / OG suffix: brand + current line, for wayfinding. The Organization
- *  schema (structuredData.ts) uses brand.name alone as the legal entity name. */
-const SITE_NAME = `${brand.name} — ${productLine.name}`;
-const SITE_URL = brand.domain;
+import { seoMetadata, type SeoOptions } from './seo';
+import { useLocale } from '../i18n/LocaleContext';
 
 function setMeta(attr: 'name' | 'property', key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
@@ -34,22 +23,13 @@ function setCanonical(href: string) {
 }
 
 /** Sets per-page title, description, canonical URL and Open Graph tags. */
-export function useSeo({ title, description, path, type = 'website' }: SeoOptions) {
+export function useSeo({ title, description, path, type = 'website', image, imageAlt, noindex }: SeoOptions) {
+  const { locale } = useLocale();
   useEffect(() => {
-    const fullTitle = `${title} | ${SITE_NAME}`;
-    const url = `${SITE_URL}${path}`;
-
-    document.title = fullTitle;
-    setMeta('name', 'description', description);
-    setCanonical(url);
-
-    setMeta('property', 'og:title', fullTitle);
-    setMeta('property', 'og:description', description);
-    setMeta('property', 'og:url', url);
-    setMeta('property', 'og:type', type);
-    setMeta('property', 'og:site_name', SITE_NAME);
-    setMeta('name', 'twitter:card', 'summary_large_image');
-    setMeta('name', 'twitter:title', fullTitle);
-    setMeta('name', 'twitter:description', description);
-  }, [title, description, path, type]);
+    const metadata = seoMetadata({ title, description, path, type, image, imageAlt, noindex }, locale);
+    document.title = metadata.title;
+    setCanonical(metadata.url);
+    for (const [name, value] of Object.entries(metadata.names)) setMeta('name', name, value);
+    for (const [property, value] of Object.entries(metadata.properties)) setMeta('property', property, value);
+  }, [title, description, path, type, image, imageAlt, noindex, locale]);
 }

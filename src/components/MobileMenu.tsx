@@ -5,6 +5,7 @@ import { useMainNav } from '../data/navigation';
 import { useContent } from '../i18n/useContent';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { cn } from '../utils/cn';
+import { useModalDialog } from '../utils/useModalDialog';
 
 interface MobileMenuProps {
   open: boolean;
@@ -16,6 +17,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
   const content = useContent();
   const navigate = useNavigate();
   const [query, setQuery] = useState('');
+  const dialogRef = useModalDialog(open);
 
   function submitSearch(e: React.FormEvent) {
     e.preventDefault();
@@ -26,28 +28,22 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
   }
 
   return createPortal(
-    <div
-      className={cn(
-        'fixed inset-0 z-40 md:hidden',
-        open ? 'pointer-events-auto' : 'pointer-events-none',
-      )}
-      aria-hidden={!open}
+    <dialog
+      ref={dialogRef}
+      id="mobile-menu"
+      aria-label={content.common.mainNavAriaLabel}
+      className="fixed inset-0 m-0 h-dvh max-h-none w-full max-w-none border-0 bg-transparent p-0 backdrop:bg-black/40"
+      onCancel={(event) => { event.preventDefault(); onClose(); }}
+      onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}
     >
-      <div
-        className={cn(
-          'absolute inset-0 bg-black/40 transition-opacity duration-300',
-          open ? 'opacity-100' : 'opacity-0',
-        )}
-        onClick={onClose}
-      />
       <nav
-        id="mobile-menu"
         aria-label={content.common.mainNavAriaLabel}
-        className={cn(
-          'absolute right-0 top-0 flex h-full w-72 max-w-[85%] flex-col gap-1 bg-white px-6 pt-24 shadow-xl transition-transform duration-300 ease-out',
-          open ? 'translate-x-0' : 'translate-x-full',
-        )}
+        className="absolute right-0 top-0 flex h-full w-72 max-w-[85%] flex-col gap-1 overflow-y-auto bg-white px-6 pb-6 pt-20 shadow-xl"
       >
+        <button type="button" autoFocus onClick={onClose} aria-label={content.common.closeMenu}
+          className="absolute right-4 top-3 flex h-11 w-11 items-center justify-center text-2xl text-wm-black">
+          <span aria-hidden="true">×</span>
+        </button>
         <form onSubmit={submitSearch} className="mb-3">
           <label className="sr-only" htmlFor="mobile-search">
             {content.common.openSearch}
@@ -78,7 +74,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         ))}
         <LanguageSwitcher className="mt-4 px-3" />
       </nav>
-    </div>,
+    </dialog>,
     document.body,
   );
 }
