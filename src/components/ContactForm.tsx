@@ -265,7 +265,7 @@ export function ContactForm({
 
       <button
         type="submit"
-        className="inline-flex items-center justify-center border border-wm-black bg-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-wm-black"
+        className="editorial-button"
       >
         {t.prepareEmail}
       </button>
@@ -280,12 +280,12 @@ export function ContactForm({
             {recipient && (
               <a
                 href={draft.href}
-                className="inline-flex items-center justify-center border border-wm-black bg-wm-black px-5 py-3 text-sm font-semibold text-white hover:bg-white hover:text-wm-black"
+                className="editorial-button"
               >
                 {t.openEmail}
               </a>
             )}
-            <button type="button" onClick={copyDraft} className="border border-wm-black px-5 py-3 text-sm font-semibold hover:bg-wm-black hover:text-white">
+            <button type="button" onClick={copyDraft} className="editorial-button editorial-button-secondary">
               {t.copyEmail}
             </button>
           </div>

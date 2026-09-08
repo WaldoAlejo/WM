@@ -23,7 +23,7 @@ export function SectionHeading({ as: Heading = 'h2', eyebrow, title, subtitle, a
           {eyebrow}
         </p>
       )}
-      <Heading className={cn('text-2xl font-bold sm:text-3xl', titleClassName ?? 'text-wm-black')}>{title}</Heading>
+      <Heading className={cn('text-3xl font-medium leading-tight sm:text-4xl', titleClassName ?? 'text-wm-black')}>{title}</Heading>
       {subtitle && <p className={cn('mt-3 max-w-2xl [font-family:var(--font-body)]', subtitleClassName ?? 'text-wm-gray-700')} style={align === 'center' ? { marginInline: 'auto' } : undefined}>{subtitle}</p>}
     </div>
   );

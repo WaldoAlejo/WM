@@ -46,11 +46,11 @@ export function Header() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 border-b bg-white/95 backdrop-blur transition-shadow',
+        'sticky top-0 z-50 border-b bg-wm-page transition-shadow',
         scrolled ? 'border-wm-gray-300 shadow-sm' : 'border-transparent',
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-6 lg:px-8">
         <NavLink to="/" className="flex items-center" aria-label={content.common.homeAriaLabel}>
           <Logo height={46} />
         </NavLink>

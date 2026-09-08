@@ -15,8 +15,8 @@ export function Footer() {
   const activeSocials = contactInfo.socials.filter((s) => !isPending(s.url));
 
   return (
-    <footer className="border-t border-wm-gray-300 bg-wm-gray-50">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <footer className="editorial-footer">
+      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
         <div
           className={cn(
             'grid grid-cols-1 gap-10',

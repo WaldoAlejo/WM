@@ -1,3 +1,4 @@
+import { PageIntro } from '../components/PageIntro';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ContactForm } from '../components/ContactForm';
 import { PendingNote } from '../components/PendingNote';
@@ -69,9 +70,9 @@ export function ContactPage() {
   });
 
   return (
-    <div className="mx-auto max-w-5xl px-4 py-14 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-extrabold text-wm-black sm:text-4xl">{content.contactPage.title}</h1>
-      <p className="mt-4 max-w-2xl text-base text-wm-gray-700">{content.contactPage.intro}</p>
+    <>
+      <PageIntro title={content.contactPage.title} description={content.contactPage.intro} />
+      <div className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
 
       <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr]">
         <div>
@@ -247,5 +248,6 @@ export function ContactPage() {
         </aside>
       </div>
     </div>
+    </>
   );
 }

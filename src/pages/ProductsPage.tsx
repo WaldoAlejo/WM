@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { SectionHeading } from '../components/SectionHeading';
+import { PageIntro } from '../components/PageIntro';
 import { ProductGrid } from '../components/ProductGrid';
 import { products } from '../data/products';
 import { categories } from '../data/categories';
@@ -36,8 +36,9 @@ export function ProductsPage() {
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-4 pb-14 pt-6 sm:px-6 lg:px-8 lg:pb-20 lg:pt-8">
-      <SectionHeading as="h1" title={content.productsPage.title} subtitle={content.productsPage.intro} />
+    <>
+      <PageIntro title={content.productsPage.title} description={content.productsPage.intro} />
+      <section className="mx-auto max-w-7xl px-6 pb-16 lg:px-8">
 
       <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <label className="relative w-full sm:max-w-xs">
@@ -90,5 +91,6 @@ export function ProductsPage() {
         <ProductGrid products={filtered} />
       </div>
     </section>
+    </>
   );
 }

@@ -232,3 +232,15 @@ El carrusel cambia cada diez segundos. Permite pausar/reanudar; se detiene al se
 una miniatura, mientras tiene foco o el puntero encima y al ocultar la pestaña.
 Con movimiento reducido usa selección manual. La navegación compacta se usa por debajo
 de 1024 px. Los resultados de la fase 4 están en [el registro de fases](review-output/FASES-MEJORAS-WM.md).
+
+### Dirección visual
+
+La portada y los componentes compartidos adoptan una composición editorial: fotografía
+protagonista, espacios amplios, bloques de categoría y franjas negras con transiciones suaves hacia
+los fondos claros. La referencia visual proporcionada por WM es Nayapot; las fotografías, los textos
+y los logotipos implementados son los del proyecto WM. Consultar
+[la adaptación visual](review-output/ADAPTACION-VISUAL-WM.md) para alcance y validación.
+
+El acabado se mantiene en componentes compartidos para que nuevos productos hereden
+las mismas transiciones visuales. Los datos técnicos, modelos pendientes y documentos
+disponibles siguen procediendo de src/data/products.ts.

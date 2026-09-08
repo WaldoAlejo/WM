@@ -1,4 +1,5 @@
 import { WarrantyBadge } from '../components/WarrantyBadge';
+import { PageIntro } from '../components/PageIntro';
 import { PendingNote } from '../components/PendingNote';
 import { ContactForm } from '../components/ContactForm';
 import { useContent } from '../i18n/useContent';
@@ -15,14 +16,10 @@ export function WarrantyPage() {
   });
 
   return (
-    <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6 lg:px-8">
-      <div className="flex items-start justify-between gap-6">
-        <div>
-          <h1 className="text-3xl font-extrabold text-wm-black sm:text-4xl">{content.warrantyPage.title}</h1>
-          <p className="mt-4 max-w-2xl text-base text-wm-gray-700">{content.warrantyPage.intro}</p>
-        </div>
-        <WarrantyBadge size={80} className="hidden sm:block" />
-      </div>
+    <>
+      <PageIntro title={content.warrantyPage.title} description={content.warrantyPage.intro} />
+      <div className="mx-auto max-w-4xl px-6 pb-16 lg:px-8">
+      <WarrantyBadge size={80} />
 
       <section className="mt-12">
         <h2 className="text-sm font-semibold uppercase tracking-wide text-wm-black">
@@ -61,5 +58,6 @@ export function WarrantyPage() {
         />
       </section>
     </div>
+    </>
   );
 }

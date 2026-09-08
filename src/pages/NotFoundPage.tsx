@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { PageIntro } from '../components/PageIntro';
 import { useContent } from '../i18n/useContent';
 import { useSeo } from '../utils/useSeo';
 
@@ -13,16 +14,16 @@ export function NotFoundPage() {
   });
 
   return (
-    <div className="mx-auto flex max-w-2xl flex-col items-center px-4 py-24 text-center sm:px-6">
-      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-wm-gray-500">{content.notFound.eyebrow}</p>
-      <h1 className="mt-3 text-3xl font-extrabold text-wm-black sm:text-4xl">{content.notFound.title}</h1>
-      <p className="mt-4 text-base text-wm-gray-700">{content.notFound.body}</p>
+    <>
+      <PageIntro title={content.notFound.title} description={content.notFound.body} eyebrow={content.notFound.eyebrow} />
+      <div className="mx-auto max-w-7xl px-6 pb-20 lg:px-8">
       <Link
         to="/"
-        className="mt-8 inline-flex items-center justify-center border border-wm-black bg-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-wm-black"
+        className="mt-8 editorial-button"
       >
         {content.notFound.cta}
       </Link>
     </div>
+    </>
   );
 }

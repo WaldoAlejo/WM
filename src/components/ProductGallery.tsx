@@ -1,9 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Pending, Product, ProductImage } from '../types';
 import { isPending } from '../types';
 import { ProductPhoto } from './ProductPhoto';
 import { ImageLightbox } from './ImageLightbox';
 import { useContent } from '../i18n/useContent';
+import { useLocale } from '../i18n/LocaleContext';
+import { t } from '../utils/t';
 import { cn } from '../utils/cn';
 
 interface ProductGalleryProps {
@@ -14,12 +16,33 @@ interface ProductGalleryProps {
 /** Main photo + thumbnail strip (side column on larger screens, row below on mobile). Works with zero gallery images (main only). */
 export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
   const content = useContent();
+  const { locale } = useLocale();
   const allImages: Pending<ProductImage>[] = [mainImage, ...gallery];
   const realImages = allImages.filter((img): img is ProductImage => !isPending(img));
   const [activeIndex, setActiveIndex] = useState(0);
+  const [requestedIndex, setRequestedIndex] = useState(0);
+  const [visited, setVisited] = useState(() => new Set([0]));
+  const [ready, setReady] = useState<Set<string>>(() => new Set());
+  const [failed, setFailed] = useState<Set<number>>(() => new Set());
+  const [attempts, setAttempts] = useState<Record<number, number>>({});
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const active = allImages[activeIndex] ?? mainImage;
-  const activeRealIndex = !isPending(active) ? realImages.indexOf(active) : -1;
+  const activeRealIndex = !isPending(active) && ready.has(active.src) ? realImages.indexOf(active) : -1;
+  const requested = allImages[requestedIndex] ?? mainImage;
+  const requestedSrc = isPending(requested) ? undefined : requested.src;
+
+  useEffect(() => {
+    if (!requestedSrc || ready.has(requestedSrc)) setActiveIndex(requestedIndex);
+  }, [requestedIndex, requestedSrc, ready]);
+
+  function selectImage(index: number) {
+    setRequestedIndex(index);
+    setVisited((previous) => new Set(previous).add(index));
+    if (failed.has(index)) {
+      setFailed((previous) => { const next = new Set(previous); next.delete(index); return next; });
+      setAttempts((previous) => ({ ...previous, [index]: (previous[index] ?? 0) + 1 }));
+    }
+  }
 
   return (
     <div className="flex flex-col gap-4 sm:flex-row">
@@ -29,10 +52,36 @@ export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
           onClick={() => activeRealIndex >= 0 && setLightboxOpen(true)}
           disabled={activeRealIndex < 0}
           aria-label={content.productDetail.zoomAriaLabel}
-          className="block w-full disabled:cursor-default"
+          className="gallery-stage block w-full disabled:cursor-default"
         >
-          <ProductPhoto image={active} className="border border-wm-gray-300 transition-opacity hover:opacity-90" loading="eager" />
+          <span className="gallery-frames">
+            {(isPending(active) || failed.has(activeIndex)) && <ProductPhoto image={{ pending: true }} />}
+            {allImages.map((photo, index) => {
+              if (isPending(photo) || !visited.has(index)) return null;
+              const visible = index === activeIndex && !failed.has(index);
+              return (
+                <img
+                  key={`${index}-${attempts[index] ?? 0}`}
+                  src={photo.src}
+                  alt={visible ? t(photo.alt, locale) : ''}
+                  aria-hidden={!visible}
+                  loading="eager"
+                  decoding="async"
+                  width={1254}
+                  height={1254}
+                  className={cn('gallery-frame', visible && 'is-active')}
+                  onLoad={async (event) => {
+                    const image = event.currentTarget;
+                    try { await image.decode(); } catch { /* Use a successfully loaded image when decode is unavailable. */ }
+                    if (image.naturalWidth > 0) setReady((previous) => new Set(previous).add(photo.src));
+                  }}
+                  onError={() => setFailed((previous) => new Set(previous).add(index))}
+                />
+              );
+            })}
+          </span>
         </button>
+        {failed.has(requestedIndex) && <p role="status" className="mt-4 text-sm text-wm-gray-700">{content.productDetail.galleryLoadError}</p>}
       </div>
 
       {lightboxOpen && activeRealIndex >= 0 && (
@@ -43,7 +92,7 @@ export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
           onNavigate={(realIndex) => {
             const target = realImages[realIndex];
             const indexInAll = allImages.indexOf(target);
-            if (indexInAll >= 0) setActiveIndex(indexInAll);
+            if (indexInAll >= 0) selectImage(indexInAll);
           }}
         />
       )}
@@ -59,10 +108,10 @@ export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
               key={index}
               type="button"
               aria-pressed={index === activeIndex}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => selectImage(index)}
               className={cn(
-                'h-16 w-16 shrink-0 overflow-hidden border bg-wm-gray-50 transition-colors sm:h-16 sm:w-16 lg:h-20 lg:w-20',
-                index === activeIndex ? 'border-wm-black' : 'border-wm-gray-300',
+                'h-16 w-16 shrink-0 overflow-hidden rounded-sm border bg-wm-gray-50 transition-colors duration-300 sm:h-16 sm:w-16 lg:h-20 lg:w-20',
+                index === activeIndex ? 'border-wm-wine' : 'border-wm-gray-300 hover:border-wm-wine',
               )}
             >
               <ProductPhoto image={img} className="h-full w-full rounded-none border-0 p-0" />

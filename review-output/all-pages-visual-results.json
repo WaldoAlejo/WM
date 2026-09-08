@@ -1,0 +1,362 @@
+﻿[
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  false,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/",
+        "title":  "Diseñados para hacer mejor tu hogar.",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/productos",
+        "title":  "Productos",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/nosotros",
+        "title":  "Nosotros",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/garantia",
+        "title":  "Garantía",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/contacto",
+        "title":  "Contacto",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/404",
+        "title":  "Página no encontrada",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/productos/batidora-inmersion-5-en-1",
+        "title":  "Batidora de Inmersión 5 en 1",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/productos/licuadora-profesional",
+        "title":  "Licuadora Profesional",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/productos/olla-presion-multifuncion-6l",
+        "title":  "Olla de Presión Multifunción",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/productos/freidora-de-aire-multifuncion-10l",
+        "title":  "Freidora de Aire Multifunción 10L",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/productos/freidora-de-aire-multifuncion-12l",
+        "title":  "Freidora de Aire Multifunción 12L - Blanca",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/productos/licuadora-vidrio-hogar",
+        "title":  "Licuadora de Vidrio para el Hogar",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/productos/freidora-de-aire-vidrio-4l",
+        "title":  "Freidora de Aire de Vidrio 4L",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/productos/ventilador-industrial-3-en-1",
+        "title":  "Ventilador Industrial 18\" 3 en 1",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "es",
+        "overflow":  false,
+        "path":  "/productos/estacion-de-energia-portatil-p3200",
+        "title":  "Estación de Energía Portátil P3200",
+        "width":  390
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  false,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/",
+        "title":  "Designed to make your home better.",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/productos",
+        "title":  "Products",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/nosotros",
+        "title":  "About us",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/garantia",
+        "title":  "Warranty",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/contacto",
+        "title":  "Contact",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/404",
+        "title":  "Page not found",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/productos/batidora-inmersion-5-en-1",
+        "title":  "Immersion Blender 5-in-1",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/productos/licuadora-profesional",
+        "title":  "Professional Blender",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/productos/olla-presion-multifuncion-6l",
+        "title":  "Multifunction Pressure Cooker",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/productos/freidora-de-aire-multifuncion-10l",
+        "title":  "10L Multifunction Air Fryer",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/productos/freidora-de-aire-multifuncion-12l",
+        "title":  "12L Multifunction Air Fryer - White",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/productos/licuadora-vidrio-hogar",
+        "title":  "Home Glass Blender",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/productos/freidora-de-aire-vidrio-4l",
+        "title":  "4L Glass Air Fryer",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/productos/ventilador-industrial-3-en-1",
+        "title":  "18\" 3-in-1 Industrial Fan",
+        "width":  1440
+    },
+    {
+        "broken":  [
+
+                   ],
+        "darkIntro":  true,
+        "h1":  1,
+        "lang":  "en",
+        "overflow":  false,
+        "path":  "/productos/estacion-de-energia-portatil-p3200",
+        "title":  "P3200 Portable Power Station",
+        "width":  1440
+    }
+]

@@ -81,3 +81,26 @@ Validación final:
 - CSS final: 33,45 kB (6,87 kB gzip); JavaScript: 373,91 kB (112,84 kB gzip). Se conservaron las fotografías existentes.
 - Mediciones en Chrome y servidores locales; los tiempos del entorno Windows no representan el rendimiento de producción. No se realizó despliegue.
 - Compilación completa aprobada: TypeScript, Vite y generación de 15 HTML y sitemap. Sin errores en el registro del navegador al finalizar. La parte de contenido queda pendiente únicamente de los datos y documentos de WM enumerados en el inventario.
+
+## Adaptación visual posterior — referencia Nayapot
+
+Por solicitud de WM, se implementó una composición editorial inspirada en la referencia
+aportada por el CEO: portada fotográfica, bloques de Hogar/Energía, selección de destacados
+y componentes compartidos más ligeros. Se conservan catálogo, contacto sin backend y ES/EN.
+Alcance y verificaciones: [ADAPTACION-VISUAL-WM.md](ADAPTACION-VISUAL-WM.md).
+
+La segunda iteración sustituye las bandas oscuras de la primera propuesta por un fondo
+continuo marfil/piedra. El movimiento se concentra en fundidos fotográficos de 1,1 segundos
+y pequeños desplazamientos de enlaces y tarjetas. Se mantienen contraste de texto y foco.
+
+Aclaración posterior de WM: las franjas negras deben mantenerse. La tercera iteración
+recupera el negro y suaviza sus bordes hacia blanco, conservando el fundido entre imágenes.
+Esta decisión sustituye la eliminación de bandas descrita en la segunda iteración.
+
+La cuarta iteración extiende el acabado a catálogo, nueve fichas, Nosotros, Garantía,
+Contacto y 404 mediante PageIntro compartido. Galerías con fundido seguro de 850 ms.
+30 comprobaciones de rutas sin problemas; cambio de foto probado en los nueve productos;
+evaluación visual, compilación completa y 18 pruebas aprobadas. Detalle en ADAPTACION-VISUAL-WM.md.
+
+Ajuste puntual posterior: Energía en Inicio usa fondo claro, según la captura indicada por WM.
+Esto no modifica las franjas negras de la portada, garantía ni páginas interiores.

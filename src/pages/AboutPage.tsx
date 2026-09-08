@@ -1,3 +1,4 @@
+import { PageIntro } from '../components/PageIntro';
 import { useContent } from '../i18n/useContent';
 import { isPending } from '../types';
 import { PendingNote } from '../components/PendingNote';
@@ -14,8 +15,9 @@ export function AboutPage() {
   });
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 lg:px-8">
-      <h1 className="text-3xl font-extrabold text-wm-black sm:text-4xl">{content.aboutPage.title}</h1>
+    <>
+      <PageIntro title={content.aboutPage.title} description={content.aboutPage.seoDescription} />
+      <div className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
 
       <section className="mt-8 space-y-4">
         {isPending(content.aboutPage.intro) ? (
@@ -111,5 +113,6 @@ export function AboutPage() {
         </p>
       </section>
     </div>
+    </>
   );
 }

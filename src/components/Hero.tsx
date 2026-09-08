@@ -1,11 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type { Product } from '../types';
+import { isPending, type Product } from '../types';
 import { useContent } from '../i18n/useContent';
 import { useLocale } from '../i18n/LocaleContext';
 import { t } from '../utils/t';
-import { ProductPhoto } from './ProductPhoto';
-import { WarrantyBadge } from './WarrantyBadge';
 import { cn } from '../utils/cn';
 
 interface HeroProps {
@@ -14,19 +12,14 @@ interface HeroProps {
 
 const ROTATE_INTERVAL_MS = 10_000;
 
-/**
- * Front-panel composition: copy on the left, one large rotating product
- * photo on the right — echoes the packaging "FRENTE" layout, but with a
- * single dominant image (like Ninja/Kitchen-it hero banners) instead of a
- * grid of small, unevenly-filled tiles. The warranty seal sits as a small
- * corner badge rather than competing for equal visual weight, and a
- * thumbnail strip below keeps the other featured products one click away.
- * Rotation pauses while someone interacts and respects reduced motion.
- */
+/** Editorial product carousel with explicit pause and motion preferences. */
 export function Hero({ products = [] }: HeroProps) {
   const content = useContent();
   const { locale } = useLocale();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [displayedIndex, setDisplayedIndex] = useState(0);
+  const [readyImages, setReadyImages] = useState<Set<string>>(() => new Set());
+  const [firstImageFailed, setFirstImageFailed] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
@@ -59,123 +52,107 @@ export function Hero({ products = [] }: HeroProps) {
     return () => window.clearInterval(id);
   }, [products.length, rotating]);
 
-  const currentIndex = products.length ? activeIndex % products.length : 0;
+  const requestedIndex = products.length ? activeIndex % products.length : 0;
+  const requestedImage = products[requestedIndex]?.mainImage;
+  const requestedSrc = requestedImage && !isPending(requestedImage) ? requestedImage.src : undefined;
+  // Loading only marks readiness. The current requested index determines which
+  // frame is displayed, so late downloads cannot override a newer selection.
+  useEffect(() => {
+    if (requestedSrc && readyImages.has(requestedSrc)) setDisplayedIndex(requestedIndex);
+  }, [requestedIndex, requestedSrc, readyImages]);
+
+  const currentIndex = products.length ? displayedIndex % products.length : 0;
   const activeProduct = products[currentIndex];
+  const firstImage = products[0]?.mainImage;
+  const firstReady = firstImageFailed || !firstImage || isPending(firstImage) || readyImages.has(firstImage.src);
 
   return (
-    <section className="border-b border-wm-gray-300">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-14 pt-6 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-16 lg:pb-20 lg:pt-8 lg:px-8">
-        <div>
-          <h1 className="text-4xl font-extrabold leading-[1.08] text-wm-black sm:text-5xl">
-            {content.hero.title}
-          </h1>
-          <p className="mt-5 max-w-md text-base text-wm-gray-700">{content.hero.subtitle}</p>
-          <Link
-            to="/productos"
-            className="mt-8 inline-flex items-center justify-center border border-wm-black bg-wm-black px-7 py-3 text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-wm-black"
-          >
-            {content.hero.cta}
-          </Link>
-
-          <ul className="mt-10 space-y-3 border-t border-wm-gray-300 pt-8">
-            {content.hero.trustPoints.map((point) => (
-              <li key={point} className="flex items-center gap-3 text-sm text-wm-gray-700">
-                <span
-                  className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-wm-wine text-white"
-                  aria-hidden="true"
-                >
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
-                    <path d="M8 12.5l2.5 2.5L16.5 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                {point}
-              </li>
-            ))}
-          </ul>
+    <section
+      className="editorial-hero dark-surface"
+      aria-label={content.hero.spotlightLabel}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocusCapture={() => setFocused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
+      }}
+    >
+      <div className="editorial-hero-scene">
+        <div className="editorial-hero-photos">
+          {products.map((product, i) => {
+            const photo = product.mainImage;
+            if (isPending(photo) || (i !== 0 && !firstReady)) return null;
+            return (
+              <img
+                key={product.id}
+                src={photo.src}
+                alt={i === currentIndex && !(i === 0 && firstImageFailed) ? t(photo.alt, locale) : ''}
+                aria-hidden={i !== currentIndex || (i === 0 && firstImageFailed)}
+                width={1254}
+                height={1254}
+                loading="eager"
+                fetchPriority={i === 0 ? 'high' : 'low'}
+                decoding="async"
+                onError={() => {
+                  if (i === 0) {
+                    setFirstImageFailed(true);
+                    if (requestedIndex === 0 && products.length > 1) setActiveIndex(1);
+                  }
+                }}
+                onLoad={async (event) => {
+                  const image = event.currentTarget;
+                  try { await image.decode(); } catch { /* A loaded image may still be usable if decode is unsupported. */ }
+                  if (image.naturalWidth > 0) setReadyImages((ready) => new Set(ready).add(photo.src));
+                }}
+                className={cn('editorial-hero-image', i === currentIndex && !(i === 0 && firstImageFailed) && 'is-active')}
+              />
+            );
+          })}
         </div>
-
-        <div
-          className="mx-auto w-full min-w-0 max-w-md lg:max-w-none"
-          role="group"
-          aria-label={content.hero.spotlightLabel}
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
-          onFocusCapture={() => setFocused(true)}
-          onBlurCapture={(event) => {
-            if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
-          }}
-        >
-          <div className="flex flex-col gap-4">
-            <div className="min-w-0 flex-1">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-wm-wine">
-                {content.hero.spotlightLabel}
-              </p>
-              <div className="relative">
-                <Link
-                  to={activeProduct ? `/productos/${activeProduct.slug}` : '/productos'}
-                  className="group block overflow-hidden border border-wm-gray-300 bg-white p-5 sm:p-6"
-                >
-                  <div key={activeIndex} className={reducedMotion ? undefined : 'fade-in-up'}>
-                    <ProductPhoto
-                      image={activeProduct?.mainImage ?? { pending: true }}
-                      loading="eager"
-                      className="transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                </Link>
-                <div className="absolute -bottom-4 right-3 flex h-16 w-16 items-center justify-center rounded-full border border-wm-gray-300 bg-white shadow-md sm:h-20 sm:w-20">
-                  <WarrantyBadge size={60} />
-                </div>
-              </div>
-
-              {activeProduct && (
-                <Link
-                  to={`/productos/${activeProduct.slug}`}
-                  className="mt-6 block min-h-16 text-sm font-semibold uppercase tracking-[0.1em] text-wm-black transition-colors hover:text-wm-wine"
-                >
-                  {t(activeProduct.name, locale)}
-                </Link>
-              )}
+        <div className="editorial-hero-shade" aria-hidden="true" />
+        <div className="editorial-hero-copy">
+          <p className="editorial-eyebrow text-white/75">{content.home.eyebrow}</p>
+          <h1>{content.hero.title}</h1>
+          <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/80 sm:text-base">{content.hero.subtitle}</p>
+          <Link to="/productos" className="editorial-button editorial-button-light mt-8">
+            {content.hero.cta}<span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+      </div>
+      <div className="editorial-hero-bar">
+        <div className="min-w-0">
+          <p className="editorial-eyebrow mb-1 text-white/65">{content.hero.spotlightLabel}</p>
+          {activeProduct && (
+            <Link to={`/productos/${activeProduct.slug}`} className="inline-flex min-h-11 items-center gap-4 text-sm hover:underline underline-offset-4">
+              {t(activeProduct.name, locale)}<span aria-hidden="true">↗</span>
+            </Link>
+          )}
+        </div>
+        {products.length > 1 && (
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-1">
+            <div className="flex items-center gap-1" role="group" aria-label={content.hero.spotlightLabel}>
+              {products.map((product, i) => (
+                <button
+                  key={product.id}
+                  type="button"
+                  onClick={() => { setActiveIndex(i); setPaused(true); }}
+                  aria-label={t(product.name, locale)}
+                  aria-pressed={i === currentIndex}
+                  className={cn('flex h-11 w-11 items-center justify-center border-b text-xs tabular-nums transition-colors',
+                    i === currentIndex ? 'border-white text-white' : 'border-white/25 text-white/65 hover:border-white hover:text-white')}
+                >{String(i + 1).padStart(2, '0')}</button>
+              ))}
             </div>
-
-            {products.length > 1 && (
-              <div className="grid grid-cols-5 gap-2 sm:grid-cols-9">
-                {products.map((product, i) => (
-                  <button
-                    key={product.id}
-                    type="button"
-                    onClick={() => { setActiveIndex(i); setPaused(true); }}
-                    aria-label={t(product.name, locale)}
-                    aria-pressed={i === currentIndex}
-                    className={cn(
-                      'aspect-square min-h-11 min-w-0 overflow-hidden border bg-white p-1 transition-colors',
-                      i === currentIndex ? 'border-2 border-wm-wine' : 'border-wm-gray-300 hover:border-wm-wine',
-                    )}
-                  >
-                    <ProductPhoto image={product.mainImage} loading="lazy" />
-                  </button>
-                ))}
-              </div>
-            )}
-            {products.length > 1 && (
-              <div className="flex min-h-11 items-center justify-between gap-3 border-t border-wm-gray-300 pt-3">
-                <span className="text-xs tabular-nums text-wm-gray-700">{currentIndex + 1} / {products.length}</span>
-                {reducedMotion ? (
-                  <span className="text-right text-xs text-wm-gray-700">{content.hero.manualRotation}</span>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => setPaused((value) => !value)}
-                    className="inline-flex min-h-11 items-center gap-2 px-2 text-xs font-semibold text-wm-wine underline underline-offset-4 hover:text-wm-black"
-                  >
-                    <span aria-hidden="true">{paused ? '▶' : 'Ⅱ'}</span>
-                    {paused ? content.hero.resumeRotation : content.hero.pauseRotation}
-                  </button>
-                )}
-              </div>
+            {reducedMotion ? (
+              <span className="max-w-40 text-xs text-white/75">{content.hero.manualRotation}</span>
+            ) : (
+              <button type="button" onClick={() => setPaused((value) => !value)} className="inline-flex min-h-11 items-center gap-2 text-xs text-white/80 underline underline-offset-4 hover:text-white">
+                <span aria-hidden="true">{paused ? '▶' : 'Ⅱ'}</span>
+                {paused ? content.hero.resumeRotation : content.hero.pauseRotation}
+              </button>
             )}
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
