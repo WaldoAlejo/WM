@@ -89,9 +89,9 @@ export function HomePage() {
       </section>
 
       <section className="editorial-warranty dark-surface">
-        <div className="mx-auto flex max-w-7xl flex-col items-start gap-9 px-6 py-16 sm:py-20 lg:flex-row lg:items-center lg:justify-between lg:px-8">
-          <div className="flex flex-col gap-7 sm:flex-row sm:items-center">
-            <div className="w-fit shrink-0 rounded-sm bg-wm-page p-4"><WarrantyBadge size={88} /></div>
+        <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 py-8 sm:py-10 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
+            <div className="w-fit shrink-0 rounded-sm bg-wm-page p-3"><WarrantyBadge size={72} /></div>
             <div>
               <h2 className="text-3xl font-medium leading-tight sm:text-4xl">{content.warrantyHome.heading}</h2>
               <p className="mt-4 max-w-lg text-sm leading-6 text-white/80">{content.warrantyHome.body}</p>

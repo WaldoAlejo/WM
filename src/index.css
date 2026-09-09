@@ -220,9 +220,15 @@
   .editorial-quality { background: linear-gradient(to bottom, var(--color-wm-page), #ede9e2 55%, var(--color-wm-page)); }
   .editorial-warranty { color: white; background: #181715; }
   .editorial-warranty::before,
-  .editorial-warranty::after { content: ''; display: block; height: 80px; }
-  .editorial-warranty::before { background: linear-gradient(to bottom, var(--color-wm-page), #181715); }
-  .editorial-warranty::after { background: linear-gradient(to bottom, #181715, var(--color-wm-page)); }
+  .editorial-warranty::after {
+    content: '';
+    display: block;
+    height: clamp(64px, 8vw, 110px);
+    /* Per-pixel smoothstep with subtle dither; see scripts/generateWarrantyFade.mjs.
+       Preserve horizontal pixel size so small screens retain the anti-banding texture. */
+    background: url('/warranty-fade.png') center / 2048px 100% repeat-x;
+  }
+  .editorial-warranty::after { transform: scaleY(-1); }
   .editorial-footer { background: linear-gradient(to bottom, var(--color-wm-page), #e8e3db); }
   .editorial-story-copy { padding: 3rem 1.5rem; align-content: center; }
   .editorial-story-energy .editorial-story-image { order: -1; aspect-ratio: 4 / 3; }
