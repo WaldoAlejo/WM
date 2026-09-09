@@ -47,8 +47,7 @@ La implementación conserva las dependencias existentes y las fotografías del c
 Paquete final: CSS 34,86 kB (7,42 kB gzip) y JavaScript 376,93 kB (113,74 kB gzip).
 Las medidas de compilación y comprobaciones de navegador son locales.
 
-Vistas finales: [Escritorio](wm-editorial-desktop.png), [Móvil](wm-editorial-mobile.png)
-y [Móvil completo](wm-editorial-mobile-full.png).
+Se revisaron las vistas de escritorio, móvil y móvil completo. Las capturas históricas se retiraron durante la limpieza del proyecto; permanecen los resultados de las comprobaciones.
 Compilación completa aprobada: TypeScript, Vite, 15 HTML y sitemap. Lint sin errores; conserva únicamente la advertencia previa de Fast Refresh en LocaleContext.tsx. Cambios disponibles localmente, sin commit ni push en esta iteración.
 
 ## Segunda iteración — continuidad visual y movimiento
@@ -81,8 +80,7 @@ También se bloqueó la primera imagen: el carrusel mostró otra cargada y no ex
 imagen rota. La consulta desde la ficha P3200 conserva su URL y contexto de producto.
 
 18 pruebas aprobadas; lint sin errores, con la advertencia preexistente de Fast Refresh.
-Capturas de esta iteración: [Escritorio](wm-soft-desktop.png), [Móvil](wm-soft-mobile.png)
-y [Móvil completo](wm-soft-mobile-full.png). Los cambios siguen locales.
+Se revisaron escritorio, móvil y móvil completo; las capturas históricas se retiraron durante la limpieza del proyecto. Los cambios seguían locales en esta iteración.
 Compilación final actualizada y aprobada, incluida la protección de primera imagen fallida: TypeScript, Vite y 15 HTML con sitemap. Paquete final JS 376,29 kB (113,83 kB gzip), CSS 35,85 kB (7,72 kB gzip). Se comprobó que el paquete incluye el último ajuste del carrusel.
 
 ## Tercera iteración — corrección de la intención visual
@@ -96,8 +94,7 @@ los bordes de transición fuera del área de lectura. Se conserva el fundido de 
 y su protección de carga; esta corrección no modifica la lógica del carrusel.
 
 Verificación de la corrección: TypeScript y lint aprobados (solo la advertencia previa de
-Fast Refresh), sin desbordamiento ES a 390/768/1440 px ni EN a 390 px. Capturas verificadas:
-[Escritorio con franjas negras](wm-black-desktop.png) y [Móvil completo](wm-black-mobile-full.png).
+Fast Refresh), sin desbordamiento ES a 390/768/1440 px ni EN a 390 px. Se verificaron las vistas de escritorio con franjas negras y móvil completo; las capturas históricas se retiraron durante la limpieza del proyecto.
 Esta iteración se comprobó en el servidor de desarrollo; no se regeneró dist/ porque el
 cambio está limitado a presentación. El paquete de producción debe recompilarse antes de publicar.
 Revisión visual independiente: PASS. Franjas negras recuperadas, texto sobre centros sólidos y transiciones fuera del contenido; sin problemas bloqueantes.
@@ -128,7 +125,7 @@ Resultado de la cuarta iteración:
 - Compilación completa aprobada, con 15 HTML y sitemap; 18 pruebas aprobadas; lint solo
   conserva la advertencia previa de Fast Refresh. No se agregaron dependencias ni backend.
 
-Capturas: [Ficha de producto](wm-all-product-desktop.png) y [Contacto móvil](wm-all-contact-mobile.png).
+Se verificaron la ficha de producto y Contacto móvil; las capturas históricas se retiraron durante la limpieza del proyecto.
 El paquete dist/ queda actualizado con esta iteración; cambios locales sin publicar.
 
 ## Quinta iteración — ajuste puntual de Energía en Inicio

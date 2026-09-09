@@ -11,6 +11,11 @@ node_modules
 dist
 dist-ssr
 review-output/build-*/
+review-output/*.png
+review-output/*.jpg
+review-output/*.jpeg
+review-output/*.webp
+review-output/screenshots/
 *.local
 
 # Raw product photos as uploaded (not used by the app — the ones actually

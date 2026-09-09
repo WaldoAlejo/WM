@@ -40,7 +40,7 @@ Implementado:
 
 Validación: 18 pruebas automatizadas aprobadas, incluidas generación real de archivos temporales, cobertura del catálogo, existencia de fotos, escape del HTML y noindex. Lint conserva solo la advertencia previa de Fast Refresh. En Chrome local se verificaron menú y visor con Tab, Shift+Tab y Escape, regreso del foco, cierre del menú al redimensionar, cambio de foto con flechas y encabezado/metadatos en inglés. No se observaron errores en el registro del navegador durante esos recorridos.
 
-Evidencias: `phase3-mobile-menu.png` y `phase3-lightbox-final.png` en esta carpeta. Se comprobó móvil de 390×844 y el cambio a escritorio de 1440×900; no equivale a una auditoría completa de accesibilidad ni a una prueba del despliegue Vercel. Los metadatos iniciales están en español por compartir URL entre idiomas. El contenido de las páginas sigue siendo renderizado por React.
+Se verificaron el menú móvil y el visor de imágenes; las capturas históricas se retiraron durante la limpieza del proyecto. Se comprobó móvil de 390×844 y el cambio a escritorio de 1440×900; no equivale a una auditoría completa de accesibilidad ni a una prueba del despliegue Vercel. Los metadatos iniciales están en español por compartir URL entre idiomas. El contenido de las páginas sigue siendo renderizado por React.
 
 Compilación TypeScript/Vite y generación SEO completadas. Se verificaron 15 HTML, 14 entradas de sitemap, la imagen social en el HTML inicial y los estilos finales del visor en el paquete compilado. La vista previa local sirvió los metadatos propios de `/productos`, `/contacto`, la ficha P3200 y `/404`; la respuesta de rutas desconocidas de Vercel y las tarjetas reales de redes sociales requieren comprobación tras desplegar.
 
@@ -71,7 +71,7 @@ Implementado:
 
 Contenido pendiente de WM: ocho manuales, nueve fichas técnicas PDF y los valores detallados en el inventario. El único documento disponible es el manual P3200. No se inventaron especificaciones ni se incorporó un backend.
 
-Comprobaciones iniciales: 18 pruebas aprobadas y lint sin errores (permanece la advertencia previa de Fast Refresh). Inicio revisado a 390, 768 y 1440 px en ES/EN, sin desbordamiento horizontal. Capturas: phase4-tablet-es.png, phase4-desktop-es.png y phase4-mobile-en.png.
+Comprobaciones iniciales: 18 pruebas aprobadas y lint sin errores (permanece la advertencia previa de Fast Refresh). Inicio revisado a 390, 768 y 1440 px en ES/EN, sin desbordamiento horizontal. Las capturas históricas de estas comprobaciones se retiraron durante la limpieza del proyecto.
 
 Validación final:
 - Pausa mantiene la selección durante más de diez segundos; reanudar vuelve a cambiarla tras el intervalo.

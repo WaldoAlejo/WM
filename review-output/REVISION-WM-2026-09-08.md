@@ -112,7 +112,7 @@ El título «Productos» usa un componente que siempre genera h2. La página no 
 - Se comprobaron 38 referencias locales: 37 fotografías y un manual. Ninguna apunta a un archivo inexistente. Esto no valida el contenido del manual ni la exactitud comercial de las fichas.
 - `npm run lint`: terminó sin errores, con una advertencia `react/only-export-components` en `LocaleContext.tsx:35`.
 - `npm run build`: la ejecución inicial terminó correctamente, con TypeScript y 70 módulos transformados. Salida principal: JS 370.27 kB (111.37 kB gzip), CSS 35.20 kB (6.98 kB gzip). Estos tamaños no incluyen todas las imágenes y fuentes ni equivalen a tiempos de carga.
-- Un segundo intento encontró `EPERM` al limpiar `dist/assets` mientras la primera compilación seguía activa. No se considera un defecto del código. Se inició además una compilación en `review-output/build-20260908` para evitar ese conflicto y se detuvo después de confirmar el éxito de la compilación principal; esa carpeta contiene artefactos parciales de revisión.
+- Un segundo intento encontró `EPERM` al limpiar `dist/assets` mientras la primera compilación seguía activa. No se considera un defecto del código. Se inició además una compilación en `review-output/build-20260908` para evitar ese conflicto y se detuvo después de confirmar el éxito de la compilación principal; esa carpeta contenía artefactos parciales de revisión, retirados posteriormente durante la limpieza del proyecto.
 - Chrome automatizado no inició. No se certifican aspecto en móvil/escritorio, ausencia de desbordamiento, contraste visual, métricas de rendimiento ni recorridos de navegador. No se inspeccionó el despliegue público.
 
 ## Orden de trabajo propuesto
