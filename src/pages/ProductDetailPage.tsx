@@ -49,7 +49,7 @@ export function ProductDetailPage() {
   const lifestyleImage = getLifestyleImage(product);
 
   return (
-    <article>
+    <article className="editorial-product-detail">
       <PageIntro title={name} eyebrow={category ? t(category.name, locale) : content.productsPage.title}>
         {isPending(product.model) ? content.productDetail.modelPending : `${content.productDetail.modelLabel} ${product.model}`}
       </PageIntro>

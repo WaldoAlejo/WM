@@ -15,3 +15,7 @@ La rampa compartida ocupa 140–240 px según el ancho de pantalla y se solapa 1
 Las fotografías editoriales y las fichas técnicas conservan bordes nítidos, sin máscaras que borren productos. Solo el hero usa una unión fotográfica porque debe mantener legible el texto sobre una superficie oscura. Calidad y pie de página comparten el fondo claro, sin degradados decorativos.
 
 Para cambiar la apariencia global, editar estos tokens y reglas compartidas; evitar nuevos degradados o arreglos por página. El comportamiento de animación y movimiento reducido continúa en los componentes y en `src/index.css`.
+
+## Cabeceras de producto
+
+Las nueve fichas usan `.editorial-product-detail` y una única regla centralizada para el fondo de su cabecera. El degradado vertical se pinta sobre la altura completa del encabezado, conserva oscura la zona del título y termina en `#f5f5f2`, el mismo fondo cálido del artículo siguiente. El pseudoelemento `::after` permanece como espaciador transparente, sin máscara ni fondo: mantiene exactamente la altura y las posiciones existentes. No modificar tipografía, márgenes o rellenos para ajustar esta transición; sus colores y paradas están en `src/styles/surfaces.css`.

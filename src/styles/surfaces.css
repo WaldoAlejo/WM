@@ -34,6 +34,17 @@
     transform: scaleY(-1);
   }
 
+  /* Product headers paint one continuous background across their full height. */
+  .editorial-product-detail { background: #f5f5f2; }
+  .editorial-product-detail > .editorial-page-intro {
+    background: linear-gradient(180deg, #151514 0%, #181817 42%, #20201f 55%, #353534 65%, #5f5f5d 74%, #92928f 82%, #c7c7c3 91%, #f5f5f2 100%);
+  }
+  .editorial-product-detail > .editorial-page-intro::after {
+    /* Retain the existing layout spacer, but let only the header paint the fade. */
+    background: transparent;
+    mask: none;
+  }
+
   /* Quiet light sections flow together without decorative gray fog. */
   .editorial-quality,
   .editorial-footer,
