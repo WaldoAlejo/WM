@@ -13,6 +13,7 @@ export function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [query, setQuery] = useState('');
   const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchToggleRef = useRef<HTMLButtonElement>(null);
   const mainNav = useMainNav();
   const content = useContent();
   const navigate = useNavigate();
@@ -25,6 +26,7 @@ export function Header() {
     e.preventDefault();
     const trimmed = query.trim();
     navigate(trimmed ? `/productos?buscar=${encodeURIComponent(trimmed)}` : '/productos');
+    searchToggleRef.current?.focus();
     setSearchOpen(false);
     setQuery('');
   }
@@ -50,7 +52,7 @@ export function Header() {
         scrolled ? 'border-wm-gray-300 shadow-sm' : 'border-transparent',
       )}
     >
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-4 px-6 lg:px-8">
+      <div className="wm-container flex h-18 items-center justify-between gap-4">
         <NavLink to="/" className="flex items-center" aria-label={content.common.homeAriaLabel}>
           <Logo height={46} />
         </NavLink>
@@ -78,9 +80,17 @@ export function Header() {
         <div className="hidden items-center gap-2 lg:flex">
           <form
             onSubmit={submitSearch}
+            aria-hidden={!searchOpen}
+            onKeyDown={(event) => {
+              if (event.key === 'Escape') {
+                event.preventDefault();
+                setSearchOpen(false);
+                searchToggleRef.current?.focus();
+              }
+            }}
             className={cn(
-              'flex items-center overflow-hidden border border-transparent transition-all duration-200',
-              searchOpen ? 'w-40 border-wm-gray-300 pl-3 xl:w-48' : 'w-0',
+              'header-search-form flex items-center overflow-hidden border border-transparent transition-[width] duration-200',
+              searchOpen ? 'w-36 border-wm-gray-300 pl-3 xl:w-48' : 'w-0',
             )}
           >
             <span className="sr-only">
@@ -98,11 +108,12 @@ export function Header() {
             />
           </form>
           <button
+            ref={searchToggleRef}
             type="button"
             onClick={() => setSearchOpen((v) => !v)}
             aria-label={searchOpen ? content.common.closeSearch : content.common.openSearch}
             aria-expanded={searchOpen}
-            className="flex h-9 w-9 items-center justify-center text-wm-black transition-colors hover:text-wm-wine"
+            className="flex h-11 w-11 shrink-0 items-center justify-center text-wm-black transition-colors hover:text-wm-wine"
           >
             {searchOpen ? (
               <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" aria-hidden="true">
@@ -120,7 +131,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
           aria-label={menuOpen ? content.common.closeMenu : content.common.openMenu}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"

@@ -236,8 +236,8 @@ de 1024 px. Los resultados de la fase 4 están en [el registro de fases](review-
 ### Dirección visual
 
 La portada y los componentes compartidos adoptan una composición editorial: fotografía
-protagonista, espacios amplios, bloques de categoría y franjas negras con transiciones suaves hacia
-los fondos claros. La referencia visual proporcionada por WM es Nayapot; las fotografías, los textos
+protagonista, espacios amplios, bloques de categoría y franjas negras. El Home reserva la transición
+principal para el hero y utiliza cortes limpios en garantía. La referencia visual proporcionada por WM es Nayapot; las fotografías, los textos
 y los logotipos implementados son los del proyecto WM. Consultar
 [la adaptación visual](review-output/ADAPTACION-VISUAL-WM.md) para alcance y validación.
 
@@ -249,3 +249,6 @@ Las superficies y transiciones se ajustan globalmente en
 [`src/styles/surfaces.css`](src/styles/surfaces.css). Consulta la
 [guía de mantenimiento](review-output/TRANSICIONES-WM.md) para cambiar colores,
 altura de los bordes y regenerar las máscaras compartidas sin editar cada página.
+
+La [revisión del Home](review-output/MEJORAS-HOME-WM.md) documenta los ajustes
+conservadores de alineación, espaciado, interacción y accesibilidad, comprobados a zoom 100 %.

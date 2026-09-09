@@ -22,7 +22,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             onClick={() => setLocale(code)}
             aria-pressed={locale === code}
             className={cn(
-              'px-1 transition-colors',
+              'inline-flex min-h-11 min-w-11 items-center justify-center px-1 transition-colors',
               locale === code ? 'text-wm-black' : 'text-wm-gray-500 hover:text-wm-black',
             )}
           >

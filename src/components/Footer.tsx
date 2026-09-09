@@ -16,7 +16,7 @@ export function Footer() {
 
   return (
     <footer className="editorial-footer">
-      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-8">
+      <div className="wm-container py-14">
         <div
           className={cn(
             'grid grid-cols-1 gap-10',
@@ -32,10 +32,10 @@ export function Footer() {
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-wm-gray-500">
               {content.footer.navHeading}
             </h3>
-            <ul className="space-y-2">
+            <ul>
               {mainNav.map((item) => (
                 <li key={item.path}>
-                  <Link to={item.path} className="text-sm text-wm-black hover:text-wm-gray-500">
+                  <Link to={item.path} className="inline-flex min-h-9 items-center text-sm text-wm-black hover:text-wm-gray-500">
                     {item.label}
                   </Link>
                 </li>
@@ -52,7 +52,7 @@ export function Footer() {
                 {isPending(contactInfo.email) ? (
                   <PendingNote label={content.footer.emailPending} />
                 ) : (
-                  <a href={`mailto:${contactInfo.email}`} className="hover:text-wm-black">
+                  <a href={`mailto:${contactInfo.email}`} className="inline-flex min-h-9 items-center break-all hover:text-wm-black">
                     {contactInfo.email}
                   </a>
                 )}
@@ -80,7 +80,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="flex h-9 w-9 items-center justify-center border border-wm-gray-300 text-wm-black transition-colors hover:border-wm-wine hover:text-wm-wine"
+                      className="flex h-11 w-11 items-center justify-center border border-wm-gray-300 text-wm-black transition-colors hover:border-wm-wine hover:text-wm-wine"
                     >
                       <SocialIcon icon={social.icon} />
                     </a>

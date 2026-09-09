@@ -121,7 +121,7 @@ export function Hero({ products = [] }: HeroProps) {
       </div>
       <div className="editorial-hero-bar">
         <div className="min-w-0">
-          <p className="editorial-eyebrow mb-1 text-white/65">{content.hero.spotlightLabel}</p>
+          <p className="editorial-eyebrow text-white/65">{content.hero.spotlightLabel}</p>
           {activeProduct && (
             <Link to={`/productos/${activeProduct.slug}`} className="inline-flex min-h-11 items-center gap-4 text-sm hover:underline underline-offset-4">
               {t(activeProduct.name, locale)}<span aria-hidden="true">↗</span>
@@ -144,7 +144,7 @@ export function Hero({ products = [] }: HeroProps) {
               ))}
             </div>
             {reducedMotion ? (
-              <span className="max-w-40 text-xs text-white/75">{content.hero.manualRotation}</span>
+              <span className="sr-only">{content.hero.manualRotation}</span>
             ) : (
               <button type="button" onClick={() => setPaused((value) => !value)} className="inline-flex min-h-11 items-center gap-2 text-xs text-white/80 underline underline-offset-4 hover:text-white">
                 <span aria-hidden="true">{paused ? '▶' : 'Ⅱ'}</span>

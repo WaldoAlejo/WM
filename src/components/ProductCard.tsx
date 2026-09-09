@@ -20,7 +20,7 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       to={`/productos/${product.slug}`}
-      className="group flex h-full flex-col border-b border-wm-gray-300 pb-5 transition-colors hover:border-wm-wine focus-visible:border-wm-wine"
+      className="editorial-product-card group flex h-full flex-col border-b border-wm-gray-300 pb-5 transition-colors hover:border-wm-wine focus-visible:border-wm-wine"
     >
       <div className="editorial-card-photo relative overflow-hidden">
         {(product.featured || product.isNew) && (
@@ -30,7 +30,7 @@ export function ProductCard({ product }: ProductCardProps) {
         )}
         <ProductPhoto
           image={product.mainImage}
-          className="transition-transform duration-300 group-hover:scale-[1.03]"
+          className="editorial-product-card-image"
         />
       </div>
       <div className="flex flex-1 flex-col pt-5">

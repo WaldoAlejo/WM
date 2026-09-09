@@ -54,7 +54,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={content.productsPage.searchPlaceholder}
-            className="w-full border border-wm-gray-300 px-3 py-2.5 text-sm outline-none focus:border-wm-black"
+            className="w-full border border-wm-gray-300 px-3 py-2.5 text-sm focus:border-wm-black"
           />
         </form>
         {mainNav.map((item) => (

@@ -34,6 +34,24 @@
     transform: scaleY(-1);
   }
 
+  /* Home has one principal transition, painted on the hero itself.
+     Stops follow the empty tail so carousel controls stay on solid dark at every width. */
+  .editorial-home .editorial-hero {
+    --surface-edge-height: clamp(64px, 6vw, 88px);
+    --surface-edge-overlap: 8px;
+    background: linear-gradient(180deg,
+      var(--surface-dark) 0%,
+      var(--surface-dark) calc(100% - var(--surface-edge-height)),
+      #292928 calc(100% - var(--surface-edge-height) * .82),
+      #858582 calc(100% - var(--surface-edge-height) * .46),
+      #e3e3df calc(100% - var(--surface-edge-height) * .10),
+      var(--surface-page) 100%);
+  }
+  .editorial-home .editorial-hero::after { background: transparent; mask: none; }
+  .editorial-home .editorial-warranty::before,
+  .editorial-home .editorial-warranty::after { content: none; }
+  .editorial-footer { border-top: 1px solid var(--color-wm-gray-300); }
+
   /* Product headers paint one continuous background across their full height. */
   .editorial-product-detail { background: #f5f5f2; }
   .editorial-product-detail > .editorial-page-intro {

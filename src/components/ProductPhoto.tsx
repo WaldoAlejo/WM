@@ -40,6 +40,7 @@ export function ProductPhoto({ image, className, loading = 'lazy' }: ProductPhot
       src={image.src}
       alt={t(image.alt, locale)}
       loading={loading}
+      decoding="async"
       className={cn('aspect-square w-full rounded-sm bg-wm-gray-50 object-contain', className)}
     />
   );
