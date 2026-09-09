@@ -2,69 +2,21 @@
 :root {
   --surface-dark: #181715;
   --surface-page: var(--color-wm-page);
-  --surface-edge-height: clamp(140px, 17vw, 240px);
-  --surface-edge-overlap: 16px;
   --surface-photo-edge-height: clamp(120px, 13vw, 180px);
   --surface-mask-y: url('/surface-fade-y.png');
   --surface-mask-x: url('/surface-fade-x.png');
 }
 
 @layer components {
+  /* Dark Home sections end at their content edge, with no transition spacer. */
   .editorial-hero,
-  .editorial-page-intro,
   .editorial-warranty { background: var(--surface-dark); color: white; }
 
-  /* Start inside empty edge padding, never under copy or controls. */
-  .editorial-hero::after,
-  .editorial-page-intro::after,
-  .editorial-warranty::before,
-  .editorial-warranty::after {
-    content: '';
-    display: block;
-    height: var(--surface-edge-height);
-    background: var(--surface-page);
-    mask: var(--surface-mask-y) center / 2048px 100% repeat-x;
-    pointer-events: none;
-  }
-  .editorial-hero::after,
-  .editorial-page-intro::after,
-  .editorial-warranty::after { margin-top: calc(-1 * var(--surface-edge-overlap)); }
-  .editorial-warranty::before {
-    margin-bottom: calc(-1 * var(--surface-edge-overlap));
-    transform: scaleY(-1);
-  }
+  /* Interior titles and content share one warm, uninterrupted surface. */
+  .editorial-page-intro,
+  .editorial-product-detail { background: var(--surface-page); color: var(--color-wm-ink); }
 
-  /* Home and compact page intros share one short transition, painted on the dark container.
-     Stops follow the empty tail so copy and carousel controls remain on solid dark. */
-  .editorial-home .editorial-hero,
-  .editorial-page-intro-compact {
-    --surface-edge-height: clamp(64px, 6vw, 88px);
-    --surface-edge-overlap: 8px;
-    background: linear-gradient(180deg,
-      var(--surface-dark) 0%,
-      var(--surface-dark) calc(100% - var(--surface-edge-height)),
-      #292928 calc(100% - var(--surface-edge-height) * .82),
-      #858582 calc(100% - var(--surface-edge-height) * .46),
-      #e3e3df calc(100% - var(--surface-edge-height) * .10),
-      var(--surface-page) 100%);
-  }
-  .editorial-page-intro-compact { --surface-edge-height: clamp(48px, 4vw, 64px); }
-  .editorial-home .editorial-hero::after,
-  .editorial-page-intro-compact::after { background: transparent; mask: none; }
-  .editorial-home .editorial-warranty::before,
-  .editorial-home .editorial-warranty::after { content: none; }
   .editorial-footer { border-top: 1px solid var(--color-wm-gray-300); }
-
-  /* Product headers paint one continuous background across their full height. */
-  .editorial-product-detail { background: #f5f5f2; }
-  .editorial-product-detail > .editorial-page-intro {
-    background: linear-gradient(180deg, #151514 0%, #181817 42%, #20201f 55%, #353534 65%, #5f5f5d 74%, #92928f 82%, #c7c7c3 91%, #f5f5f2 100%);
-  }
-  .editorial-product-detail > .editorial-page-intro::after {
-    /* Retain the existing layout spacer, but let only the header paint the fade. */
-    background: transparent;
-    mask: none;
-  }
 
   /* Quiet light sections flow together without decorative gray fog. */
   .editorial-quality,

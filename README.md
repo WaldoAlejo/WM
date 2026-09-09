@@ -236,19 +236,18 @@ de 1024 px. Los resultados de la fase 4 están en [el registro de fases](review-
 ### Dirección visual
 
 La portada y los componentes compartidos adoptan una composición editorial: fotografía
-protagonista, espacios amplios, bloques de categoría y franjas negras. El Home reserva la transición
-principal para el hero y utiliza cortes limpios en garantía. La referencia visual proporcionada por WM es Nayapot; las fotografías, los textos
+protagonista, espacios amplios, bloques de categoría y franjas negras. El Home conserva el Hero oscuro y utiliza cortes limpios. Las cabeceras interiores comparten el fondo claro del contenido, sin degradados entre secciones. La referencia visual proporcionada por WM es Nayapot; las fotografías, los textos
 y los logotipos implementados son los del proyecto WM. Consultar
 [la adaptación visual](review-output/ADAPTACION-VISUAL-WM.md) para alcance y validación.
 
 El acabado se mantiene en componentes compartidos para que nuevos productos hereden
-las mismas transiciones visuales. Los datos técnicos, modelos pendientes y documentos
+el mismo sistema de superficies. Los datos técnicos, modelos pendientes y documentos
 disponibles siguen procediendo de src/data/products.ts.
 
 Las superficies y transiciones se ajustan globalmente en
 [`src/styles/surfaces.css`](src/styles/surfaces.css). Consulta la
 [guía de mantenimiento](review-output/TRANSICIONES-WM.md) para cambiar colores,
-altura de los bordes y regenerar las máscaras compartidas sin editar cada página.
+espaciado y la integración fotográfica del Hero sin editar cada página.
 
 La [revisión del Home](review-output/MEJORAS-HOME-WM.md) documenta los ajustes
 conservadores de alineación, espaciado, interacción y accesibilidad, comprobados a zoom 100 %.
