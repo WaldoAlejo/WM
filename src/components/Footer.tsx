@@ -16,7 +16,7 @@ export function Footer() {
 
   return (
     <footer className="editorial-footer">
-      <div className="wm-container py-14">
+      <div className="wm-container py-10 sm:py-12">
         <div
           className={cn(
             'grid grid-cols-1 gap-10',
@@ -25,7 +25,7 @@ export function Footer() {
         >
           <div>
             <Logo height={40} />
-            <p className="mt-4 max-w-xs text-sm text-wm-gray-700">{content.hero.subtitle}</p>
+            <p className="mt-4 max-w-xs text-sm leading-6 text-wm-gray-700">{content.hero.subtitle}</p>
           </div>
 
           <div>
@@ -35,7 +35,7 @@ export function Footer() {
             <ul>
               {mainNav.map((item) => (
                 <li key={item.path}>
-                  <Link to={item.path} className="inline-flex min-h-9 items-center text-sm text-wm-black hover:text-wm-gray-500">
+                  <Link to={item.path} className="inline-flex min-h-11 items-center text-sm text-wm-black transition-colors duration-300 hover:text-wm-wine">
                     {item.label}
                   </Link>
                 </li>
@@ -52,7 +52,7 @@ export function Footer() {
                 {isPending(contactInfo.email) ? (
                   <PendingNote label={content.footer.emailPending} />
                 ) : (
-                  <a href={`mailto:${contactInfo.email}`} className="inline-flex min-h-9 items-center break-all hover:text-wm-black">
+                  <a href={`mailto:${contactInfo.email}`} className="inline-flex min-h-11 items-center break-all transition-colors duration-300 hover:text-wm-black">
                     {contactInfo.email}
                   </a>
                 )}

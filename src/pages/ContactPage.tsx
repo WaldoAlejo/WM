@@ -71,10 +71,10 @@ export function ContactPage() {
 
   return (
     <>
-      <PageIntro title={content.contactPage.title} description={content.contactPage.intro} />
-      <div className="mx-auto max-w-5xl px-6 pb-16 lg:px-8">
+      <PageIntro compact title={content.contactPage.title} description={content.contactPage.intro} descriptionClassName="lg:max-w-4xl" />
+      <div className="wm-container pb-16">
 
-      <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr]">
+      <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]">
         <div>
           <h2 className="text-sm font-semibold uppercase tracking-wide text-wm-black">
             {content.contactPage.categoriesHeading}
@@ -83,7 +83,7 @@ export function ContactPage() {
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <Link
               to="/garantia"
-              className="group flex h-full flex-col border border-wm-gray-300 p-5 text-left transition-all hover:border-wm-wine hover:shadow-md"
+              className="group flex h-full flex-col border border-wm-gray-300 p-5 text-left transition-colors duration-300 hover:border-wm-wine"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-full bg-wm-wine-tint">
                 <ShieldIcon className="text-wm-wine" />
@@ -103,10 +103,10 @@ export function ContactPage() {
               onClick={() => setCategory('support')}
               aria-pressed={category === 'support'}
               className={cn(
-                'group flex h-full flex-col border p-5 text-left transition-all',
+                'group flex h-full flex-col border p-5 text-left transition-colors duration-300',
                 category === 'support'
-                  ? 'border-wm-wine bg-wm-wine shadow-md'
-                  : 'border-wm-gray-300 hover:border-wm-wine hover:shadow-md',
+                  ? 'border-wm-wine bg-wm-wine'
+                  : 'border-wm-gray-300 hover:border-wm-wine',
               )}
             >
               <span
@@ -146,10 +146,10 @@ export function ContactPage() {
               onClick={() => setCategory('sales')}
               aria-pressed={category === 'sales'}
               className={cn(
-                'group flex h-full flex-col border p-5 text-left transition-all',
+                'group flex h-full flex-col border p-5 text-left transition-colors duration-300',
                 category === 'sales'
-                  ? 'border-wm-wine bg-wm-wine shadow-md'
-                  : 'border-wm-gray-300 hover:border-wm-wine hover:shadow-md',
+                  ? 'border-wm-wine bg-wm-wine'
+                  : 'border-wm-gray-300 hover:border-wm-wine',
               )}
             >
               <span

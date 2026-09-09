@@ -34,9 +34,10 @@
     transform: scaleY(-1);
   }
 
-  /* Home has one principal transition, painted on the hero itself.
-     Stops follow the empty tail so carousel controls stay on solid dark at every width. */
-  .editorial-home .editorial-hero {
+  /* Home and compact page intros share one short transition, painted on the dark container.
+     Stops follow the empty tail so copy and carousel controls remain on solid dark. */
+  .editorial-home .editorial-hero,
+  .editorial-page-intro-compact {
     --surface-edge-height: clamp(64px, 6vw, 88px);
     --surface-edge-overlap: 8px;
     background: linear-gradient(180deg,
@@ -47,7 +48,9 @@
       #e3e3df calc(100% - var(--surface-edge-height) * .10),
       var(--surface-page) 100%);
   }
-  .editorial-home .editorial-hero::after { background: transparent; mask: none; }
+  .editorial-page-intro-compact { --surface-edge-height: clamp(48px, 4vw, 64px); }
+  .editorial-home .editorial-hero::after,
+  .editorial-page-intro-compact::after { background: transparent; mask: none; }
   .editorial-home .editorial-warranty::before,
   .editorial-home .editorial-warranty::after { content: none; }
   .editorial-footer { border-top: 1px solid var(--color-wm-gray-300); }

@@ -22,7 +22,7 @@ export function ProductCard({ product }: ProductCardProps) {
       to={`/productos/${product.slug}`}
       className="editorial-product-card group flex h-full flex-col border-b border-wm-gray-300 pb-5 transition-colors hover:border-wm-wine focus-visible:border-wm-wine"
     >
-      <div className="editorial-card-photo relative overflow-hidden">
+      <div className={`editorial-card-photo relative overflow-hidden${product.categorySlug === 'energia' ? ' editorial-card-photo-packshot' : ''}`}>
         {(product.featured || product.isNew) && (
           <span className="absolute left-3 top-3 z-10 bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-wm-wine">
             {product.isNew ? content.productsPage.newBadge : content.productsPage.featuredBadge}
@@ -39,8 +39,8 @@ export function ProductCard({ product }: ProductCardProps) {
             {t(category.name, locale)}
           </p>
         )}
-        <h3 className="mt-1 text-base font-semibold text-wm-black">{t(product.name, locale)}</h3>
-        <p className="mt-0.5 text-sm text-wm-gray-500">
+        <h3 className="mt-2 text-base font-semibold leading-snug text-wm-black">{t(product.name, locale)}</h3>
+        <p className="mt-1 text-sm leading-6 text-wm-gray-500">
           {isPending(product.model)
             ? content.productDetail.modelPending
             : `${content.productDetail.modelLabel} ${product.model}`}

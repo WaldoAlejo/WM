@@ -101,7 +101,7 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="wm-section mx-auto max-w-4xl px-6 text-center">
+      <section className="editorial-contact-cta mx-auto max-w-4xl px-6 text-center">
         <p className="editorial-eyebrow text-wm-wine">{content.home.supportLabel}</p>
         <h2 className="editorial-heading mt-5">{content.contactCta.heading}</h2>
         <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-wm-gray-700">{content.contactCta.body}</p>

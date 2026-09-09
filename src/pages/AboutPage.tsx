@@ -16,8 +16,8 @@ export function AboutPage() {
 
   return (
     <>
-      <PageIntro title={content.aboutPage.title} description={content.aboutPage.seoDescription} />
-      <div className="mx-auto max-w-3xl px-6 pb-16 lg:px-8">
+      <PageIntro compact title={content.aboutPage.title} description={content.aboutPage.seoDescription} />
+      <div className="editorial-prose mx-auto max-w-3xl px-6 pb-16 lg:px-8">
 
       <section className="mt-8 space-y-4">
         {isPending(content.aboutPage.intro) ? (

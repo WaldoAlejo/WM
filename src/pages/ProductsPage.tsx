@@ -36,11 +36,11 @@ export function ProductsPage() {
   }
 
   return (
-    <>
-      <PageIntro title={content.productsPage.title} description={content.productsPage.intro} />
+    <div className="editorial-catalog">
+      <PageIntro compact title={content.productsPage.title} description={content.productsPage.intro} />
       <section className="mx-auto max-w-7xl px-6 pb-16 lg:px-8">
 
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <label className="relative w-full sm:max-w-xs">
           <span className="sr-only">{content.productsPage.searchPlaceholder}</span>
           <input
@@ -48,17 +48,17 @@ export function ProductsPage() {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder={content.productsPage.searchPlaceholder}
-            className="w-full border border-wm-gray-300 bg-white px-4 py-2.5 text-sm outline-none focus:border-wm-black"
+            className="min-h-11 w-full rounded-sm border border-wm-gray-300 bg-white px-4 py-2.5 text-sm focus:border-wm-wine"
           />
         </label>
 
-        <div className="flex flex-wrap gap-2" role="group" aria-label={content.productsPage.filterAriaLabel}>
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:shrink-0" role="group" aria-label={content.productsPage.filterAriaLabel}>
           <button
             type="button"
             onClick={() => setCategory('')}
             aria-pressed={activeCategory === ''}
             className={cn(
-              'border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors',
+              'col-span-2 min-h-11 rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors duration-300',
               activeCategory === '' ? 'border-wm-wine bg-wm-wine text-white' : 'border-wm-gray-300 text-wm-black hover:border-wm-wine',
             )}
           >
@@ -71,7 +71,7 @@ export function ProductsPage() {
               onClick={() => setCategory(cat.slug)}
               aria-pressed={activeCategory === cat.slug}
               className={cn(
-                'border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors',
+                'min-h-11 rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors duration-300',
                 activeCategory === cat.slug ? 'border-wm-wine bg-wm-wine text-white' : 'border-wm-gray-300 text-wm-black hover:border-wm-wine',
               )}
             >
@@ -81,9 +81,9 @@ export function ProductsPage() {
         </div>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-6 sm:mt-8">
         {(query || activeCategory) && (
-          <button type="button" onClick={() => setSearchParams({})} className="mb-5 text-sm font-semibold underline">
+          <button type="button" onClick={() => setSearchParams({})} className="mb-5 inline-flex min-h-11 items-center text-sm font-semibold underline underline-offset-4">
             {content.productsPage.clearFilters}
           </button>
         )}
@@ -91,6 +91,6 @@ export function ProductsPage() {
         <ProductGrid products={filtered} />
       </div>
     </section>
-    </>
+    </div>
   );
 }

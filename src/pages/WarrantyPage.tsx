@@ -17,8 +17,8 @@ export function WarrantyPage() {
 
   return (
     <>
-      <PageIntro title={content.warrantyPage.title} description={content.warrantyPage.intro} />
-      <div className="mx-auto max-w-4xl px-6 pb-16 lg:px-8">
+      <PageIntro compact title={content.warrantyPage.title} description={content.warrantyPage.intro} />
+      <div className="editorial-prose mx-auto max-w-4xl px-6 pb-16 lg:px-8">
       <WarrantyBadge size={80} />
 
       <section className="mt-12">
