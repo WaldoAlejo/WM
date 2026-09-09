@@ -1,0 +1,77 @@
+/* Surface system: colors, boundaries and photographic edges live here. */
+:root {
+  --surface-dark: #181715;
+  --surface-page: var(--color-wm-page);
+  --surface-edge-height: clamp(140px, 17vw, 240px);
+  --surface-edge-overlap: 16px;
+  --surface-photo-edge-height: clamp(120px, 13vw, 180px);
+  --surface-mask-y: url('/surface-fade-y.png');
+  --surface-mask-x: url('/surface-fade-x.png');
+}
+
+@layer components {
+  .editorial-hero,
+  .editorial-page-intro,
+  .editorial-warranty { background: var(--surface-dark); color: white; }
+
+  /* Start inside empty edge padding, never under copy or controls. */
+  .editorial-hero::after,
+  .editorial-page-intro::after,
+  .editorial-warranty::before,
+  .editorial-warranty::after {
+    content: '';
+    display: block;
+    height: var(--surface-edge-height);
+    background: var(--surface-page);
+    mask: var(--surface-mask-y) center / 2048px 100% repeat-x;
+    pointer-events: none;
+  }
+  .editorial-hero::after,
+  .editorial-page-intro::after,
+  .editorial-warranty::after { margin-top: calc(-1 * var(--surface-edge-overlap)); }
+  .editorial-warranty::before {
+    margin-bottom: calc(-1 * var(--surface-edge-overlap));
+    transform: scaleY(-1);
+  }
+
+  /* Quiet light sections flow together without decorative gray fog. */
+  .editorial-quality,
+  .editorial-footer,
+  .editorial-story-energy .editorial-story-image { background: var(--surface-page); }
+
+  /* Keep product subjects and printed technical information complete and crisp. */
+  .editorial-story-image,
+  .editorial-card-photo { border-radius: 4px; }
+  .gallery-stage,
+  .editorial-product-lifestyle { background: white; }
+
+  /* Only the hero needs a photo-to-dark blend: tint the same neutral mask. */
+  .editorial-hero-photos::after {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: var(--surface-photo-edge-height);
+    background: var(--surface-dark);
+    mask: var(--surface-mask-y) center / 2048px 100% repeat-x;
+    pointer-events: none;
+  }
+
+  @media (min-width: 1024px) {
+    /* Solid behind copy; feather only the empty gap toward the photograph. */
+    .editorial-hero-shade { width: 75%; }
+    .editorial-hero-shade::before,
+    .editorial-hero-shade::after {
+      content: '';
+      position: absolute;
+      background: var(--surface-dark);
+      pointer-events: none;
+    }
+    /* Overlap the feather to prevent a bright seam at fractional pixel widths. */
+    .editorial-hero-shade::before { inset: 0 calc(50% - 2px) 0 0; }
+    .editorial-hero-shade::after {
+      inset: 0 0 0 50%;
+      mask: var(--surface-mask-x) center / 100% 2048px repeat-y;
+      transform: scaleX(-1);
+    }
+  }
+}

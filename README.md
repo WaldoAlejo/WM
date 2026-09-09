@@ -244,3 +244,8 @@ y los logotipos implementados son los del proyecto WM. Consultar
 El acabado se mantiene en componentes compartidos para que nuevos productos hereden
 las mismas transiciones visuales. Los datos técnicos, modelos pendientes y documentos
 disponibles siguen procediendo de src/data/products.ts.
+
+Las superficies y transiciones se ajustan globalmente en
+[`src/styles/surfaces.css`](src/styles/surfaces.css). Consulta la
+[guía de mantenimiento](review-output/TRANSICIONES-WM.md) para cambiar colores,
+altura de los bordes y regenerar las máscaras compartidas sin editar cada página.
