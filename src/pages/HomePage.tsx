@@ -32,7 +32,14 @@ export function HomePage() {
       en: 'WM glass air fryer in black, with copper-toned accents',
     },
   };
-  const energyImage = featured.find((product) => product.id === 'p09')?.mainImage;
+  // Keep this editorial packshot independent from the product gallery selection.
+  const energyImage = {
+    src: '/products/estacion-de-energia-portatil-p3200/main.jpg',
+    alt: {
+      es: 'Estación de energía portátil WM P3200, vista de tres cuartos',
+      en: 'WM P3200 portable power station, three-quarter view',
+    },
+  };
 
   return (
     <div className="editorial-home">

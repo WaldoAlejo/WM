@@ -8,6 +8,9 @@ import { useLocale } from '../i18n/LocaleContext';
 import { t } from '../utils/t';
 import { cn } from '../utils/cn';
 
+// Includes the main image; additional catalog images remain available in the data.
+const MAX_VISIBLE_IMAGES = 5;
+
 interface ProductGalleryProps {
   mainImage: Pending<ProductImage>;
   gallery: Product['gallery'];
@@ -17,7 +20,7 @@ interface ProductGalleryProps {
 export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
   const content = useContent();
   const { locale } = useLocale();
-  const allImages: Pending<ProductImage>[] = [mainImage, ...gallery];
+  const allImages: Pending<ProductImage>[] = [mainImage, ...gallery].slice(0, MAX_VISIBLE_IMAGES);
   const realImages = allImages.filter((img): img is ProductImage => !isPending(img));
   const [activeIndex, setActiveIndex] = useState(0);
   const [requestedIndex, setRequestedIndex] = useState(0);
