@@ -1,4 +1,5 @@
 import { PageIntro } from '../components/PageIntro';
+import { Logo } from '../components/Logo';
 import { useContent } from '../i18n/useContent';
 import { isPending } from '../types';
 import { PendingNote } from '../components/PendingNote';
@@ -7,6 +8,7 @@ import { brand, contactInfo } from '../data/company';
 
 export function AboutPage() {
   const content = useContent();
+  const [standardTitleBefore, standardTitleAfter] = content.aboutPage.standardHeading.split('WM®');
 
   useSeo({
     title: content.aboutPage.title,
@@ -44,22 +46,25 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="mt-12">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-wm-black">
-          {content.aboutPage.standardHeading}
-        </h2>
-        <p className="mt-3 text-sm text-wm-gray-700">{content.aboutPage.standardIntro}</p>
-        <ul className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {content.aboutPage.standardPoints.map((point, i) => (
-            <li key={point} className="flex items-start gap-3 border border-wm-gray-300 p-4 text-sm text-wm-gray-700">
-              <span className="shrink-0 text-xs font-bold text-wm-wine">
-                {String(i + 1).padStart(2, '0')}
-              </span>
-              <span>{point}</span>
+      <section aria-labelledby="wm-standard-heading" className="editorial-standard mt-12">
+        <h2 id="wm-standard-heading" className="sr-only">{content.aboutPage.standardHeading}</h2>
+        <div className="grid gap-6 sm:grid-cols-[0.85fr_1.15fr] sm:items-end sm:gap-8">
+          <div aria-hidden="true">
+            <Logo height={32} />
+            <div className="mt-4 font-heading text-[28px] font-medium leading-tight tracking-tight text-wm-ink">
+              {[standardTitleBefore, standardTitleAfter].filter(Boolean).map((part) => part.trim()).join(' ')}
+            </div>
+          </div>
+          <p className="text-sm text-wm-gray-700">{content.aboutPage.standardIntro}</p>
+        </div>
+        <ul role="list" className="mt-8 grid grid-cols-1 gap-x-10 gap-y-6 border-t border-wm-gray-300 pt-8 sm:grid-cols-2">
+          {content.aboutPage.standardPoints.map((point) => (
+            <li key={point} className="text-[15px] font-medium leading-6 text-wm-ink">
+              {point}
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-sm text-wm-gray-700">{content.aboutPage.standardClosing}</p>
+        <p className="mt-8 border-t border-wm-gray-300 pt-6 text-sm text-wm-gray-700">{content.aboutPage.standardClosing}</p>
       </section>
 
       <section className="mt-12">
@@ -88,7 +93,13 @@ export function AboutPage() {
         </div>
       </section>
 
-      <p className="mt-14 text-center text-lg font-semibold text-wm-black">{content.aboutPage.tagline}</p>
+      <div className="mt-14 text-center text-lg font-semibold text-wm-black">
+        <p className="sr-only">{content.aboutPage.tagline}</p>
+        <div aria-hidden="true" className="flex flex-wrap items-center justify-center gap-x-3 gap-y-3">
+          <Logo height={28} className="shrink-0" />
+          <span>{content.aboutPage.tagline.replace(/^WM®\s*/, '')}</span>
+        </div>
+      </div>
 
       <section className="mt-8 border-t border-wm-gray-300 pt-8 text-center text-sm text-wm-gray-700">
         <p>

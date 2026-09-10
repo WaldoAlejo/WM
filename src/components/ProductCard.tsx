@@ -9,9 +9,11 @@ import { t } from '../utils/t';
 
 interface ProductCardProps {
   product: Product;
+  image?: Product['mainImage'];
+  imageVariant?: 'lifestyle' | 'packshot';
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, image = product.mainImage, imageVariant = product.categorySlug === 'energia' ? 'packshot' : 'lifestyle' }: ProductCardProps) {
   const content = useContent();
   const { locale } = useLocale();
   const category = categories.find((c) => c.slug === product.categorySlug);
@@ -22,14 +24,15 @@ export function ProductCard({ product }: ProductCardProps) {
       to={`/productos/${product.slug}`}
       className="editorial-product-card group flex h-full flex-col border-b border-wm-gray-300 pb-5 transition-colors hover:border-wm-wine focus-visible:border-wm-wine"
     >
-      <div className={`editorial-card-photo relative overflow-hidden${product.categorySlug === 'energia' ? ' editorial-card-photo-packshot' : ''}`}>
+      <div className={`editorial-card-photo relative overflow-hidden${imageVariant === 'packshot' ? ' editorial-card-photo-packshot' : ''}`}>
         {(product.featured || product.isNew) && (
           <span className="absolute left-3 top-3 z-10 bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.1em] text-wm-wine">
             {product.isNew ? content.productsPage.newBadge : content.productsPage.featuredBadge}
           </span>
         )}
         <ProductPhoto
-          image={product.mainImage}
+          image={image}
+          fit={imageVariant === 'lifestyle' ? 'cover' : 'contain'}
           className="editorial-product-card-image"
         />
       </div>

@@ -9,13 +9,14 @@ interface ProductPhotoProps {
   image: Pending<ProductImage>;
   className?: string;
   loading?: 'lazy' | 'eager';
+  fit?: 'contain' | 'cover';
 }
 
 /**
  * Mirrors the dashed placeholder box used for "PRODUCT PHOTOGRAPH" in the
  * master packing template when no real photograph has been supplied yet.
  */
-export function ProductPhoto({ image, className, loading = 'lazy' }: ProductPhotoProps) {
+export function ProductPhoto({ image, className, loading = 'lazy', fit = 'contain' }: ProductPhotoProps) {
   const { locale } = useLocale();
   const content = useContent();
 
@@ -41,7 +42,7 @@ export function ProductPhoto({ image, className, loading = 'lazy' }: ProductPhot
       alt={t(image.alt, locale)}
       loading={loading}
       decoding="async"
-      className={cn('aspect-square w-full rounded-sm bg-wm-gray-50 object-contain', className)}
+      className={cn('aspect-square w-full rounded-sm bg-wm-gray-50', fit === 'cover' ? 'object-cover' : 'object-contain', className)}
     />
   );
 }

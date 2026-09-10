@@ -1,4 +1,4 @@
-import warrantySeal from '../assets/brand/WM_HOME_WARRANTY_SEAL_3YEARS.svg';
+import warrantySeal from '../assets/brand/WM_3_YEARS_WARRANTY.svg';
 import { cn } from '../utils/cn';
 import { useContent } from '../i18n/useContent';
 
@@ -8,8 +8,8 @@ interface WarrantyBadgeProps {
 }
 
 /**
- * Official 3-year warranty seal, extracted verbatim from the master
- * packing template. Never place over a product photo — always in flow,
+ * Official 3-year warranty seal supplied by WM.
+ * Never place over a product photo — always in flow,
  * with clear space around it (see PRD §5).
  */
 export function WarrantyBadge({ size = 72, className }: WarrantyBadgeProps) {

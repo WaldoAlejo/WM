@@ -175,10 +175,10 @@
   .gallery-frame.is-active { opacity: 1; }
   .editorial-product-lifestyle { padding: 16px; border-radius: 4px; }
 
-  .editorial-hero-scene { position: relative; }
+  .editorial-hero-scene { --hero-scene-min-height: 440px; position: relative; }
   .editorial-hero-photos {
     position: relative;
-    height: 300px;
+    height: clamp(220px, 56vw, 260px);
     overflow: hidden;
   }
   .editorial-hero-image {
@@ -194,7 +194,7 @@
   }
   .editorial-hero-image.is-active { opacity: 1; }
   .editorial-hero-shade { display: none; }
-  .editorial-hero-copy { position: relative; padding: 2rem var(--layout-gutter) 2.5rem; }
+  .editorial-hero-copy { position: relative; padding: 14px var(--layout-gutter); }
   .editorial-hero-copy h1 {
     margin-top: 1.1rem;
     max-width: 540px;
@@ -226,16 +226,16 @@
   .editorial-story-energy .editorial-story-image { order: -1; aspect-ratio: 4 / 3; }
 
   @media (min-width: 640px) {
-    .editorial-hero-photos { height: 400px; }
+    .editorial-hero-photos { height: 300px; }
     .editorial-hero-image { object-position: center 25%; }
-    .editorial-hero-copy { padding-block: 3rem; }
+    .editorial-hero-copy { padding-block: 22px; }
     .editorial-story { grid-template-columns: 1fr 1fr; }
     .editorial-story-image { aspect-ratio: auto; min-height: 440px; }
     .editorial-story-copy { padding: 3rem 2rem; }
     .editorial-story-energy .editorial-story-image { order: initial; aspect-ratio: auto; }
   }
   @media (min-width: 1024px) {
-    .editorial-hero-scene { min-height: 550px; }
+    .editorial-hero-scene { min-height: var(--hero-scene-min-height); }
     .editorial-hero-photos { position: absolute; right: 0; top: 0; width: 67%; height: 100%; }
     .editorial-hero-image { object-position: center 12%; }
     .editorial-hero-shade {
@@ -244,7 +244,7 @@
       inset: 0;
       pointer-events: none;
     }
-    .editorial-hero-copy { display: flex; min-height: 550px; max-width: var(--layout-max-width); margin-inline: auto; flex-direction: column; align-items: flex-start; justify-content: center; padding-block: 3.5rem; }
+    .editorial-hero-copy { display: flex; min-height: var(--hero-scene-min-height); max-width: var(--layout-max-width); margin-inline: auto; flex-direction: column; align-items: flex-start; justify-content: center; padding-block: 22px; }
     .editorial-hero-copy h1 { width: 45%; }
     .editorial-story-image { min-height: 560px; }
     .editorial-story-copy { padding: 4rem clamp(3rem, 6vw, 6rem); }

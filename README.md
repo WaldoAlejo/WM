@@ -175,12 +175,9 @@ UI como "Por confirmar" hasta que se reemplace:
 - El logotipo activo es `src/assets/brand/WM_LOGO_OFICIAL_REGISTRADO.svg` — el monograma "WM®"
   puro (sin la palabra "HOME" dentro del arte). Se usa tal cual, como imagen (`<img>`), nunca
   redibujado ni reconstruido con texto/tipografía.
-- `WM_HOME_LOGO_OFICIAL*.svg` (lockup anterior "WM" + "HOME" combinado en un solo arte) quedaron en
-  `src/assets/brand/` como archivo histórico, pero **ningún componente los usa**. No borrarlos sin
-  confirmar con el equipo de marca — podrían servir de referencia para un lockup de línea futuro.
-- El sello de garantía de 3 años (`WM_HOME_WARRANTY_SEAL_3YEARS.svg`) se extrajo sin modificar del
-  master packing (`WM_HOME_MASTER_PACKING_UNIVERSAL_EN.svg`) y nunca se superpone a fotografías de
-  producto.
+- Toda nueva presentación visual de la marca, incluidos títulos de sección, debe reutilizar `src/components/Logo.tsx`. No escribir WM con una fuente para sustituir el monograma, ni aplicar filtros, recoloración o deformaciones al archivo oficial.
+- Los SVG anteriores `WM_HOME_*` fueron retirados. Los componentes utilizan únicamente el logo oficial y el sello vigente.
+- El sello de garantía vigente es `WM_3_YEARS_WARRANTY.svg`, suministrado por WM. Se utiliza sin modificar mediante `WarrantyBadge` y nunca se superpone a fotografías de producto.
 - Paleta: negro, blanco cálido, grises y acento vino (`#6b1f2a`).
 - Tipografías: Montserrat (títulos) y Poppins (texto), autoalojadas vía `@fontsource`
   (subconjunto `latin` para español e inglés; evita cargar también `latin-ext`).

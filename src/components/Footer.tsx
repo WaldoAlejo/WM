@@ -16,26 +16,26 @@ export function Footer() {
 
   return (
     <footer className="editorial-footer">
-      <div className="wm-container py-10 sm:py-12">
+      <div className="wm-container pb-6 pt-8 lg:pt-10">
         <div
           className={cn(
-            'grid grid-cols-1 gap-10',
-            activeSocials.length > 0 ? 'sm:grid-cols-2 lg:grid-cols-4' : 'sm:grid-cols-3',
+            'grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:gap-x-10',
+            activeSocials.length > 0 ? 'lg:grid-cols-[1.2fr_1fr_1fr_0.6fr]' : 'lg:grid-cols-[1.2fr_1fr_1fr]',
           )}
         >
-          <div>
+          <div className="min-w-0 sm:col-span-2 lg:col-span-1">
             <Logo height={40} />
-            <p className="mt-4 max-w-xs text-sm leading-6 text-wm-gray-700">{content.hero.subtitle}</p>
+            <p className="mt-3 max-w-[300px] text-sm leading-6 text-wm-gray-700">{content.hero.subtitle}</p>
           </div>
 
-          <div>
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-wm-gray-500">
+          <div className="min-w-0 lg:pt-2">
+            <h3 className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-wm-wine">
               {content.footer.navHeading}
             </h3>
-            <ul>
+            <ul className="grid grid-cols-2 gap-x-4">
               {mainNav.map((item) => (
                 <li key={item.path}>
-                  <Link to={item.path} className="inline-flex min-h-11 items-center text-sm text-wm-black transition-colors duration-300 hover:text-wm-wine">
+                  <Link to={item.path} className="inline-flex min-h-11 items-center text-sm text-wm-black transition-colors duration-300 hover:text-wm-wine hover:underline underline-offset-4">
                     {item.label}
                   </Link>
                 </li>
@@ -43,8 +43,8 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
-            <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-wm-gray-500">
+          <div className="min-w-0 lg:pt-2">
+            <h3 className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-wm-wine">
               {content.footer.contactHeading}
             </h3>
             <ul className="space-y-2 text-sm text-wm-gray-700">
@@ -52,7 +52,7 @@ export function Footer() {
                 {isPending(contactInfo.email) ? (
                   <PendingNote label={content.footer.emailPending} />
                 ) : (
-                  <a href={`mailto:${contactInfo.email}`} className="inline-flex min-h-11 items-center break-all transition-colors duration-300 hover:text-wm-black">
+                  <a href={`mailto:${contactInfo.email}`} className="inline-flex min-h-11 max-w-full items-center break-words text-wm-black transition-colors duration-300 hover:text-wm-wine hover:underline underline-offset-4">
                     {contactInfo.email}
                   </a>
                 )}
@@ -69,10 +69,10 @@ export function Footer() {
 
           {activeSocials.length > 0 && (
             <div>
-              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-wm-gray-500">
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-wm-wine">
                 {content.footer.followHeading}
               </h3>
-              <ul className="flex items-center gap-3">
+              <ul className="flex flex-wrap items-center gap-3">
                 {activeSocials.map((social) => (
                   <li key={social.icon}>
                     <a
@@ -91,7 +91,7 @@ export function Footer() {
           )}
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-wm-gray-300 pt-6 text-xs text-wm-gray-500 sm:flex-row">
+        <div className="mt-6 flex flex-col items-start justify-between gap-4 border-t border-wm-gray-300 pt-5 text-xs text-wm-gray-500 sm:flex-row">
           <p>
             © {year} WM. {content.footer.rightsReserved}
           </p>

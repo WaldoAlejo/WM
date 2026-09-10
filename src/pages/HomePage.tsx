@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Hero } from '../components/Hero';
 import { ProductCard } from '../components/ProductCard';
 import { WarrantyBadge } from '../components/WarrantyBadge';
+import { QualityIcon } from '../components/QualityIcon';
 import { getFeaturedProducts } from '../data/products';
 import { useContent } from '../i18n/useContent';
 import { useLocale } from '../i18n/LocaleContext';
@@ -13,6 +14,7 @@ import { organizationJsonLd } from '../data/structuredData';
 
 // Deliberate editorial selections; all featured products remain in the catalog.
 const heroIds = ['p01', 'p07', 'p02'];
+const qualityIcons = ['design', 'quality', 'support'] as const;
 const selectionIds = ['p01', 'p07', 'p09'];
 
 export function HomePage() {
@@ -23,7 +25,13 @@ export function HomePage() {
   const featured = getFeaturedProducts();
   const heroProducts = heroIds.flatMap((id) => featured.filter((product) => product.id === id));
   const selection = selectionIds.flatMap((id) => featured.filter((product) => product.id === id));
-  const homeImage = featured.find((product) => product.id === 'p07')?.mainImage;
+  const homeImage = {
+    src: '/products/freidora-de-aire-vidrio-4l/AirFrayer_4L.png',
+    alt: {
+      es: 'Freidora de aire de vidrio WM en negro, con detalles en cobre',
+      en: 'WM glass air fryer in black, with copper-toned accents',
+    },
+  };
   const energyImage = featured.find((product) => product.id === 'p09')?.mainImage;
 
   return (
@@ -69,7 +77,20 @@ export function HomePage() {
           <Link to="/productos" className="editorial-text-link shrink-0">{content.featured.cta}<span aria-hidden="true">↗</span></Link>
         </div>
         <div className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-5 lg:gap-8">
-          {selection.map((product) => <ProductCard key={product.id} product={product} />)}
+          {selection.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              image={product.id === 'p09' ? {
+                src: '/products/estacion-de-energia-portatil-p3200/PowerStation_real.png',
+                alt: {
+                  es: 'Estación de energía portátil WM en una sala de estar',
+                  en: 'WM portable power station in a living room',
+                },
+              } : undefined}
+              imageVariant={product.id === 'p09' ? 'lifestyle' : undefined}
+            />
+          ))}
         </div>
       </section>
 
@@ -77,9 +98,9 @@ export function HomePage() {
         <div className="wm-container pb-16 pt-8 sm:pb-20">
           <h2 id="quality-heading" className="editorial-eyebrow mb-8 text-wm-wine">{content.quality.heading}</h2>
           <ul className="grid gap-8 sm:grid-cols-3 sm:gap-6">
-            {content.quality.points.map((point, i) => (
+            {content.quality.points.map((point, index) => (
               <li key={point.title} className="border-t border-wm-gray-300 pt-5">
-                <span className="text-xs tabular-nums text-wm-wine" aria-hidden="true">0{i + 1}</span>
+                <QualityIcon name={qualityIcons[index]} className="text-wm-wine" />
                 <h3 className="mt-3 text-base font-semibold">{point.title}</h3>
                 <p className="mt-3 max-w-sm text-sm leading-6 text-wm-gray-700">{point.description}</p>
               </li>
@@ -91,7 +112,7 @@ export function HomePage() {
       <section className="editorial-warranty dark-surface">
         <div className="wm-container flex flex-col items-start gap-6 py-12 sm:py-14 lg:flex-row lg:items-center lg:justify-between">
           <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
-            <div className="w-fit shrink-0 rounded-sm bg-wm-page p-3"><WarrantyBadge size={72} /></div>
+            <WarrantyBadge size={112} />
             <div>
               <h2 className="text-3xl font-medium leading-tight sm:text-4xl">{content.warrantyHome.heading}</h2>
               <p className="mt-4 max-w-lg text-sm leading-6 text-white/80">{content.warrantyHome.body}</p>
@@ -105,7 +126,12 @@ export function HomePage() {
         <p className="editorial-eyebrow text-wm-wine">{content.home.supportLabel}</p>
         <h2 className="editorial-heading mt-5">{content.contactCta.heading}</h2>
         <p className="mx-auto mt-5 max-w-lg text-sm leading-7 text-wm-gray-700">{content.contactCta.body}</p>
-        <Link to="/contacto" className="editorial-button mt-8">{content.contactCta.cta}<span aria-hidden="true">↗</span></Link>
+        <Link to="/contacto" className="editorial-button mt-8 justify-center gap-2.5 text-center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0" aria-hidden="true" focusable="false">
+            <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5Z" />
+          </svg>
+          <span className="leading-5">{content.contactCta.cta}</span>
+        </Link>
       </section>
     </div>
   );
