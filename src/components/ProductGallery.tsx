@@ -109,9 +109,9 @@ export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
               type="button"
               aria-pressed={index === activeIndex}
               onClick={() => selectImage(index)}
-              className="wm-button-surface h-16 w-16 shrink-0 overflow-hidden border p-1 sm:h-16 sm:w-16 lg:h-20 lg:w-20"
+              className="wm-button-surface h-16 w-16 shrink-0 overflow-hidden border p-0 sm:h-16 sm:w-16 lg:h-20 lg:w-20"
             >
-              <ProductPhoto image={img} className="h-full w-full rounded-none border-0 p-0" />
+              <ProductPhoto image={img} fit="cover" className="h-full w-full rounded-none border-0 p-0" />
             </button>
           ))}
         </div>

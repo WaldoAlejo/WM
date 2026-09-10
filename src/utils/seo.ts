@@ -11,7 +11,7 @@ export interface SeoOptions {
 }
 
 // Existing catalog photograph, used when a page has no product-specific image.
-export const defaultSocialImage = '/products/batidora-inmersion-5-en-1/main.jpg';
+export const defaultSocialImage = '/products/batidora-inmersion-5-en-1/batidor5en1_1.png';
 
 export function seoMetadata(page: SeoOptions, locale: 'es' | 'en' = 'es') {
   const siteName = `${brand.name} — ${productLine.name}`;

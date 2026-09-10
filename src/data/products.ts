@@ -101,7 +101,7 @@ export const products: Product[] = [
       },
     ],
     mainImage: {
-      src: '/products/batidora-inmersion-5-en-1/gallery-2.jpg',
+      src: '/products/batidora-inmersion-5-en-1/batidor5en1_1.png',
       alt: {
         es: 'Batidora de inmersión WM en uso preparando una sopa',
         en: 'WM immersion blender in use preparing a soup',
@@ -109,24 +109,38 @@ export const products: Product[] = [
     },
     gallery: [
       {
-        src: '/products/batidora-inmersion-5-en-1/main.jpg',
+        src: '/products/batidora-inmersion-5-en-1/batidor5en1_0.png',
         alt: {
-          es: 'Batidora de inmersión WM 5 en 1 con accesorios y empaque',
-          en: 'WM 5-in-1 immersion blender with accessories and packaging',
+          es: 'Batidora de inmersión WM 5 en 1 con picadora, batidor, espumador y vaso',
+          en: 'WM 5-in-1 immersion blender with chopper, whisk, frother and beaker',
         },
       },
       {
-        src: '/products/batidora-inmersion-5-en-1/gallery-1.jpg',
+        src: '/products/batidora-inmersion-5-en-1/batidor5en1_2.png',
         alt: {
-          es: 'Usos de la batidora de inmersión WM: licuar, picar, batir y espumar',
-          en: 'Uses of the WM immersion blender: blending, chopping, whisking and frothing',
+          es: 'Batidora WM con accesorio batidor preparando una mezcla en el vaso',
+          en: 'WM blender with whisk attachment preparing a mixture in the beaker',
         },
       },
       {
-        src: '/products/batidora-inmersion-5-en-1/gallery-3.jpg',
+        src: '/products/batidora-inmersion-5-en-1/batidor5en1_3.png',
         alt: {
-          es: 'Accesorios de la batidora de inmersión WM: picadora, batidor globo, espumador y vaso',
-          en: 'WM immersion blender accessories: chopper, whisk, frother and cup',
+          es: 'Accesorio picador de la batidora WM procesando cebolla',
+          en: 'WM blender chopper attachment processing onion',
+        },
+      },
+      {
+        src: '/products/batidora-inmersion-5-en-1/batidor5en1_4.png',
+        alt: {
+          es: 'Batidora de inmersión WM preparando un batido de frutas',
+          en: 'WM immersion blender preparing a fruit smoothie',
+        },
+      },
+      {
+        src: '/products/batidora-inmersion-5-en-1/batidor5en1_5.png',
+        alt: {
+          es: 'Limpieza del extremo del brazo mezclador de la batidora WM sobre el fregadero',
+          en: 'Cleaning the end of the WM blender blending arm over the sink',
         },
       },
     ],
@@ -1158,39 +1172,39 @@ export const products: Product[] = [
       },
     ],
     mainImage: {
-      src: '/products/estacion-de-energia-portatil-p3200/main.jpg',
+      src: '/products/estacion-de-energia-portatil-p3200/P3200_1.png',
       alt: {
-        es: 'Estación de energía portátil WM P3200, vista de tres cuartos',
-        en: 'WM P3200 portable power station, three-quarter view',
+        es: 'Estación de energía portátil WM P3200 en una sala de estar junto a un televisor',
+        en: 'WM P3200 portable power station in a living room beside a television',
       },
     },
     gallery: [
       {
-        src: '/products/estacion-de-energia-portatil-p3200/gallery-1.jpg',
+        src: '/products/estacion-de-energia-portatil-p3200/P3200_2.png',
         alt: {
-          es: 'Estación de energía portátil WM P3200, vista frontal con panel de control y salidas',
-          en: 'WM P3200 portable power station, front view with control panel and outlets',
+          es: 'Estación de energía portátil WM P3200 junto a un escritorio de trabajo en casa',
+          en: 'WM P3200 portable power station beside a home office desk',
         },
       },
       {
-        src: '/products/estacion-de-energia-portatil-p3200/gallery-2.jpg',
+        src: '/products/estacion-de-energia-portatil-p3200/P3200_3.png',
         alt: {
-          es: 'Estación de energía portátil WM P3200 alimentando una licuadora, hervidor, router, laptop y dron',
-          en: 'WM P3200 portable power station powering a blender, kettle, router, laptop and drone',
+          es: 'Estación de energía portátil WM P3200 sobre una encimera de cocina con electrodomésticos',
+          en: 'WM P3200 portable power station on a kitchen counter with appliances',
         },
       },
       {
-        src: '/products/estacion-de-energia-portatil-p3200/gallery-3.jpg',
+        src: '/products/estacion-de-energia-portatil-p3200/P3200_4.png',
         alt: {
-          es: 'Estación de energía portátil WM P3200 alimentando una laptop, cafetera, teléfono, cámara y dron',
-          en: 'WM P3200 portable power station powering a laptop, coffee maker, phone, camera and drone',
+          es: 'Estación de energía portátil WM P3200 en un campamento junto a paneles solares',
+          en: 'WM P3200 portable power station at a campsite beside solar panels',
         },
       },
       {
-        src: '/products/estacion-de-energia-portatil-p3200/gallery-4.jpg',
+        src: '/products/estacion-de-energia-portatil-p3200/P3200_5.png',
         alt: {
-          es: 'Estación de energía portátil WM P3200 con tabla de autonomía estimada para distintos equipos',
-          en: 'WM P3200 portable power station with an estimated runtime table for different devices',
+          es: 'Estación de energía portátil WM P3200 en una sala con una familia reunida',
+          en: 'WM P3200 portable power station in a living room with a family gathered together',
         },
       },
     ],

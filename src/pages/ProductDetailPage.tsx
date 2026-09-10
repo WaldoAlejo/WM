@@ -121,21 +121,21 @@ export function ProductDetailPage() {
           </p>
 
           <div className="mt-10">
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-wm-black">
+            <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-wm-wine">
               {content.productDetail.benefitsHeading}
             </h2>
             <Benefits items={product.benefits} columns={1} />
           </div>
 
           <div className="mt-16">
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-wm-black">
+            <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-wm-wine">
               {content.productDetail.specsHeading}
             </h2>
             <SpecificationsTable specs={product.specifications} />
           </div>
 
           <div className="mt-10">
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-wm-black">
+            <h2 className="mb-4 text-sm font-bold uppercase tracking-wide text-wm-wine">
               {content.productDetail.safetyHeading}
             </h2>
             {isPending(product.safetyAndQuality) ? (
@@ -164,7 +164,7 @@ export function ProductDetailPage() {
 
       {related.length > 0 && (
         <div className="mt-20">
-          <SectionHeading title={content.productDetail.relatedHeading} />
+          <SectionHeading title={content.productDetail.relatedHeading} titleClassName="text-wm-wine font-bold!" />
           <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {related.map((item) => (
               <ProductCard key={item.id} product={item} />

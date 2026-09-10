@@ -59,7 +59,7 @@ export function AboutPage() {
         </div>
         <ul role="list" className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2">
           {content.aboutPage.standardPoints.map((point) => (
-            <li key={point} className="editorial-quality-pillar text-[15px] font-medium leading-6 text-wm-ink">
+            <li key={point} className="editorial-quality-pillar flex items-center justify-center text-center text-[15px] font-bold leading-6 text-wm-wine">
               {point}
             </li>
           ))}
