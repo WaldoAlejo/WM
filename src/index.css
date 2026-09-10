@@ -251,6 +251,11 @@
   .editorial-story-image img,
   .editorial-product-card-image { transition: transform var(--motion-subtle) ease; }
   .editorial-story-copy { padding: 3rem 1.5rem; align-content: center; }
+  .editorial-home .editorial-heading {
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  .editorial-story-heading { max-width: 18ch; }
   .editorial-story-energy .editorial-story-image { order: -1; aspect-ratio: 4 / 3; }
 
   @media (min-width: 640px) {
