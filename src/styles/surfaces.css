@@ -16,11 +16,14 @@
   .editorial-page-intro,
   .editorial-product-detail { background: var(--surface-page); color: var(--color-wm-ink); }
 
-  .editorial-footer { border-top: 1px solid var(--color-wm-gray-300); }
+  /* A restrained satin silver finish closes the page without transition bands. */
+  .editorial-footer {
+    background: linear-gradient(180deg, #e5e7e9 0%, #dfe2e5 100%);
+    border-top: 1px solid #c5cbd1;
+  }
 
   /* Quiet light sections flow together without decorative gray fog. */
   .editorial-quality,
-  .editorial-footer,
   .editorial-story-energy .editorial-story-image { background: var(--surface-page); }
 
   /* Keep product subjects and printed technical information complete and crisp. */

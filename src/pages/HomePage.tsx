@@ -111,8 +111,8 @@ export function HomePage() {
 
       <section className="editorial-warranty dark-surface">
         <div className="wm-container flex flex-col items-start gap-6 py-12 sm:py-14 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-7">
-            <WarrantyBadge size={112} />
+          <div className="flex w-full flex-col gap-5 sm:w-auto sm:flex-row sm:items-center sm:gap-7">
+            <WarrantyBadge size={112} className="self-center sm:self-auto" />
             <div>
               <h2 className="text-3xl font-medium leading-tight sm:text-4xl">{content.warrantyHome.heading}</h2>
               <p className="mt-4 max-w-lg text-sm leading-6 text-white/80">{content.warrantyHome.body}</p>

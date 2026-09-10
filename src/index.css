@@ -150,8 +150,24 @@
   .editorial-button:active { box-shadow: none; }
   .editorial-button-secondary { background: transparent; color: #6b1f2a; border-color: #6b1f2a60; }
   .editorial-button-secondary:hover { background: #eee5e1; color: #6b1f2a; border-color: #6b1f2a; }
-  .editorial-button-light { background: #f4f3f1; color: var(--surface-dark); border-color: #f4f3f1; }
-  .editorial-button-light:hover { background: #e5e1da; color: var(--surface-dark); border-color: #e5e1da; }
+  /* Satin silver is confined to the light button variant, never section surfaces. */
+  .editorial-button-light {
+    background: linear-gradient(180deg, #f1f2f3 0%, #d9dcdf 48%, #c7cbcf 82%, #e3e5e7 100%);
+    color: var(--surface-dark);
+    border-color: #aeb4bb;
+    box-shadow: inset 0 1px 0 #ffffffb3;
+  }
+  .editorial-button-light:hover {
+    background: linear-gradient(180deg, #fafbfc 0%, #e4e7e9 48%, #d4d8dc 82%, #eceeef 100%);
+    color: var(--surface-dark);
+    border-color: #c2c7cd;
+    box-shadow: inset 0 1px 0 #ffffffcc;
+  }
+  .editorial-button-light:active {
+    background: linear-gradient(180deg, #d8dce0 0%, #cbd0d5 55%, #dde0e3 100%);
+    border-color: #9da5ae;
+    box-shadow: inset 0 1px 2px #343b4429;
+  }
 
   .editorial-text-link {
     display: inline-flex;
