@@ -28,6 +28,7 @@ export const products: Product[] = [
     },
     benefits: [
       {
+        icon: 'blend',
         title: { es: 'Licúa y mezcla', en: 'Blends and mixes' },
         description: {
           es: 'El brazo de inmersión con campana metálica prepara batidos, cremas, sopas, purés y salsas directamente en el recipiente, con menos salpicaduras.',
@@ -35,6 +36,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'blade',
         title: { es: 'Pica y procesa', en: 'Chops and processes' },
         description: {
           es: 'El recipiente picador procesa pequeñas porciones de vegetales, cebolla, tomate, hierbas y frutas; su tapa se acopla directo a la unidad motriz.',
@@ -42,6 +44,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'whisk',
         title: { es: 'Bate', en: 'Whisks' },
         description: {
           es: 'El batidor de globo facilita huevos, crema, merengues y mezclas ligeras de repostería.',
@@ -49,6 +52,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'froth',
         title: { es: 'Espuma', en: 'Froths' },
         description: {
           es: 'El espumador airea leche y otras bebidas para capuchinos, café y chocolate cremosos.',
@@ -56,6 +60,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'capacity',
         title: { es: 'Mezcla y sirve', en: 'Mixes and serves' },
         description: {
           es: 'Incluye vaso transparente de 0,8 litros, ideal para batidos, salsas y mezclas en pequeñas porciones.',
@@ -149,6 +154,7 @@ export const products: Product[] = [
     },
     benefits: [
       {
+        icon: 'capacity',
         title: { es: 'Mayor capacidad', en: 'Greater capacity' },
         description: {
           es: 'La jarra de 2 litros permite preparar varias porciones de bebidas, mezclas o alimentos en un solo ciclo.',
@@ -156,6 +162,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'quiet',
         title: { es: 'Menor percepción de ruido', en: 'Lower perceived noise' },
         description: {
           es: 'La cabina transparente ayuda a reducir el ruido que se proyecta hacia el exterior durante el funcionamiento.',
@@ -163,6 +170,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'controls',
         title: { es: 'Control práctico', en: 'Convenient control' },
         description: {
           es: 'El panel táctil permite manejar las funciones desde una superficie digital limpia y de fácil acceso.',
@@ -170,6 +178,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'visibility',
         title: { es: 'Visualización permanente', en: 'Constant visibility' },
         description: {
           es: 'La jarra y la cabina transparentes permiten controlar visualmente la consistencia de la preparación.',
@@ -177,6 +186,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'removable',
         title: { es: 'Repuesto incluido', en: 'Spare part included' },
         description: {
           es: 'El conjunto adicional de cuchillas brinda una solución de respaldo para extender la vida útil del producto.',
@@ -184,6 +194,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'shield',
         title: { es: 'Diseño estable', en: 'Stable design' },
         description: {
           es: 'La base ancha y sus soportes inferiores ayudan a mantener el equipo estable sobre la superficie de trabajo.',
@@ -278,6 +289,7 @@ export const products: Product[] = [
     },
     benefits: [
       {
+        icon: 'capacity',
         title: { es: 'Una olla para diferentes recetas', en: 'One pot for many recipes' },
         description: {
           es: 'Sus programas permiten preparar arroz, sopas, carnes, vegetales, granos y otras comidas sin utilizar diferentes electrodomésticos.',
@@ -285,6 +297,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'shield',
         title: { es: 'Cuerpo de acero inoxidable', en: 'Stainless-steel body' },
         description: {
           es: 'Resistente y fácil de limpiar, para un uso confiable día a día.',
@@ -292,6 +305,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'capacity',
         title: { es: 'Capacidad familiar', en: 'Family-size capacity' },
         description: {
           es: 'El recipiente de 6 litros ofrece espacio para cocinar varias porciones en una sola preparación.',
@@ -299,6 +313,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'controls',
         title: { es: 'Control sencillo', en: 'Simple control' },
         description: {
           es: 'El panel digital reúne las principales funciones en botones claramente identificados y menús ilustrados.',
@@ -306,6 +321,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'heat',
         title: { es: 'Mantiene la comida caliente', en: 'Keeps food warm' },
         description: {
           es: 'La función Warm permite conservar la temperatura de los alimentos después de la preparación.',
@@ -313,6 +329,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'removable',
         title: { es: 'Recipiente fácil de retirar', en: 'Easy-to-remove pot' },
         description: {
           es: 'La olla interior se puede extraer para servir los alimentos y facilitar la limpieza.',
@@ -320,6 +337,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'nonstick',
         title: { es: 'Superficie antiadherente', en: 'Non-stick surface' },
         description: {
           es: 'El revestimiento interior ayuda a reducir la adherencia de los alimentos durante la cocción.',
@@ -430,6 +448,7 @@ export const products: Product[] = [
     },
     benefits: [
       {
+        icon: 'capacity',
         title: { es: 'Capacidad de 10L', en: 'Generous 10L capacity' },
         description: {
           es: 'Capacidad amplia de 10 litros, pensada para porciones a escala familiar.',
@@ -437,6 +456,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'visibility',
         title: { es: 'Amplio visor de vidrio templado', en: 'Large tempered-glass viewing window' },
         description: {
           es: 'Permite observar con claridad el proceso de cocción.',
@@ -444,6 +464,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'display',
         title: { es: 'Pantalla digital inteligente', en: 'Intelligent digital display' },
         description: {
           es: 'Con seis menús preestablecidos, para seleccionar y monitorear recetas favoritas con facilidad.',
@@ -451,6 +472,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'heat',
         title: { es: 'Calentamiento envolvente 360° e infrarrojo lejano', en: '360° surround and far-infrared heating' },
         description: {
           es: 'Diseñado para distribuir el calor de manera uniforme en toda la cámara de cocción.',
@@ -458,6 +480,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'heat',
         title: { es: 'Resistencia interna de cobre puro', en: 'Pure-copper internal heating wire' },
         description: {
           es: 'Favorece un desempeño confiable y duradero.',
@@ -465,6 +488,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'finish',
         title: { es: 'Acabado sofisticado en negro', en: 'Sophisticated black exterior' },
         description: {
           es: 'Con detalles metálicos en tono acero enmarcando el visor.',
@@ -544,6 +568,7 @@ export const products: Product[] = [
     },
     benefits: [
       {
+        icon: 'capacity',
         title: { es: 'Capacidad de 12L en blanco', en: 'Expansive 12L capacity in white' },
         description: {
           es: 'Capacidad amplia en un acabado blanco elegante.',
@@ -551,6 +576,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'display',
         title: { es: 'Unidad superior negra de control inteligente', en: 'Top-mounted black smart-touch control' },
         description: {
           es: 'Unidad de control y calentamiento distintiva, montada en la parte superior.',
@@ -558,6 +584,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'finish',
         title: { es: 'Detalles cobre-naranja', en: 'Copper-orange accent trim' },
         description: {
           es: 'Acabado refinado que aporta un sello visual premium.',
@@ -565,6 +592,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'programs',
         title: { es: 'Programas multifunción', en: 'Multi-function programs' },
         description: {
           es: 'Freír, hornear, asar, grillar y recalentar.',
@@ -572,6 +600,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'heat',
         title: { es: 'Calentamiento envolvente 3D', en: '3D surround heating' },
         description: {
           es: 'Circulación equilibrada para un dorado uniforme y atractivo.',
@@ -579,6 +608,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'visibility',
         title: { es: 'Área de cocción muy visible', en: 'Highly visible cooking area' },
         description: {
           es: 'Para preparaciones generosas y bien presentadas.',
@@ -663,6 +693,7 @@ export const products: Product[] = [
     },
     benefits: [
       {
+        icon: 'capacity',
         title: { es: 'Jarra de vidrio', en: 'Glass jar' },
         description: {
           es: 'Resistente y libre de olores, con pico vertedor y asa integrada.',
@@ -670,6 +701,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'controls',
         title: { es: 'Control por perilla giratoria', en: 'Rotary speed dial' },
         description: {
           es: 'Ajuste sencillo e intuitivo de la velocidad.',
@@ -677,6 +709,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'blade',
         title: { es: 'Cuchillas de acero inoxidable removibles', en: 'Removable stainless steel blades' },
         description: {
           es: 'Facilitan la limpieza y el mantenimiento del equipo.',
@@ -684,6 +717,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'blend',
         title: { es: 'Versátil para bebidas y salsas', en: 'Versatile for drinks and sauces' },
         description: {
           es: 'De batidos y jugos a salsas y aderezos frescos.',
@@ -759,6 +793,7 @@ export const products: Product[] = [
     },
     benefits: [
       {
+        icon: 'visibility',
         title: { es: 'Cámara de vidrio de alto borosilicato', en: 'High-borosilicate glass chamber' },
         description: {
           es: 'Resistente al calor y pensada para uso diario; permite ver el proceso de cocción sin necesidad de abrir la canasta.',
@@ -766,6 +801,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'programs',
         title: { es: '6 programas preestablecidos', en: '6 preset programs' },
         description: {
           es: 'Un toque para papas fritas, bistec, muslo de pollo, mariscos, pescado y tartaletas, con pantalla de tiempo y temperatura.',
@@ -773,6 +809,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'heat',
         title: { es: 'Calentamiento envolvente 360° e infrarrojo lejano', en: '360° surround and far-infrared heating' },
         description: {
           es: 'Distribuye el calor de manera uniforme en toda la cámara, para un resultado dorado por fuera y jugoso por dentro, con menos aceite.',
@@ -780,6 +817,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'capacity',
         title: { es: 'Capacidad de 4L', en: '4L capacity' },
         description: {
           es: 'Un tamaño compacto, pensado para porciones individuales o para dos personas.',
@@ -787,6 +825,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'finish',
         title: { es: 'Detalles en acabado cobre', en: 'Copper-toned accents' },
         description: {
           es: 'El asa y el anillo superior en tono cobre le dan un sello visual distintivo.',
@@ -794,6 +833,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'finish',
         title: { es: 'Disponible en blanco y negro', en: 'Available in white and black' },
         description: {
           es: 'Dos acabados para combinar con distintos estilos de cocina.',
@@ -886,6 +926,7 @@ export const products: Product[] = [
     },
     benefits: [
       {
+        icon: 'motor',
         title: { es: 'Motor 100% de cobre puro', en: '100% pure copper motor' },
         description: {
           es: 'Ofrece un desempeño confiable y una mayor durabilidad.',
@@ -893,6 +934,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'programs',
         title: { es: '3 formas de uso', en: '3 ways to use it' },
         description: {
           es: 'El mismo cabezal se instala en pared, sobre una base de pie o en un soporte de piso de ángulo bajo, según lo que necesites.',
@@ -900,6 +942,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'fan',
         title: { es: 'Aspas metálicas de 18 pulgadas', en: '18-inch metal blades' },
         description: {
           es: '5 aspas de metal en tono azul, diseñadas para un movimiento de aire óptimo.',
@@ -907,6 +950,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'airflow',
         title: { es: 'Flujo de aire potente', en: 'Powerful airflow' },
         description: {
           es: 'Una brisa fuerte y constante para mayor comodidad.',
@@ -914,6 +958,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'height',
         title: { es: 'Altura ajustable en modo de pie', en: 'Adjustable height in stand mode' },
         description: {
           es: 'El tubo telescópico permite subir o bajar el ventilador a la altura que prefieras.',
@@ -921,6 +966,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'shield',
         title: { es: 'Rejilla de protección resistente', en: 'Sturdy protective grille' },
         description: {
           es: 'La estructura metálica cubre las aspas en los tres modos de uso.',
@@ -1011,6 +1057,7 @@ export const products: Product[] = [
     },
     benefits: [
       {
+        icon: 'battery',
         title: { es: 'Batería LiFePO4 de 2048 Wh', en: '2048 Wh LiFePO4 battery' },
         description: {
           es: 'Más de 4000 ciclos de carga, para años de uso confiable.',
@@ -1018,6 +1065,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'wave',
         title: { es: '3200 W con onda senoidal pura', en: '3200 W pure sine wave' },
         description: {
           es: 'Una potencia AC limpia y segura para equipos electrónicos sensibles, desde laptops hasta refrigeradoras portátiles.',
@@ -1025,6 +1073,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'plug',
         title: { es: '6 salidas AC', en: '6 AC outlets' },
         description: {
           es: 'Hasta 3200 W en total, para conectar varios equipos a la vez.',
@@ -1032,6 +1081,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'usb',
         title: { es: 'Carga rápida USB-C de hasta 100 W', en: 'Up to 100 W USB-C fast charging' },
         description: {
           es: 'Además de salidas USB-A, salida DC de 13,2 V y salida para vehículo.',
@@ -1039,6 +1089,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'charge',
         title: { es: '3 formas de cargarla', en: '3 ways to recharge it' },
         description: {
           es: 'Por red eléctrica, panel solar (12–60 V) o el encendedor del auto.',
@@ -1046,6 +1097,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'shield',
         title: { es: 'Protección inteligente (BMS)', en: 'Smart protection (BMS)' },
         description: {
           es: 'Contra sobrecarga, cortocircuito, sobretemperatura, sobretensión y subtensión.',
@@ -1053,6 +1105,7 @@ export const products: Product[] = [
         },
       },
       {
+        icon: 'light',
         title: { es: 'Linterna LED integrada', en: 'Built-in LED flashlight' },
         description: {
           es: 'Con 3 modos: fija, SOS y estroboscópico.',

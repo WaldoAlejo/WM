@@ -21,7 +21,10 @@ export interface CategoryDef {
   description?: Pending<Localized<string>>;
 }
 
+export type BenefitIconName = 'blend' | 'blade' | 'whisk' | 'froth' | 'capacity' | 'quiet' | 'controls' | 'visibility' | 'removable' | 'shield' | 'heat' | 'nonstick' | 'display' | 'finish' | 'programs' | 'motor' | 'fan' | 'airflow' | 'height' | 'battery' | 'wave' | 'plug' | 'usb' | 'charge' | 'light';
+
 export interface BenefitItem {
+  icon?: BenefitIconName;
   title: Localized<string>;
   description: Localized<string>;
 }
