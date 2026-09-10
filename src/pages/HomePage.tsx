@@ -97,9 +97,9 @@ export function HomePage() {
       <section aria-labelledby="quality-heading" className="editorial-quality">
         <div className="wm-container pb-16 pt-8 sm:pb-20">
           <h2 id="quality-heading" className="editorial-eyebrow mb-8 text-wm-wine">{content.quality.heading}</h2>
-          <ul className="grid gap-8 sm:grid-cols-3 sm:gap-6">
+          <ul role="list" className="grid gap-8 sm:grid-cols-3 sm:gap-6">
             {content.quality.points.map((point, index) => (
-              <li key={point.title} className="border-t border-wm-gray-300 pt-5">
+              <li key={point.title} className="editorial-quality-pillar">
                 <QualityIcon name={qualityIcons[index]} className="text-wm-wine" />
                 <h3 className="mt-3 text-base font-semibold">{point.title}</h3>
                 <p className="mt-3 max-w-sm text-sm leading-6 text-wm-gray-700">{point.description}</p>

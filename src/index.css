@@ -288,6 +288,13 @@
   .editorial-energy-photo img { mix-blend-mode: multiply; }
   .editorial-contact-cta { padding-block: clamp(48px, 5vw, 64px); }
   .editorial-prose p { line-height: 1.85; }
+  /* Informational pillars share a quiet silver finish, without button interaction. */
+  .editorial-quality-pillar {
+    background: linear-gradient(180deg, #eceeef 0%, #dfe2e5 100%);
+    border: 1px solid #c5cbd1;
+    border-radius: 4px;
+    padding: clamp(20px, 2vw, 24px);
+  }
   .editorial-home .editorial-story-image { min-height: 0; aspect-ratio: 1 / 1; }
   .editorial-home .editorial-story-copy { padding: 2rem 0 3rem; }
   .editorial-home .editorial-energy-photo { aspect-ratio: 4 / 3; padding: clamp(16px, 2vw, 28px); background: var(--color-wm-gray-100); isolation: isolate; }
