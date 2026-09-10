@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 
-/** Resets scroll position on route change (SPA navigation doesn't do this by default). */
-export function ScrollToTop() {
-  const { pathname } = useLocation();
-
+/** Scroll only after the displayed page changes, never for catalog query updates. */
+export function ScrollToTop({ pathname }: { pathname: string }) {
+  const previousPath = useRef(pathname);
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    if (previousPath.current !== pathname) {
+      document.getElementById('main-content')?.focus({ preventScroll: true });
+    }
+    previousPath.current = pathname;
   }, [pathname]);
-
   return null;
 }

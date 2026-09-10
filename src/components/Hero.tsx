@@ -138,15 +138,14 @@ export function Hero({ products = [] }: HeroProps) {
                   onClick={() => { setActiveIndex(i); setPaused(true); }}
                   aria-label={t(product.name, locale)}
                   aria-pressed={i === currentIndex}
-                  className={cn('flex h-11 w-11 items-center justify-center border-b text-xs tabular-nums transition-colors',
-                    i === currentIndex ? 'border-white text-white' : 'border-white/25 text-white/65 hover:border-white hover:text-white')}
+                  className="wm-button-surface flex h-11 w-11 items-center justify-center border-b text-xs tabular-nums"
                 >{String(i + 1).padStart(2, '0')}</button>
               ))}
             </div>
             {reducedMotion ? (
               <span className="sr-only">{content.hero.manualRotation}</span>
             ) : (
-              <button type="button" onClick={() => setPaused((value) => !value)} className="inline-flex min-h-11 items-center gap-2 text-xs text-white/80 underline underline-offset-4 hover:text-white">
+              <button type="button" onClick={() => setPaused((value) => !value)} className="wm-button-surface inline-flex min-h-11 items-center gap-2 px-3 text-xs underline underline-offset-4">
                 <span aria-hidden="true">{paused ? '▶' : 'Ⅱ'}</span>
                 {paused ? content.hero.resumeRotation : content.hero.pauseRotation}
               </button>

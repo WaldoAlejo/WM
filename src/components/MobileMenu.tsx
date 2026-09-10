@@ -41,7 +41,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
         className="absolute right-0 top-0 flex h-full w-72 max-w-[85%] flex-col gap-1 overflow-y-auto bg-white px-6 pb-6 pt-20 shadow-xl"
       >
         <button type="button" autoFocus onClick={onClose} aria-label={content.common.closeMenu}
-          className="absolute right-4 top-3 flex h-11 w-11 items-center justify-center text-2xl text-wm-black">
+          className="wm-button-surface absolute right-4 top-3 flex h-11 w-11 items-center justify-center text-2xl">
           <span aria-hidden="true">×</span>
         </button>
         <form onSubmit={submitSearch} className="mb-3">

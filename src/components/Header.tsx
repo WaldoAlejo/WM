@@ -113,7 +113,7 @@ export function Header() {
             onClick={() => setSearchOpen((v) => !v)}
             aria-label={searchOpen ? content.common.closeSearch : content.common.openSearch}
             aria-expanded={searchOpen}
-            className="flex h-11 w-11 shrink-0 items-center justify-center text-wm-black transition-colors hover:text-wm-wine"
+            className="wm-button-surface flex h-11 w-11 shrink-0 items-center justify-center"
           >
             {searchOpen ? (
               <svg viewBox="0 0 20 20" fill="none" className="h-5 w-5" aria-hidden="true">
@@ -131,7 +131,7 @@ export function Header() {
 
         <button
           type="button"
-          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
+          className="wm-button-surface flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
           aria-label={menuOpen ? content.common.closeMenu : content.common.openMenu}
           aria-expanded={menuOpen}
           aria-controls="mobile-menu"

@@ -8,7 +8,6 @@ import { useContent } from '../i18n/useContent';
 import { useLocale } from '../i18n/LocaleContext';
 import { t } from '../utils/t';
 import { useSeo } from '../utils/useSeo';
-import { cn } from '../utils/cn';
 import { filterProducts, updateCatalogParams } from '../utils/catalogSearch';
 
 export function ProductsPage() {
@@ -57,10 +56,7 @@ export function ProductsPage() {
             type="button"
             onClick={() => setCategory('')}
             aria-pressed={activeCategory === ''}
-            className={cn(
-              'col-span-2 min-h-11 rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors duration-300',
-              activeCategory === '' ? 'border-wm-wine bg-wm-wine text-white' : 'border-wm-gray-300 text-wm-black hover:border-wm-wine',
-            )}
+            className="wm-button-surface col-span-2 min-h-11 border px-4 py-2 text-xs font-semibold uppercase tracking-wide"
           >
             {content.productsPage.categoryAllLabel}
           </button>
@@ -70,10 +66,7 @@ export function ProductsPage() {
               type="button"
               onClick={() => setCategory(cat.slug)}
               aria-pressed={activeCategory === cat.slug}
-              className={cn(
-                'min-h-11 rounded-sm border px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors duration-300',
-                activeCategory === cat.slug ? 'border-wm-wine bg-wm-wine text-white' : 'border-wm-gray-300 text-wm-black hover:border-wm-wine',
-              )}
+              className="wm-button-surface min-h-11 border px-4 py-2 text-xs font-semibold uppercase tracking-wide"
             >
               {t(cat.name, locale)}
             </button>
@@ -83,7 +76,7 @@ export function ProductsPage() {
 
       <div className="mt-6 sm:mt-8">
         {(query || activeCategory) && (
-          <button type="button" onClick={() => setSearchParams({})} className="mb-5 inline-flex min-h-11 items-center text-sm font-semibold underline underline-offset-4">
+          <button type="button" onClick={() => setSearchParams({})} className="wm-button-surface mb-5 inline-flex min-h-11 items-center px-3 text-sm font-semibold underline underline-offset-4">
             {content.productsPage.clearFilters}
           </button>
         )}

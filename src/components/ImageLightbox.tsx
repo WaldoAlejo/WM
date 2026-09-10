@@ -52,7 +52,7 @@ export function ImageLightbox({ images, activeIndex, onClose, onNavigate }: Imag
         autoFocus
         onClick={onClose}
         aria-label={content.productDetail.closeZoomAriaLabel}
-        className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center text-white/80 transition-colors hover:text-white"
+        className="wm-button-surface absolute right-4 top-4 flex h-11 w-11 items-center justify-center"
       >
         <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7" aria-hidden="true">
           <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
@@ -68,7 +68,7 @@ export function ImageLightbox({ images, activeIndex, onClose, onNavigate }: Imag
               onNavigate((activeIndex - 1 + images.length) % images.length);
             }}
             aria-label={content.productDetail.previousImageAriaLabel}
-            className="absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/75 text-white transition-colors hover:bg-black sm:left-4"
+            className="wm-button-surface absolute left-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center sm:left-4"
           >
             <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8" aria-hidden="true">
               <path d="M15 5l-7 7 7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -81,7 +81,7 @@ export function ImageLightbox({ images, activeIndex, onClose, onNavigate }: Imag
               onNavigate((activeIndex + 1) % images.length);
             }}
             aria-label={content.productDetail.nextImageAriaLabel}
-            className="absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/75 text-white transition-colors hover:bg-black sm:right-4"
+            className="wm-button-surface absolute right-2 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center sm:right-4"
           >
             <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8" aria-hidden="true">
               <path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />

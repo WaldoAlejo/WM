@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout';
-import { ScrollToTop } from './components/ScrollToTop';
+import { RouteTransition } from './components/RouteTransition';
 import { HomePage } from './pages/HomePage';
 import { ProductsPage } from './pages/ProductsPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
@@ -12,9 +12,8 @@ import { NotFoundPage } from './pages/NotFoundPage';
 export function App() {
   return (
     <>
-      <ScrollToTop />
       <MainLayout>
-        <Routes>
+        <RouteTransition>{(location) => <Routes location={location}>
           <Route path="/" element={<HomePage />} />
           <Route path="/productos" element={<ProductsPage />} />
           <Route path="/productos/:slug" element={<ProductDetailPage />} />
@@ -22,7 +21,7 @@ export function App() {
           <Route path="/nosotros" element={<AboutPage />} />
           <Route path="/contacto" element={<ContactPage />} />
           <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        </Routes>}</RouteTransition>
       </MainLayout>
     </>
   );

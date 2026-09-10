@@ -265,7 +265,7 @@ export function ContactForm({
 
       <button
         type="submit"
-        className="editorial-button"
+        className="wm-button-surface editorial-button"
       >
         {t.prepareEmail}
       </button>
@@ -285,7 +285,7 @@ export function ContactForm({
                 {t.openEmail}
               </a>
             )}
-            <button type="button" onClick={copyDraft} className="editorial-button editorial-button-secondary">
+            <button type="button" onClick={copyDraft} className="wm-button-surface editorial-button editorial-button-secondary">
               {t.copyEmail}
             </button>
           </div>

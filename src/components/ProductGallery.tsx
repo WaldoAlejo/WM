@@ -52,7 +52,7 @@ export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
           onClick={() => activeRealIndex >= 0 && setLightboxOpen(true)}
           disabled={activeRealIndex < 0}
           aria-label={content.productDetail.zoomAriaLabel}
-          className="gallery-stage block w-full disabled:cursor-default"
+          className="wm-button-surface gallery-stage block w-full"
         >
           <span className="gallery-frames">
             {(isPending(active) || failed.has(activeIndex)) && <ProductPhoto image={{ pending: true }} />}
@@ -109,10 +109,7 @@ export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
               type="button"
               aria-pressed={index === activeIndex}
               onClick={() => selectImage(index)}
-              className={cn(
-                'h-16 w-16 shrink-0 overflow-hidden rounded-sm border bg-wm-gray-50 transition-colors duration-300 sm:h-16 sm:w-16 lg:h-20 lg:w-20',
-                index === activeIndex ? 'border-wm-wine' : 'border-wm-gray-300 hover:border-wm-wine',
-              )}
+              className="wm-button-surface h-16 w-16 shrink-0 overflow-hidden border p-1 sm:h-16 sm:w-16 lg:h-20 lg:w-20"
             >
               <ProductPhoto image={img} className="h-full w-full rounded-none border-0 p-0" />
             </button>

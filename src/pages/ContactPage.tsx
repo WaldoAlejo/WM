@@ -8,7 +8,6 @@ import { t } from '../utils/t';
 import { brand, contactInfo } from '../data/company';
 import { isPending } from '../types';
 import { useSeo } from '../utils/useSeo';
-import { cn } from '../utils/cn';
 import { getProductBySlug } from '../data/products';
 
 type Category = 'support' | 'sales';
@@ -83,7 +82,7 @@ export function ContactPage() {
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
             <Link
               to="/garantia"
-              className="group flex h-full flex-col border border-wm-gray-300 p-5 text-left transition-colors duration-300 hover:border-wm-wine"
+              className="wm-button-surface group flex h-full flex-col p-5 text-left"
             >
               <span className="flex h-11 w-11 items-center justify-center rounded-full bg-wm-wine-tint">
                 <ShieldIcon className="text-wm-wine" />
@@ -102,37 +101,23 @@ export function ContactPage() {
               type="button"
               onClick={() => setCategory('support')}
               aria-pressed={category === 'support'}
-              className={cn(
-                'group flex h-full flex-col border p-5 text-left transition-colors duration-300',
-                category === 'support'
-                  ? 'border-wm-wine bg-wm-wine'
-                  : 'border-wm-gray-300 hover:border-wm-wine',
-              )}
+              className="wm-button-surface group flex h-full flex-col border p-5 text-left"
             >
               <span
-                className={cn(
-                  'flex h-11 w-11 items-center justify-center rounded-full',
-                  category === 'support' ? 'bg-white/15' : 'bg-wm-wine-tint',
-                )}
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-wm-gray-100"
               >
-                <SupportIcon className={category === 'support' ? 'text-white' : 'text-wm-wine'} />
+                <SupportIcon className="text-wm-wine" />
               </span>
-              <span className={cn('mt-3 font-semibold', category === 'support' ? 'text-white' : 'text-wm-black')}>
+              <span className="mt-3 font-semibold">
                 {categories.support.title}
               </span>
               <span
-                className={cn(
-                  'mt-1.5 flex-1 text-sm',
-                  category === 'support' ? 'text-white/85' : 'text-wm-gray-700',
-                )}
+                className="mt-1.5 flex-1 text-sm text-wm-gray-700"
               >
                 {categories.support.description}
               </span>
               <span
-                className={cn(
-                  'mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide',
-                  category === 'support' ? 'text-white' : 'text-wm-wine',
-                )}
+                className="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide"
               >
                 {content.contactPage.selectCta}
                 <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
@@ -145,34 +130,23 @@ export function ContactPage() {
               type="button"
               onClick={() => setCategory('sales')}
               aria-pressed={category === 'sales'}
-              className={cn(
-                'group flex h-full flex-col border p-5 text-left transition-colors duration-300',
-                category === 'sales'
-                  ? 'border-wm-wine bg-wm-wine'
-                  : 'border-wm-gray-300 hover:border-wm-wine',
-              )}
+              className="wm-button-surface group flex h-full flex-col border p-5 text-left"
             >
               <span
-                className={cn(
-                  'flex h-11 w-11 items-center justify-center rounded-full',
-                  category === 'sales' ? 'bg-white/15' : 'bg-wm-wine-tint',
-                )}
+                className="flex h-11 w-11 items-center justify-center rounded-full bg-wm-gray-100"
               >
-                <ProductsIcon className={category === 'sales' ? 'text-white' : 'text-wm-wine'} />
+                <ProductsIcon className="text-wm-wine" />
               </span>
-              <span className={cn('mt-3 font-semibold', category === 'sales' ? 'text-white' : 'text-wm-black')}>
+              <span className="mt-3 font-semibold">
                 {categories.sales.title}
               </span>
               <span
-                className={cn('mt-1.5 flex-1 text-sm', category === 'sales' ? 'text-white/85' : 'text-wm-gray-700')}
+                className="mt-1.5 flex-1 text-sm text-wm-gray-700"
               >
                 {categories.sales.description}
               </span>
               <span
-                className={cn(
-                  'mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide',
-                  category === 'sales' ? 'text-white' : 'text-wm-wine',
-                )}
+                className="mt-4 inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wide"
               >
                 {content.contactPage.selectCta}
                 <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">
@@ -184,12 +158,12 @@ export function ContactPage() {
 
           {category && (
             <div className="mt-10 border-t border-wm-gray-300 pt-8">
-              <div className="mb-6 flex items-center justify-between gap-4">
+              <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
                 <h3 className="text-xl font-bold text-wm-black">{categories[category].title}</h3>
                 <button
                   type="button"
                   onClick={() => setCategory(null)}
-                  className="shrink-0 text-xs font-semibold uppercase tracking-wide text-wm-gray-500 hover:text-wm-black"
+                  className="wm-button-surface shrink-0 px-3 text-xs font-semibold uppercase tracking-wide"
                 >
                   {content.contactPage.backToCategories}
                 </button>
