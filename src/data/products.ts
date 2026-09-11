@@ -250,13 +250,49 @@ export const products: Product[] = [
       },
     ],
     mainImage: {
-      src: '/products/licuadora-profesional/gallery-2.jpg',
+      src: '/products/licuadora-profesional/licuadorprof_1.png',
       alt: {
-        es: 'Licuadora profesional WM en uso preparando un batido de frutos rojos',
-        en: 'WM professional blender in use preparing a berry smoothie',
+        es: 'Licuadora profesional WM en uso junto a una familia con batidos de frutas',
+        en: 'WM professional blender in use beside a family with fruit smoothies',
       },
     },
     gallery: [
+      {
+        src: '/products/licuadora-profesional/licuadorprof_2.png',
+        alt: {
+          es: 'Licuadora profesional WM con frutas y hielo en la jarra, junto a un batido de frutos rojos',
+          en: 'WM professional blender with fruit and ice in the jug, beside a berry smoothie',
+        },
+      },
+      {
+        src: '/products/licuadora-profesional/licuadorprof_3.png',
+        alt: {
+          es: 'Licuadora profesional WM con verduras en la jarra, junto a un batido verde',
+          en: 'WM professional blender with vegetables in the jug, beside a green smoothie',
+        },
+      },
+      {
+        src: '/products/licuadora-profesional/licuadorprof_4.png',
+        alt: {
+          es: 'Licuadora profesional WM con frutas y hielo, vista de tres cuartos sobre una encimera',
+          en: 'WM professional blender with fruit and ice, three-quarter view on a kitchen counter',
+        },
+      },
+      {
+        src: '/products/licuadora-profesional/licuadorprof_5.png',
+        alt: {
+          es: 'Licuadora profesional WM con la jarra en proceso de limpieza en el fregadero',
+          en: 'WM professional blender with the jug being cleaned in a sink',
+        },
+      },
+      {
+        src: '/products/licuadora-profesional/gallery-2.jpg',
+        alt: {
+          es: 'Licuadora profesional WM en uso preparando un batido de frutos rojos',
+          en: 'WM professional blender in use preparing a berry smoothie',
+        },
+      },
+
       {
         src: '/products/licuadora-profesional/main.jpg',
         alt: {
