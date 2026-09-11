@@ -536,25 +536,39 @@ export const products: Product[] = [
       },
     ],
     mainImage: {
-      src: '/products/freidora-de-aire-multifuncion-10l/main.jpg',
+      src: '/products/freidora-de-aire-multifuncion-10l/airfrayer10L_1.png',
       alt: {
-        es: 'Freidora de aire multifunción WM de 10L con visor de vidrio templado y panel digital',
-        en: 'WM 10L multifunction air fryer with tempered-glass viewing window and digital panel',
+        es: 'Freidora de aire multifunción WM de 10 L junto a una mujer preparando patatas en la cocina',
+        en: 'WM 10L multifunction air fryer beside a woman preparing potatoes in a kitchen',
       },
     },
     gallery: [
       {
-        src: '/products/freidora-de-aire-multifuncion-10l/gallery-1.jpg',
+        src: '/products/freidora-de-aire-multifuncion-10l/airfrayer10L_2.png',
         alt: {
-          es: 'Freidora de aire multifunción WM en uso en una cocina familiar, preparando pollo',
-          en: 'WM multifunction air fryer in use in a family kitchen, cooking chicken',
+          es: 'Freidora de aire multifunción WM de 10 L con la cesta abierta y alimentos junto a verduras frescas',
+          en: 'WM 10L multifunction air fryer with an open basket of food beside fresh vegetables',
         },
       },
       {
-        src: '/products/freidora-de-aire-multifuncion-10l/gallery-2.jpg',
+        src: '/products/freidora-de-aire-multifuncion-10l/airfrayer10L_3.png',
         alt: {
-          es: 'Detalle del panel digital, la cesta extraíble y la resistencia de cobre de la freidora de aire WM',
-          en: 'Detail of the digital panel, removable basket and copper heating element of the WM air fryer',
+          es: 'Freidora de aire multifunción WM de 10 L con una mujer retirando la cesta con pollo y patatas',
+          en: 'WM 10L multifunction air fryer with a woman removing the basket with chicken and potatoes',
+        },
+      },
+      {
+        src: '/products/freidora-de-aire-multifuncion-10l/airfrayer10L_4.png',
+        alt: {
+          es: 'Freidora de aire multifunción WM de 10 L junto a una mujer limpiando la cesta en el fregadero',
+          en: 'WM 10L multifunction air fryer beside a woman cleaning the basket in a sink',
+        },
+      },
+      {
+        src: '/products/freidora-de-aire-multifuncion-10l/airfrayer10L_5.png',
+        alt: {
+          es: 'Freidora de aire multifunción WM de 10 L sobre una mesa con una familia compartiendo una comida',
+          en: 'WM 10L multifunction air fryer on a table with a family sharing a meal',
         },
       },
     ],
