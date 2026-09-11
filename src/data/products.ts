@@ -676,25 +676,39 @@ export const products: Product[] = [
       },
     ],
     mainImage: {
-      src: '/products/freidora-de-aire-multifuncion-12l/main.jpg',
+      src: '/products/freidora-de-aire-multifuncion-12l/AirFrayer12L_1.png',
       alt: {
-        es: 'Freidora de aire multifunción WM blanca de 12L con unidad de control negra y detalles cobre',
-        en: 'WM white 12L multifunction air fryer with black control unit and copper accents',
+        es: 'Freidora de aire multifunción WM blanca de 12 L en uso preparando pescado y verduras en una cocina',
+        en: 'WM white 12L multifunction air fryer in use preparing fish and vegetables in a kitchen',
       },
     },
     gallery: [
       {
-        src: '/products/freidora-de-aire-multifuncion-12l/gallery-1.jpg',
+        src: '/products/freidora-de-aire-multifuncion-12l/AirFrayer12L_2.png',
         alt: {
-          es: 'Freidora de aire multifunción WM en uso en una cocina familiar, preparando pollo',
-          en: 'WM multifunction air fryer in use in a family kitchen, cooking chicken',
+          es: 'Freidora de aire multifunción WM blanca de 12 L con una mujer sirviendo pollo y verduras',
+          en: 'WM white 12L multifunction air fryer with a woman serving chicken and vegetables',
         },
       },
       {
-        src: '/products/freidora-de-aire-multifuncion-12l/gallery-2.jpg',
+        src: '/products/freidora-de-aire-multifuncion-12l/AirFrayer12L_3.png',
         alt: {
-          es: 'Freidora de aire multifunción WM en uso preparando papas fritas, alitas y vegetales',
-          en: 'WM multifunction air fryer in use preparing fries, wings and vegetables',
+          es: 'Freidora de aire multifunción WM blanca de 12 L con una familia compartiendo una comida en la cocina',
+          en: 'WM white 12L multifunction air fryer with a family sharing a meal in a kitchen',
+        },
+      },
+      {
+        src: '/products/freidora-de-aire-multifuncion-12l/AirFrayer12L_4.png',
+        alt: {
+          es: 'Freidora de aire multifunción WM blanca de 12 L con una mujer retirando la cesta con alimentos',
+          en: 'WM white 12L multifunction air fryer with a woman removing the basket of food',
+        },
+      },
+      {
+        src: '/products/freidora-de-aire-multifuncion-12l/AirFrayer12L_5.png',
+        alt: {
+          es: 'Freidora de aire multifunción WM blanca de 12 L junto a una mujer limpiando la rejilla en el fregadero',
+          en: 'WM white 12L multifunction air fryer beside a woman cleaning the rack in a sink',
         },
       },
       {
@@ -804,20 +818,20 @@ export const products: Product[] = [
   {
     id: 'p07',
     slug: 'freidora-de-aire-vidrio-4l',
-    name: { es: 'Freidora de Aire de Vidrio 4L', en: '4L Glass Air Fryer' },
+    name: { es: 'Freidora de Aire de Vidrio 6L', en: '6L Glass Air Fryer' },
     model: 'WM-26005',
     categorySlug: 'categoria-01',
     shortDescription: {
-      es: 'Freidora de aire WM® de 4 litros, modelo WM-26005, con cámara de cocción de vidrio de alto borosilicato, panel de control táctil digital con pantalla de tiempo y temperatura, 6 programas preestablecidos y calentamiento envolvente 360° con infrarrojo lejano. Detalles en acabado cobre, disponible en blanco y negro, con garantía de 3 años.',
-      en: 'WM® 4-liter air fryer, model WM-26005, with a high-borosilicate glass cooking chamber, a digital touch control panel with a time and temperature display, 6 preset programs, and 360° surround far-infrared heating. Copper-toned accents, available in white and black, with a 3-year warranty.',
+      es: 'Freidora de aire WM® de 6 litros, modelo WM-26005, con cámara de cocción de vidrio de alto borosilicato, panel de control táctil digital con pantalla de tiempo y temperatura, 6 programas preestablecidos y calentamiento envolvente 360° con infrarrojo lejano. Detalles en acabado cobre, disponible en blanco y negro, con garantía de 3 años.',
+      en: 'WM® 6-liter air fryer, model WM-26005, with a high-borosilicate glass cooking chamber, a digital touch control panel with a time and temperature display, 6 preset programs, and 360° surround far-infrared heating. Copper-toned accents, available in white and black, with a 3-year warranty.',
     },
     seoTitle: {
-      es: 'Freidora de Aire de Vidrio WM® de 4L | WM-26005',
-      en: 'WM® 4L Glass Air Fryer | WM-26005',
+      es: 'Freidora de Aire de Vidrio WM® de 6L | WM-26005',
+      en: 'WM® 6L Glass Air Fryer | WM-26005',
     },
     seoDescription: {
-      es: 'Freidora de aire WM® WM-26005 de 4 litros con cámara de vidrio de alto borosilicato, 6 programas preestablecidos, calentamiento envolvente 360° con infrarrojo lejano y detalles en cobre. Disponible en blanco y negro.',
-      en: 'WM® WM-26005 4-liter air fryer with a high-borosilicate glass chamber, 6 preset programs, 360° surround far-infrared heating and copper-toned accents. Available in white and black.',
+      es: 'Freidora de aire WM® WM-26005 de 6 litros con cámara de vidrio de alto borosilicato, 6 programas preestablecidos, calentamiento envolvente 360° con infrarrojo lejano y detalles en cobre. Disponible en blanco y negro.',
+      en: 'WM® WM-26005 6-liter air fryer with a high-borosilicate glass chamber, 6 preset programs, 360° surround far-infrared heating and copper-toned accents. Available in white and black.',
     },
     benefits: [
       {
@@ -846,7 +860,7 @@ export const products: Product[] = [
       },
       {
         icon: 'capacity',
-        title: { es: 'Capacidad de 4L', en: '4L capacity' },
+        title: { es: 'Capacidad de 6L', en: '6L capacity' },
         description: {
           es: 'Un tamaño compacto, pensado para porciones individuales o para dos personas.',
           en: 'A compact size, suited for single or two-person portions.',
@@ -871,7 +885,7 @@ export const products: Product[] = [
     ],
     specifications: [
       { label: { es: 'Tipo de producto', en: 'Product type' }, value: { es: 'Freidora de aire', en: 'Air fryer' } },
-      { label: { es: 'Capacidad', en: 'Capacity' }, value: { es: '4 litros', en: '4 liters' } },
+      { label: { es: 'Capacidad', en: 'Capacity' }, value: { es: '6 litros', en: '6 liters' } },
       { label: { es: 'Panel de control', en: 'Control panel' }, value: { es: 'Táctil digital, con pantalla de tiempo y temperatura', en: 'Digital touch, with time and temperature display' } },
       {
         label: { es: 'Programas preestablecidos (6)', en: 'Preset programs (6)' },
@@ -901,32 +915,39 @@ export const products: Product[] = [
       },
     ],
     mainImage: {
-      src: '/products/freidora-de-aire-vidrio-4l/main.jpg',
+      src: '/products/freidora-de-aire-vidrio-4l/ChatGPT Image 11 sept 2026, 11_43_45.png',
       alt: {
-        es: 'Freidora de aire de vidrio WM en uso, con papas fritas y vegetales',
-        en: 'WM glass air fryer in use, with fries and vegetables',
+        es: 'Freidora de aire de vidrio WM de 6 L negra con pollo y verduras en su recipiente de vidrio',
+        en: 'WM 6L glass air fryer in black with chicken and vegetables in its glass bowl',
       },
     },
     gallery: [
       {
-        src: '/products/freidora-de-aire-vidrio-4l/gallery-1.jpg',
+        src: '/products/freidora-de-aire-vidrio-4l/ChatGPT Image 11 sept 2026, 11_43_34.png',
         alt: {
-          es: 'Freidora de aire de vidrio WM en negro, con detalles en cobre',
-          en: 'WM glass air fryer in black, with copper-toned accents',
+          es: 'Freidora de aire de vidrio WM de 6 L blanca con pollo y verduras en su recipiente de vidrio',
+          en: 'WM 6L glass air fryer in white with chicken and vegetables in its glass bowl',
         },
       },
       {
-        src: '/products/freidora-de-aire-vidrio-4l/gallery-2.jpg',
+        src: '/products/freidora-de-aire-vidrio-4l/ChatGPT Image 11 sept 2026, 11_44_02.png',
         alt: {
-          es: 'Freidora de aire de vidrio WM en blanco, con detalles en cobre',
-          en: 'WM glass air fryer in white, with copper-toned accents',
+          es: 'Freidora de aire de vidrio WM de 6 L blanca en uso, con una persona sirviendo pollo del recipiente',
+          en: 'WM 6L glass air fryer in white in use, with a person serving chicken from the bowl',
         },
       },
       {
-        src: '/products/freidora-de-aire-vidrio-4l/gallery-3.jpg',
+        src: '/products/freidora-de-aire-vidrio-4l/ChatGPT Image 11 sept 2026, 11_44_11.png',
         alt: {
-          es: 'Freidora de aire de vidrio WM en uso, preparando pollo y vegetales',
-          en: 'WM glass air fryer in use, cooking chicken and vegetables',
+          es: 'Freidora de aire de vidrio WM de 6 L blanca con patatas fritas, junto a distintos platos preparados',
+          en: 'WM 6L glass air fryer in white with fries, beside a selection of prepared dishes',
+        },
+      },
+      {
+        src: '/products/freidora-de-aire-vidrio-4l/ChatGPT Image 11 sept 2026, 11_44_24.png',
+        alt: {
+          es: 'Freidora de aire de vidrio WM de 6 L blanca con pollo, sobre una encimera junto a platos preparados',
+          en: 'WM 6L glass air fryer in white with chicken, on a kitchen counter beside prepared dishes',
         },
       },
     ],
