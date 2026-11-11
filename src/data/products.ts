@@ -1824,18 +1824,39 @@ export const products: Product[] = [
       },
     ],
     mainImage: {
-      src: '/products/licuadora-multifuncion-2-en-1/main.jpg',
+      src: '/products/licuadora-multifuncion-2-en-1/licuadora2en1_1.jpg',
       alt: {
-        es: 'Licuadora multifunción WM 2 en 1 modelo WM-260111 junto a su empaque y el accesorio para moler y picar',
-        en: 'WM 2-in-1 multifunction blender model WM-260111 beside its packaging and the grinding and chopping attachment',
+        es: 'Licuadora multifunción WM 2 en 1 en uso junto a una familia con batidos de frutas',
+        en: 'WM 2-in-1 multifunction blender in use beside a family with fruit smoothies',
       },
     },
     gallery: [
       {
-        src: '/products/licuadora-multifuncion-2-en-1/gallery-1.jpg',
+        src: '/products/licuadora-multifuncion-2-en-1/licuadora2en1_2.jpg',
         alt: {
-          es: 'Parte posterior del empaque de la licuadora WM 2 en 1 con características y contenido del paquete',
-          en: 'Back of the WM 2-in-1 blender packaging with features and package contents',
+          es: 'Licuadora WM 2 en 1 con hielo y fruta congelada en la jarra de 2,5 L, junto a un batido',
+          en: 'WM 2-in-1 blender with ice and frozen fruit in the 2.5L jar, beside a smoothie',
+        },
+      },
+      {
+        src: '/products/licuadora-multifuncion-2-en-1/licuadora2en1_3.jpg',
+        alt: {
+          es: 'Accesorio para moler y picar de la licuadora WM 2 en 1 con café recién molido',
+          en: 'Grinding and chopping attachment of the WM 2-in-1 blender with freshly ground coffee',
+        },
+      },
+      {
+        src: '/products/licuadora-multifuncion-2-en-1/licuadora2en1_4.jpg',
+        alt: {
+          es: 'Detalle del panel de control con perilla de velocidad variable y función turbo de la licuadora WM 2 en 1',
+          en: 'Detail of the control panel with variable speed knob and turbo function of the WM 2-in-1 blender',
+        },
+      },
+      {
+        src: '/products/licuadora-multifuncion-2-en-1/licuadora2en1_5.jpg',
+        alt: {
+          es: 'Licuadora WM 2 en 1 con su jarra principal y el accesorio para picar con verduras',
+          en: 'WM 2-in-1 blender with its main jar and the chopping attachment filled with vegetables',
         },
       },
     ],
