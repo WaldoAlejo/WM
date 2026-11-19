@@ -1960,8 +1960,43 @@ export const products: Product[] = [
         en: 'Inside, it has a quick-release handle and a privacy thumbturn to lock it from the inside.',
       },
     ],
-    mainImage: { pending: true, note: 'Foto de producto con fondo blanco pendiente.' },
-    gallery: [],
+    mainImage: {
+      src: '/products/cerradura-inteligente-facial-3d-modelo-a/main.jpg',
+      alt: {
+        es: 'Cerradura facial 3D modelo A: panel interior con pantalla y panel exterior con módulo facial rectangular',
+        en: 'Model A 3D facial lock: interior panel with display and exterior panel with rectangular facial module',
+      },
+    },
+    gallery: [
+      {
+        src: '/products/cerradura-inteligente-facial-3d-modelo-a/gallery-1.jpg',
+        alt: {
+          es: 'Cerradura facial 3D modelo A y sus funciones: rostro, palma, huella, tag, cámara, timbre, app Tuya y batería recargable',
+          en: 'Model A 3D facial lock and its features: face, palm, fingerprint, tag, camera, doorbell, Tuya app and rechargeable battery',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-facial-3d-modelo-a/gallery-2.jpg',
+        alt: {
+          es: 'Módulo de reconocimiento facial y de palma de la cerradura modelo A',
+          en: 'Facial and palm recognition module of the model A lock',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-facial-3d-modelo-a/gallery-3.jpg',
+        alt: {
+          es: 'Lector de huella y lector de tag de la cerradura modelo A',
+          en: 'Fingerprint reader and tag reader of the model A lock',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-facial-3d-modelo-a/gallery-4.jpg',
+        alt: {
+          es: 'Timbre con cámara de la cerradura modelo A: la visita se ve en la pantalla interior o en la app Tuya Smart',
+          en: 'Doorbell camera of the model A lock: see visitors on the interior display or in the Tuya Smart app',
+        },
+      },
+    ],
     manualUrl: { pending: true, note: 'Manual del producto pendiente de proporcionar.' },
     specSheetUrl: { pending: true, note: 'Ficha técnica pendiente de proporcionar.' },
     featured: false,
@@ -2062,8 +2097,43 @@ export const products: Product[] = [
         en: 'Inside, it has a quick-release handle and a privacy thumbturn to lock it from the inside.',
       },
     ],
-    mainImage: { pending: true, note: 'Foto de producto con fondo blanco pendiente.' },
-    gallery: [],
+    mainImage: {
+      src: '/products/cerradura-inteligente-facial-3d-modelo-b/main.jpg',
+      alt: {
+        es: 'Cerradura facial 3D modelo B: panel interior con pantalla y panel exterior con módulo facial redondo',
+        en: 'Model B 3D facial lock: interior panel with display and exterior panel with round facial module',
+      },
+    },
+    gallery: [
+      {
+        src: '/products/cerradura-inteligente-facial-3d-modelo-b/gallery-1.jpg',
+        alt: {
+          es: 'Cerradura facial 3D modelo B y sus funciones: rostro, palma, huella, tag, cámara, timbre, app Tuya y batería recargable',
+          en: 'Model B 3D facial lock and its features: face, palm, fingerprint, tag, camera, doorbell, Tuya app and rechargeable battery',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-facial-3d-modelo-b/gallery-2.jpg',
+        alt: {
+          es: 'Módulo de reconocimiento facial y de palma de la cerradura modelo B',
+          en: 'Facial and palm recognition module of the model B lock',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-facial-3d-modelo-b/gallery-3.jpg',
+        alt: {
+          es: 'Lector de huella y lector de tag de la cerradura modelo B',
+          en: 'Fingerprint reader and tag reader of the model B lock',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-facial-3d-modelo-b/gallery-4.jpg',
+        alt: {
+          es: 'Timbre con cámara de la cerradura modelo B: la visita se ve en la pantalla interior o en la app Tuya Smart',
+          en: 'Doorbell camera of the model B lock: see visitors on the interior display or in the Tuya Smart app',
+        },
+      },
+    ],
     manualUrl: { pending: true, note: 'Manual del producto pendiente de proporcionar.' },
     specSheetUrl: { pending: true, note: 'Ficha técnica pendiente de proporcionar.' },
     featured: false,

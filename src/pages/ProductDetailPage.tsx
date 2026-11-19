@@ -64,7 +64,7 @@ export function ProductDetailPage() {
 
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start">
         <div className="min-w-0 lg:sticky lg:top-24">
-          <ProductGallery key={product.slug} mainImage={product.mainImage} gallery={product.gallery} />
+          <ProductGallery key={product.slug} mainImage={product.mainImage} gallery={product.gallery} fit={product.categorySlug === 'seguridad' ? 'contain' : 'cover'} />
 
           <div className="mt-8 border-t border-wm-gray-300 pt-8">
             <div className="flex flex-wrap items-center gap-4">

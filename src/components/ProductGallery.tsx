@@ -14,10 +14,12 @@ const MAX_VISIBLE_IMAGES = 5;
 interface ProductGalleryProps {
   mainImage: Pending<ProductImage>;
   gallery: Product['gallery'];
+  /** 'contain' shows the whole photo (portrait shots and infographics); default crops to the square stage. */
+  fit?: 'cover' | 'contain';
 }
 
 /** Main photo + thumbnail strip (side column on larger screens, row below on mobile). Works with zero gallery images (main only). */
-export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
+export function ProductGallery({ mainImage, gallery, fit = 'cover' }: ProductGalleryProps) {
   const content = useContent();
   const { locale } = useLocale();
   const allImages: Pending<ProductImage>[] = [mainImage, ...gallery].slice(0, MAX_VISIBLE_IMAGES);
@@ -72,7 +74,7 @@ export function ProductGallery({ mainImage, gallery }: ProductGalleryProps) {
                   decoding="async"
                   width={1254}
                   height={1254}
-                  className={cn('gallery-frame', visible && 'is-active')}
+                  className={cn('gallery-frame', fit === 'contain' && 'gallery-frame-contain', visible && 'is-active')}
                   onLoad={async (event) => {
                     const image = event.currentTarget;
                     try { await image.decode(); } catch { /* Use a successfully loaded image when decode is unavailable. */ }

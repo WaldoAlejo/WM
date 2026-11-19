@@ -13,7 +13,7 @@ interface ProductCardProps {
   imageVariant?: 'lifestyle' | 'packshot';
 }
 
-export function ProductCard({ product, image = product.mainImage, imageVariant = product.categorySlug === 'energia' ? 'packshot' : 'lifestyle' }: ProductCardProps) {
+export function ProductCard({ product, image = product.mainImage, imageVariant = ['energia', 'seguridad'].includes(product.categorySlug) ? 'packshot' : 'lifestyle' }: ProductCardProps) {
   const content = useContent();
   const { locale } = useLocale();
   const category = categories.find((c) => c.slug === product.categorySlug);
