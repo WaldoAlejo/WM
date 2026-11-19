@@ -1864,6 +1864,107 @@ export const products: Product[] = [
     specSheetUrl: { pending: true, note: 'Ficha técnica pendiente de proporcionar.' },
     featured: true,
   },
+  {
+    id: 'p14',
+    slug: 'cerradura-inteligente-reconocimiento-facial-3d',
+    name: { es: 'Cerradura Inteligente con Reconocimiento Facial 3D', en: '3D Facial Recognition Smart Lock' },
+    model: { pending: true, note: 'Modelo de fábrica pendiente de confirmar.' },
+    categorySlug: 'seguridad',
+    shortDescription: {
+      es: 'Cerradura inteligente con reconocimiento facial 3D y de venas de la palma, huella digital, clave, tarjeta, llave mecánica, clave temporal y apertura remota desde la app Tuya Smart. Pantalla interior de 4,5 pulgadas con mirilla de video, timbre integrado y cierre automático, en aleación de aluminio.',
+      en: 'Smart lock with 3D facial and palm vein recognition, fingerprint, PIN, card, mechanical key, temporary PIN and remote unlocking from the Tuya Smart app. A 4.5-inch interior display with video peephole, built-in doorbell and automatic locking, in aluminum alloy.',
+    },
+    seoTitle: {
+      es: 'Cerradura inteligente con reconocimiento facial 3D y palma | Tuya Smart',
+      en: '3D Facial Recognition and Palm Vein Smart Lock | Tuya Smart',
+    },
+    seoDescription: {
+      es: 'Cerradura inteligente con 8 formas de apertura: rostro 3D, venas de la palma, huella, clave, tarjeta, llave, clave temporal y app Tuya Smart. Pantalla de 4,5" y mirilla de video.',
+      en: 'Smart lock with 8 ways to unlock: 3D face, palm vein, fingerprint, PIN, card, key, temporary PIN and the Tuya Smart app. 4.5" display and video peephole.',
+    },
+    benefits: [
+      {
+        icon: 'shield',
+        title: { es: '8 formas de abrir', en: '8 ways to unlock' },
+        description: {
+          es: 'Venas de la palma, rostro 3D, huella digital, clave de 6 a 12 dígitos, tarjeta inteligente, llave mecánica, clave temporal y apertura remota.',
+          en: 'Palm vein, 3D face, fingerprint, 6–12 digit PIN, smart card, mechanical key, temporary PIN and remote unlocking.',
+        },
+      },
+      {
+        icon: 'display',
+        title: { es: 'Pantalla interior de 4,5 pulgadas', en: '4.5-inch interior display' },
+        description: {
+          es: 'La mirilla de video muestra quién está en la puerta sin abrirla, y el video también se puede ver a distancia.',
+          en: 'The video peephole shows who is at the door without opening it, and the video can also be viewed remotely.',
+        },
+      },
+      {
+        icon: 'controls',
+        title: { es: 'Control desde la app Tuya Smart', en: 'Control from the Tuya Smart app' },
+        description: {
+          es: 'Abre a distancia y crea claves temporales para visitas desde tu celular.',
+          en: 'Unlock remotely and create temporary PINs for guests from your phone.',
+        },
+      },
+      {
+        icon: 'programs',
+        title: { es: 'Reconocimiento en menos de 0,5 s', en: 'Recognition in under 0.5 s' },
+        description: {
+          es: 'El módulo facial y de palma, junto con el sensor de huella semiconductor, identifica en menos de medio segundo.',
+          en: 'The face and palm module, together with the semiconductor fingerprint sensor, identifies in under half a second.',
+        },
+      },
+      {
+        icon: 'battery',
+        title: { es: 'Batería de 4.200 mAh y carga USB-C', en: '4,200 mAh battery and USB-C charging' },
+        description: {
+          es: 'Funciona con batería de litio y tiene un puerto USB-C de emergencia por si la batería se agota.',
+          en: 'Runs on a lithium battery and has an emergency USB-C port in case the battery runs out.',
+        },
+      },
+    ],
+    specifications: [
+      { label: { es: 'Tipo de producto', en: 'Product type' }, value: { es: 'Cerradura inteligente con reconocimiento facial 3D', en: '3D facial recognition smart lock' } },
+      { label: { es: 'Formas de apertura', en: 'Unlocking methods' }, value: { es: 'Venas de la palma, reconocimiento facial, huella digital, clave, tarjeta, llave mecánica, clave temporal y apertura remota', en: 'Palm vein recognition, facial recognition, fingerprint, PIN, access card, mechanical key, temporary PIN and remote unlocking' } },
+      { label: { es: 'Aplicación', en: 'App' }, value: { es: 'Tuya Smart', en: 'Tuya Smart' } },
+      { label: { es: 'Pantalla interior', en: 'Interior display' }, value: { es: '4,5 pulgadas', en: '4.5 inches' } },
+      { label: { es: 'Mirilla de video', en: 'Video peephole' }, value: { es: 'Sí', en: 'Yes' } },
+      { label: { es: 'Video remoto', en: 'Remote video' }, value: { es: 'Sí', en: 'Yes' } },
+      { label: { es: 'Timbre integrado', en: 'Built-in doorbell' }, value: { es: 'Sí', en: 'Yes' } },
+      { label: { es: 'Cierre automático', en: 'Automatic locking' }, value: { es: 'Sí', en: 'Yes' } },
+      { label: { es: 'Sensor de huella', en: 'Fingerprint sensor' }, value: { es: 'Semiconductor', en: 'Semiconductor' } },
+      { label: { es: 'Tiempo de reconocimiento', en: 'Recognition time' }, value: { es: 'Menos de 0,5 s', en: 'Under 0.5 s' } },
+      { label: { es: 'Longitud de la clave', en: 'PIN length' }, value: { es: '6 a 12 dígitos', en: '6–12 digits' } },
+      { label: { es: 'Tipo de tarjeta', en: 'Access card type' }, value: { es: 'Tarjeta inteligente CPU', en: 'CPU smart card' } },
+      { label: { es: 'Cilindro', en: 'Lock cylinder' }, value: { es: 'Grado C, de inserción directa', en: 'Grade C, direct-insertion cylinder' } },
+      { label: { es: 'Alimentación', en: 'Power supply' }, value: { es: 'Batería de litio de 4.200 mAh', en: '4,200 mAh lithium battery' } },
+      { label: { es: 'Carga de emergencia', en: 'Emergency power input' }, value: { es: 'USB-C', en: 'USB-C' } },
+      { label: { es: 'Material', en: 'Main material' }, value: { es: 'Aleación de aluminio', en: 'Aluminum alloy' } },
+      { label: { es: 'Dimensiones', en: 'Dimensions' }, value: { es: '420 × 72 mm', en: '420 × 72 mm' } },
+      { label: { es: 'Grosor de puerta compatible', en: 'Compatible door thickness' }, value: { es: '40 a 120 mm', en: '40–120 mm' } },
+      { label: { es: 'Puertas compatibles', en: 'Compatible door types' }, value: { es: 'Madera, seguridad, acero inoxidable y cobre', en: 'Wooden, security, stainless steel and copper doors' } },
+      { label: { es: 'Temperatura de funcionamiento', en: 'Operating temperature' }, value: { es: '−20 a 60 °C', en: '−20 to 60 °C' } },
+      { label: { es: 'Humedad relativa', en: 'Relative humidity' }, value: { es: '20 a 90 %', en: '20–90%' } },
+      { label: { es: 'Color', en: 'Color' }, value: { es: 'Negro', en: 'Black' } },
+      { label: { es: 'Peso', en: 'Weight' }, value: { pending: true } },
+    ],
+    safetyAndQuality: [
+      {
+        es: 'Incluye llave mecánica y puerto de carga USB-C de emergencia para abrir la puerta aunque la batería se agote.',
+        en: 'Includes a mechanical key and an emergency USB-C charging port to open the door even if the battery runs out.',
+      },
+      {
+        es: 'Por dentro tiene manija de liberación rápida y seguro de privacidad para bloquear la cerradura desde adentro.',
+        en: 'Inside, it has a quick-release handle and a privacy thumbturn to lock it from the inside.',
+      },
+    ],
+    mainImage: { pending: true, note: 'Foto de producto con fondo blanco pendiente.' },
+    gallery: [],
+    manualUrl: { pending: true, note: 'Manual del producto pendiente de proporcionar.' },
+    specSheetUrl: { pending: true, note: 'Ficha técnica pendiente de proporcionar.' },
+    featured: false,
+  },
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {

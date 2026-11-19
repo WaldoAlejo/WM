@@ -16,4 +16,9 @@ export const categories: CategoryDef[] = [
     name: { es: 'Energía', en: 'Energy' },
     description: { pending: true, note: 'Descripción de la categoría pendiente.' },
   },
+  {
+    slug: 'seguridad',
+    name: { es: 'Seguridad', en: 'Security' },
+    description: { pending: true, note: 'Descripción de la categoría pendiente.' },
+  },
 ];
