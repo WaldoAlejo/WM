@@ -2145,24 +2145,32 @@ export const products: Product[] = [
     model: { pending: true, note: 'Modelo de fábrica pendiente de confirmar.' },
     categorySlug: 'seguridad',
     shortDescription: {
-      es: 'Cerradura inteligente con manija que abre con huella digital, clave, tarjeta (tag), llave mecánica, app TTLock o combinando dos métodos. Sensor de huella semiconductor en la manija, función de timbre, perilla interior de bloqueo y 4 pilas AA con duración de 8 a 10 meses, en aleación de aluminio negra.',
-      en: 'Smart lever lock that opens with fingerprint, PIN, card (tag), mechanical key, the TTLock app or a combination of two methods. Semiconductor fingerprint sensor on the handle, doorbell function, interior deadlock knob and 4 AA batteries lasting 8 to 10 months, in black aluminum alloy.',
+      es: 'Cerradura inteligente con manija que abre con huella digital, clave, tarjeta (tag), app TTLock o llave mecánica, con doble verificación opcional. Sensor de huella semiconductor en la manija, función de timbre, perilla interior de bloqueo y 4 pilas AA con duración de 8 a 10 meses, en aleación de aluminio negra.',
+      en: 'Smart lever lock that opens with fingerprint, PIN, card (tag), the TTLock app or a mechanical key, with optional dual verification. Semiconductor fingerprint sensor on the handle, doorbell function, interior deadlock knob and 4 AA batteries lasting 8 to 10 months, in black aluminum alloy.',
     },
     seoTitle: {
       es: 'Cerradura inteligente con huella, clave, tarjeta y app TTLock',
       en: 'Fingerprint, PIN and Card Smart Lock with TTLock App',
     },
     seoDescription: {
-      es: 'Cerradura inteligente con 6 formas de apertura: huella, clave, tarjeta, llave, app TTLock y combinación de métodos. Capacidad para 100 huellas, 25 claves y 25 tarjetas.',
-      en: 'Smart lock with 6 ways to unlock: fingerprint, PIN, card, key, TTLock app and combined methods. Stores 100 fingerprints, 25 PINs and 25 cards.',
+      es: 'Cerradura inteligente con 5 formas de apertura: huella, clave, tarjeta, app TTLock y llave, más doble verificación. Capacidad para 100 huellas, 25 claves y 25 tarjetas.',
+      en: 'Smart lock with 5 ways to unlock: fingerprint, PIN, card, TTLock app and key, plus dual verification. Stores 100 fingerprints, 25 PINs and 25 cards.',
     },
     benefits: [
       {
         icon: 'shield',
-        title: { es: '6 formas de abrir', en: '6 ways to unlock' },
+        title: { es: '5 formas de abrir', en: '5 ways to unlock' },
         description: {
-          es: 'Huella digital, clave, tarjeta (tag), llave mecánica, app TTLock y combinación de métodos.',
-          en: 'Fingerprint, PIN, card (tag), mechanical key, TTLock app and a combination of methods.',
+          es: 'Huella digital, clave, tarjeta (tag), app TTLock y llave mecánica.',
+          en: 'Fingerprint, PIN, card (tag), the TTLock app and a mechanical key.',
+        },
+      },
+      {
+        icon: 'display',
+        title: { es: 'App TTLock', en: 'TTLock app' },
+        description: {
+          es: 'Abre desde tu celular, crea claves temporales y revisa el historial de accesos.',
+          en: 'Unlock from your phone, create temporary PINs and check the access history.',
         },
       },
       {
@@ -2200,7 +2208,8 @@ export const products: Product[] = [
     ],
     specifications: [
       { label: { es: 'Tipo de producto', en: 'Product type' }, value: { es: 'Cerradura inteligente con manija', en: 'Smart lever lock' } },
-      { label: { es: 'Formas de apertura', en: 'Unlocking methods' }, value: { es: 'Huella digital, clave, tarjeta (tag), llave mecánica, app y combinación de métodos', en: 'Fingerprint, PIN, card (tag), mechanical key, app and combined methods' } },
+      { label: { es: 'Formas de apertura', en: 'Unlocking methods' }, value: { es: 'Huella digital, clave, tarjeta (tag), app y llave mecánica', en: 'Fingerprint, PIN, card (tag), app and mechanical key' } },
+      { label: { es: 'Doble verificación', en: 'Dual verification' }, value: { es: 'Sí, combinación de dos métodos', en: 'Yes, a combination of two methods' } },
       { label: { es: 'Doble verificación', en: 'Dual verification' }, value: { es: 'Sí, dos métodos para abrir', en: 'Yes, two methods to unlock' } },
       { label: { es: 'Aplicación', en: 'App' }, value: { es: 'TTLock (placa Sciener)', en: 'TTLock (Sciener board)' } },
       { label: { es: 'Sensor de huella', en: 'Fingerprint sensor' }, value: { es: 'Semiconductor, 500 dpi, en la manija', en: 'Semiconductor, 500 dpi, on the handle' } },
@@ -2235,16 +2244,37 @@ export const products: Product[] = [
     mainImage: {
       src: '/products/cerradura-inteligente-huella-ttlock/main.jpg',
       alt: {
-        es: 'Lector de huella en la manija de la cerradura inteligente',
-        en: 'Fingerprint reader on the smart lock handle',
+        es: 'Cerradura inteligente con manija: panel interior con perilla de bloqueo y panel exterior con teclado y huella',
+        en: 'Smart lever lock: interior panel with deadlock knob and exterior panel with keypad and fingerprint',
       },
     },
     gallery: [
       {
         src: '/products/cerradura-inteligente-huella-ttlock/gallery-1.jpg',
         alt: {
+          es: 'Cerradura inteligente y sus 5 formas de abrir: huella, código, tag, app TTLock y llave',
+          en: 'Smart lock and its 5 ways to unlock: fingerprint, code, tag, TTLock app and key',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-huella-ttlock/gallery-2.jpg',
+        alt: {
+          es: 'Lector de huella en la manija de la cerradura inteligente',
+          en: 'Fingerprint reader on the smart lock handle',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-huella-ttlock/gallery-3.jpg',
+        alt: {
           es: 'Teclado táctil y lector de tag de la cerradura inteligente',
           en: 'Touch keypad and tag reader of the smart lock',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-huella-ttlock/gallery-4.jpg',
+        alt: {
+          es: 'App TTLock y llave mecánica de emergencia de la cerradura inteligente',
+          en: 'TTLock app and emergency mechanical key of the smart lock',
         },
       },
     ],
