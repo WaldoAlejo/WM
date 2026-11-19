@@ -2140,29 +2140,37 @@ export const products: Product[] = [
   },
   {
     id: 'p16',
-    slug: 'cerradura-inteligente-huella-ttlock',
-    name: { es: 'Cerradura Inteligente con Huella y App TTLock', en: 'Fingerprint Smart Lock with TTLock App' },
+    slug: 'cerradura-inteligente-huella-tuya',
+    name: { es: 'Cerradura Inteligente con Huella y App Tuya Smart', en: 'Fingerprint Smart Lock with Tuya Smart App' },
     model: { pending: true, note: 'Modelo de fábrica pendiente de confirmar.' },
     categorySlug: 'seguridad',
     shortDescription: {
-      es: 'Cerradura inteligente con manija que abre con huella digital, clave, tarjeta, llave mecánica, app TTLock o combinando dos métodos. Sensor de huella semiconductor, función de timbre, perilla interior de bloqueo y 4 pilas AA con duración de 8 a 10 meses, en aleación de aluminio negra.',
-      en: 'Smart lever lock that opens with fingerprint, PIN, card, mechanical key, the TTLock app or a combination of two methods. Semiconductor fingerprint sensor, doorbell function, interior deadlock knob and 4 AA batteries lasting 8 to 10 months, in black aluminum alloy.',
+      es: 'Cerradura inteligente con manija que abre con huella digital, clave, tarjeta (tag), llave mecánica o la app Tuya Smart, con doble verificación opcional. Sensor de huella semiconductor en la manija, función de timbre, perilla interior de bloqueo y 4 pilas AA con duración de 8 a 10 meses, en aleación de aluminio negra.',
+      en: 'Smart lever lock that opens with fingerprint, PIN, card (tag), mechanical key or the Tuya Smart app, with optional dual verification. Semiconductor fingerprint sensor on the handle, doorbell function, interior deadlock knob and 4 AA batteries lasting 8 to 10 months, in black aluminum alloy.',
     },
     seoTitle: {
-      es: 'Cerradura inteligente con huella, clave, tarjeta y app TTLock',
-      en: 'Fingerprint, PIN and Card Smart Lock with TTLock App',
+      es: 'Cerradura inteligente con huella, clave, tarjeta y app Tuya Smart',
+      en: 'Fingerprint, PIN and Card Smart Lock with Tuya Smart App',
     },
     seoDescription: {
-      es: 'Cerradura inteligente con 6 formas de apertura: huella, clave, tarjeta, llave, app TTLock y doble verificación. Capacidad para 100 huellas, 25 claves y 25 tarjetas.',
-      en: 'Smart lock with 6 ways to unlock: fingerprint, PIN, card, key, TTLock app and dual verification. Stores 100 fingerprints, 25 PINs and 25 cards.',
+      es: 'Cerradura inteligente con 5 formas de apertura: huella, clave, tarjeta, llave y app Tuya Smart, más doble verificación. Capacidad para 100 huellas, 25 claves y 25 tarjetas.',
+      en: 'Smart lock with 5 ways to unlock: fingerprint, PIN, card, key and the Tuya Smart app, plus dual verification. Stores 100 fingerprints, 25 PINs and 25 cards.',
     },
     benefits: [
       {
         icon: 'shield',
-        title: { es: '6 formas de abrir', en: '6 ways to unlock' },
+        title: { es: '5 formas de abrir', en: '5 ways to unlock' },
         description: {
-          es: 'Huella digital, clave, tarjeta, llave mecánica, app TTLock y combinación de métodos.',
-          en: 'Fingerprint, PIN, card, mechanical key, TTLock app and a combination of methods.',
+          es: 'Huella digital, clave, tarjeta (tag), llave mecánica y app Tuya Smart.',
+          en: 'Fingerprint, PIN, card (tag), mechanical key and the Tuya Smart app.',
+        },
+      },
+      {
+        icon: 'display',
+        title: { es: 'App Tuya Smart', en: 'Tuya Smart app' },
+        description: {
+          es: 'Abre desde tu celular, crea claves temporales y revisa el historial de accesos.',
+          en: 'Unlock from your phone, create temporary PINs and check the access history.',
         },
       },
       {
@@ -2200,9 +2208,10 @@ export const products: Product[] = [
     ],
     specifications: [
       { label: { es: 'Tipo de producto', en: 'Product type' }, value: { es: 'Cerradura inteligente con manija', en: 'Smart lever lock' } },
-      { label: { es: 'Formas de apertura', en: 'Unlocking methods' }, value: { es: 'Huella digital, clave, tarjeta, llave mecánica, app y combinación de métodos', en: 'Fingerprint, PIN, card, mechanical key, app and combined methods' } },
-      { label: { es: 'Aplicación', en: 'App' }, value: { es: 'TTLock (placa Sciener)', en: 'TTLock (Sciener board)' } },
-      { label: { es: 'Sensor de huella', en: 'Fingerprint sensor' }, value: { es: 'Semiconductor, 500 dpi', en: 'Semiconductor, 500 dpi' } },
+      { label: { es: 'Formas de apertura', en: 'Unlocking methods' }, value: { es: 'Huella digital, clave, tarjeta (tag), llave mecánica y app', en: 'Fingerprint, PIN, card (tag), mechanical key and app' } },
+      { label: { es: 'Doble verificación', en: 'Dual verification' }, value: { es: 'Sí, dos métodos para abrir', en: 'Yes, two methods to unlock' } },
+      { label: { es: 'Aplicación', en: 'App' }, value: { es: 'Tuya Smart', en: 'Tuya Smart' } },
+      { label: { es: 'Sensor de huella', en: 'Fingerprint sensor' }, value: { es: 'Semiconductor, 500 dpi, en la manija', en: 'Semiconductor, 500 dpi, on the handle' } },
       { label: { es: 'Capacidad', en: 'Capacity' }, value: { es: '100 huellas, 25 claves y 25 tarjetas', en: '100 fingerprints, 25 PINs and 25 cards' } },
       { label: { es: 'Longitud de la clave', en: 'PIN length' }, value: { es: '6 a 10 dígitos', en: '6–10 digits' } },
       { label: { es: 'Tiempo de verificación', en: 'Verification time' }, value: { es: 'Menos de 1 s', en: 'Under 1 s' } },
@@ -2231,8 +2240,36 @@ export const products: Product[] = [
         en: 'Includes a mechanical key and warns you when the batteries are running low.',
       },
     ],
-    mainImage: { pending: true, note: 'Foto de producto con fondo blanco pendiente.' },
-    gallery: [],
+    mainImage: {
+      src: '/products/cerradura-inteligente-huella-tuya/main.jpg',
+      alt: {
+        es: 'Cerradura inteligente con manija y sus 5 formas de abrir: huella, código, tag, app Tuya y llave',
+        en: 'Smart lever lock and its 5 ways to unlock: fingerprint, code, tag, Tuya app and key',
+      },
+    },
+    gallery: [
+      {
+        src: '/products/cerradura-inteligente-huella-tuya/gallery-1.jpg',
+        alt: {
+          es: 'Lector de huella en la manija de la cerradura inteligente',
+          en: 'Fingerprint reader on the smart lock handle',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-huella-tuya/gallery-2.jpg',
+        alt: {
+          es: 'Teclado táctil y lector de tag de la cerradura inteligente',
+          en: 'Touch keypad and tag reader of the smart lock',
+        },
+      },
+      {
+        src: '/products/cerradura-inteligente-huella-tuya/gallery-3.jpg',
+        alt: {
+          es: 'App Tuya Smart y llave mecánica de emergencia de la cerradura inteligente',
+          en: 'Tuya Smart app and emergency mechanical key of the smart lock',
+        },
+      },
+    ],
     manualUrl: { pending: true, note: 'Manual del producto pendiente de proporcionar.' },
     specSheetUrl: { pending: true, note: 'Ficha técnica pendiente de proporcionar.' },
     featured: false,
